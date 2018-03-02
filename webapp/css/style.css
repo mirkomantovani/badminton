@@ -105,6 +105,11 @@ nav.navbar.navbar-default.navbar-fixed-top {
     color: #fff;
     background: #11b563;
 }
+/* modificato    */
+.navbar-default .navbar-nav > li>form>button:hover {
+    color: #fff;
+    background: #11b563;
+}
 nav.navbar.navbar-default.navbar-fixed-top.top-nav-collapse {
     padding: 1em 10em;
     background: rgba(25, 25, 25, 0.8);
