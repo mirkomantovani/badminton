@@ -4,7 +4,7 @@
  */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url('/login/css/Material-Design-Iconic-Font.woff2') format('woff2'), url('/login/css/Material-Design-Iconic-Font.woff') format('woff'), url('/login/css/Material-Design-Iconic-Font.ttf') format('truetype');
+  src: url('css/Material-Design-Iconic-Font.woff2') format('woff2'), url('css/Material-Design-Iconic-Font.woff') format('woff'), url('css/Material-Design-Iconic-Font.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

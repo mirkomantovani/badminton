@@ -3,22 +3,22 @@
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('http://badmintonclubs.altervista.org/login/css/poppins/Poppins-Regular.ttf'); 
+  src: url('css/Poppins-Regular.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('http://badmintonclubs.altervista.org/login/css/poppins/Poppins-Medium.ttf'); 
+  src: url('css/Poppins-Medium.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('http://badmintonclubs.altervista.org/login/css/poppins/poppins/Poppins-Bold.ttf'); 
+  src: url('css/poppins/Poppins-Bold.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-SemiBold;
-  src: url('http://badmintonclubs.altervista.org/login/css/poppins/Poppins-SemiBold.ttf'); 
+  src: url('css/Poppins-SemiBold.ttf'); 
 }
 
 

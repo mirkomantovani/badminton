@@ -5,32 +5,32 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="/img/favicon.ico"/>
+	<link rel="icon" type="image/png" href="img/favicon.ico"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/material-design-iconic-font.css">
+	<link rel="stylesheet" type="text/css" href="css/material-design-iconic-font.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/login/css/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="css/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/login/css/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/login/css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('/img/login-wallpaper.jpg');">
+		<div class="container-login100" style="background-image: url('img/login-wallpaper.jpg');">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST">
 					<span class="login100-form-logo">
@@ -81,19 +81,26 @@
 	</div>
 	
  
-<?php
-    require ('connect.php');
+<?php 
     session_start();
-   
+    require ('connect.php');
+    /*
+     $user= mysqli_query($connection, 'select * from users where name="Marco"');
+    $row = $user->fetch_assoc();
+             $email=$row['email'];
+    echo $email;*/
+
     if (isset($_POST['login'])) {
         $email = $_POST['email'];
         $pwd = md5($_POST['pwd']);
         $risul = mysqli_query($connection, 'select * from users where email="' . $email . '" and psw ="' . $pwd . '"');
-        if (mysqli_num_rows($risul) == 1) {
+        if (mysqli_num_rows($risul) == 1) { 
+            echo "iiiiiiiii";
             $_SESSION['email'] = $email;
             $_SESSION['row'] = $risul->fetch_assoc();
             
-            header('Location: http://badmintonclubs.altervista.org/index.php');
+            header('Location: ../webapp/');
+            
         } else {
             unset($_POST);
             header("Location: ".$_SERVER['PHP_SELF']."?invalidLogin");
@@ -105,21 +112,21 @@
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
-	<script src="http://badmintonclubs.altervista.org/login/js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="http://badmintonclubs.altervista.org/login/js/animsition.min.js"></script>
+	<script src="js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="http://badmintonclubs.altervista.org/login/js/popper.js"></script>
-	<script src="http://badmintonclubs.altervista.org/login/js/bootstrap.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="http://badmintonclubs.altervista.org/login/js/select2.min.js"></script>
+	<script src="js/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="http://badmintonclubs.altervista.org/login/js/moment.min.js"></script>
-	<script src="http://badmintonclubs.altervista.org/login/js/daterangepicker.js"></script>
+	<script src="js/moment.min.js"></script>
+	<script src="js/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="http://badmintonclubs.altervista.org/login/js/countdowntime.js"></script>
+	<script src="js/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="http://badmintonclubs.altervista.org/login/js/main.js"></script>
+	<script src="js/main.js"></script>
 
 </body>
-</html>
+</html>

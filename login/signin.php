@@ -7,25 +7,25 @@
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="/img/favicon.ico"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <!--===============================================================================================-->
 	<!--<link rel="stylesheet" type="text/css" href="/login/css/material-design-iconic-font.css">-->
-    <link rel="stylesheet" type="text/css" href="/login/css/material-design-iconic-font-signin.css">
+    <link rel="stylesheet" type="text/css" href="css/material-design-iconic-font-signin.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/login/css/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="css/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/login/css/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/login/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/login/css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -145,4 +145,4 @@ require ('connect.php');
 	<script src="http://badmintonclubs.altervista.org/login/js/main.js"></script>
 
 </body>
-</html>
+</html>

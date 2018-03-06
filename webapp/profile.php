@@ -81,13 +81,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>	
 		<!-- //header -->
 
+<? 
+            require('connect.php');
+            
+            $U=$_GET['user'];
+ $user= mysqli_query($connection, 'select * from users where email="'.$U.'"');
+
+$row = $user->fetch_assoc();
+             $email=$row['email'];
+             $name=$row['name'];
+             $surname=$row['surname'];
+             $bio=$row['user_shortbio'];
+             $country=$row['user_country'];
+             $gender=$row['gender'];
+             $birth=$row['birth'];
+            
+
+
+?>
+            
+            
 			<div class="w3_banner_info">
 				<div class="w3_banner_info_grid">
-					<h2 data-aos="fade-right">Hi, iam </h2>
-					<h2 data-aos="fade-right">Phillips Smith.</h2>
-					<h5>UI/UX Designer.</h5>
-					<p>Aenean congue vitae mauris sed tristique. Mauris quis nulla at sapien blandit.
-							Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit.</p>
+					
+					<h2 data-aos="fade-right"><? echo $name." ".$surname ?></h2>
+					<!--<h5>UI/UX Designer.</h5>-->
+					<p><? echo $bio ?></p>
 					<ul data-aos="slide-up">
 						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">More info</a></li>
 						<li><a href="#" class="scroll w3l_contact"><i aria-hidden="true"></i>Add friend</a></li>
