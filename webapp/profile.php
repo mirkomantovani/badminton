@@ -7,7 +7,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>My Design a Personal Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <? 
+            require('connect.php');
+            
+            $U=$_GET['user'];
+ $user= mysqli_query($connection, 'select * from users where email="'.$U.'"');
+
+$row = $user->fetch_assoc();
+             $email=$row['email'];
+             $name=$row['name'];
+             $surname=$row['surname'];
+             $bio=$row['user_shortbio'];
+             $country=$row['user_country'];
+             $gender=$row['gender'];
+             $birth=$row['birth'];
+    
+    
+    
+    
+?>
+    <link rel="icon" type="image/png" href="../login/img/volano.png"/>
+<title><? echo $name." ".$surname ?></title>
 <!-- custom-theme -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -48,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<nav class="navbar navbar-default navbar-fixed-top"> 
 					<div class="navbar-header page-scroll">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-							<span class="sr-only">My_Design</span>
+							<span class="sr-only">My_Profile</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
@@ -64,15 +84,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
         </form></li>
-							<li><a class="page-scroll scroll" href="#tournament">Tournament</a></li>
+							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
 							<li><a class="page-scroll scroll" href="#club">Club</a></li>
-							<li><a class="page-scroll scroll" href="#skills">Friends</a></li>
-							  <ul >
+							<!--  <li><a class="page-scroll scroll" href="#skills">Friends</a></li>
+							<ul >
               <li><a href="#" class="page-scroll scroll dropdown-menu">Drop fgdfg 1</a></li>
               <li><a href="#" class="page-scroll scroll dropdown-menu">Drop Down 3</a></li>
              
                                   
-                            </ul>
+                            </ul>-->
+                           
+                            <a class="btn btn-secondary dropdown-toggle page-scroll scroll" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png" />
+   
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <ul>
+          <li><a class="dropdown-item" href="myprofile.php">My Profile</a></li>
+          <li><a class="dropdown-item" href="settings.php">Settings</a></li>
+          <li><a class="dropdown-item" href="../login/logout.php">Logout</a></li>
+      </ul>
+  </div>
+                           
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -81,43 +114,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>	
 		<!-- //header -->
 
-<? 
-            require('connect.php');
-            
-            $U=$_GET['user'];
- $user= mysqli_query($connection, 'select * from users where email="'.$U.'"');
 
-$row = $user->fetch_assoc();
-             $email=$row['email'];
-             $name=$row['name'];
-             $surname=$row['surname'];
-             $bio=$row['user_shortbio'];
-             $country=$row['user_country'];
-             $gender=$row['gender'];
-             $birth=$row['birth'];
-            
-
-
-?>
             
             
 			<div class="w3_banner_info">
 				<div class="w3_banner_info_grid">
 					
+               <!-- <img src="images/usermale72.png" class="img-circle">-->
 					<h2 data-aos="fade-right"><? echo $name." ".$surname ?></h2>
 					<!--<h5>UI/UX Designer.</h5>-->
 					<p><? echo $bio ?></p>
+                     <form action="addfriend.php" method="get">
 					<ul data-aos="slide-up">
 						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">More info</a></li>
-						<li><a href="#" class="scroll w3l_contact"><i aria-hidden="true"></i>Add friend</a></li>
+                       
+						<li><button type="submit" class="scroll w3l_contact"><i aria-hidden="true"></i>Add friend</button></li>
+                        <input type="hidden" name="user" value="<? echo $email; ?>">
 					</ul>
+                        </form>
 				</div>
 			</div>
-			<div class="thim-click-to-bottom">
+			<!--<div class="thim-click-to-bottom">
 				<a href="#about" class="scroll">
 					<i class="fa fa-arrows-v" aria-hidden="true"></i>
 				</a>
-			</div>
+			</div>-->
 		</div>
 	</div>
 </div>
@@ -130,39 +151,39 @@ $row = $user->fetch_assoc();
 			<div class="modal-content">
 				<div class="modal-header"> 
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						<h4 class="modal-title">About Me</h4>
+						<h4 class="modal-title">Information</h4>
 				</div> 
 				<div class="modal-body">
 					<div class="modalpad"> 
 						<div class="modalpop ">
-							<img src="images/1.jpeg" class="img-responsive" alt=""/>
+							<!--<img src="images/userm64.png" class="img-responsive" alt=""/>-->immagine
 						</div>
 						<div class="about-modal wthree">
-							<h3>Hi, i'm <span>Phillips Smith</span></h3>
-							<h4>UI/UX Designer</h4>
+							<h3> <span><? echo $name." ".$surname ?></span></h3>
+							<!--<h4>UI/UX Designer</h4>-->
 							<ul class="address">
 								<li>
 									<ul class="agileits-address-text ">
-										<li><b>D.O.B</b></li>
-										<li>14-08-1991</li>
+										<li><b>BIRTHDAY</b></li>  <!--D.O.B-->
+										<li><? echo $birth ?></li>
 									</ul>
 								</li>
 								<li>
 									<ul class="agileits-address-text">
-										<li><b>PHONE </b></li>
-										<li>+0(12) 000 123 3120</li>
+										<li><b>COUNTRY </b></li>
+										<li> <?  echo $country ?></li>
 									</ul>
 								</li>
 								<li>
 									<ul class="agileits-address-text">
-										<li><b>ADDRESS </b></li>
-										<li>1680 Richmond St, London, ON N6G 3Y9, Canada.</li>
+										<li><b>GENDER </b></li>
+										<li> <?  echo $gender ?></li>
 									</ul>
 								</li>
 								<li>
 									<ul class="agileits-address-text">
 										<li><b>E-MAIL </b></li>
-										<li><a href="mailto:example@mail.com"> info@example.com</a></li>
+										<li><a href="mailto:example@mail.com"> <?  echo $email ?></a></li>
 									</ul>
 								</li>
 								<li>
@@ -857,7 +878,7 @@ $row = $user->fetch_assoc();
 	<!-- //here ends scrolling script -->
 <!-- //here ends scrolling icon -->
 
-<!-- scrolling script -->
+<!-- scrolling script 
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		

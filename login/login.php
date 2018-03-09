@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="img/favicon.ico"/>
+	<link rel="icon" type="image/png" href="img/volano.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -71,7 +71,7 @@
 					</div>
 
 					<div class="text-center p-t-90">
-						<a class="txt1" href="signin.php">
+						<a class="txt1" href="signup.php">
 							Not registered? Sign in!
 						</a>
 					</div>
@@ -95,7 +95,7 @@
         $pwd = md5($_POST['pwd']);
         $risul = mysqli_query($connection, 'select * from users where email="' . $email . '" and psw ="' . $pwd . '"');
         if (mysqli_num_rows($risul) == 1) { 
-            echo "iiiiiiiii";
+            
             $_SESSION['email'] = $email;
             $_SESSION['row'] = $risul->fetch_assoc();
             

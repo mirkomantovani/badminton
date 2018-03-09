@@ -7,6 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <link rel="icon" type="image/png" href="../login/img/volano.png"/>
 <title>Badminton Clubs</title>
 <!-- custom-theme -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,38 +43,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="banner" id="home">
 	<div class="agileinfo-dot">
 		<div class="container">
-		<!-- header -->
+			<!-- header -->
 		<div class="header-w3layouts"> 
 			<!-- Navigation -->
 			<nav class="navbar navbar-default navbar-fixed-top"> 
 					<div class="navbar-header page-scroll">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-							<span class="sr-only">My_Design</span>
+							<span class="sr-only">My_Profile</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
 						</button>
 						<h1><a class="navbar-brand" href="index.html">Badminton Clubs</a></h1>
 					</div> 
+                
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav navbar-right cl-effect-15">
 							<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 							<li class="hidden"><a class="page-scroll" href="#page-top"></a>	</li>
-                            <li><form class="form-inline my-2 my-lg-0">
+                            <li><!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
-        </form></li>
-							<li><a class="page-scroll scroll" href="#tournament">Tournament</a></li>
+        </form>-->  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
+    </form></li>
+							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
 							<li><a class="page-scroll scroll" href="#club">Club</a></li>
-							<li><a class="page-scroll scroll" href="#skills">Friends</a></li>
-							  <ul > <li><a href="#" class="dropdown-menu">Nome</a></li>
+							<!--  <li><a class="page-scroll scroll" href="#skills">Friends</a></li>
+							<ul >
               <li><a href="#" class="page-scroll scroll dropdown-menu">Drop fgdfg 1</a></li>
               <li><a href="#" class="page-scroll scroll dropdown-menu">Drop Down 3</a></li>
              
                                   
-                            </ul>
+                            </ul>-->
+                           
+                            <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
+   
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"> <!-- aria-labelledby="dropdownMenuLink"-->
+      <ul>
+          <li><a class="dropdown-item" href="myprofile.php">My Profile</a></li>
+          <li><a class="dropdown-item" href="settings.php">Settings</a></li>
+          <li><a class="dropdown-item" href="../login/logout.php">Logout</a></li>
+      </ul>
+  </div>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -82,12 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>	
 		<!-- //header -->
             
-            <? require('connect.php');
 
-
-
-
-?>
 
 			<div class="w3_banner_info">
 				<div class="w3_banner_info_grid">
@@ -102,11 +113,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 			</div>
-			<div class="thim-click-to-bottom">
+			<!--<div class="thim-click-to-bottom">
 				<a href="#about" class="scroll">
 					<i class="fa fa-arrows-v" aria-hidden="true"></i>
 				</a>
-			</div>
+			</div>-->
 		</div>
 	</div>
 </div>

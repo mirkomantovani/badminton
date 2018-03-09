@@ -7,7 +7,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>My Design a Personal Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <link rel="icon" type="image/png" href="../login/img/volano.png"/>
+<title><? echo $name." ".$surname ?></title>  <!-- <? //echo $name." ".$surname ?> ???-->
 <!-- custom-theme -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -48,31 +49,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<nav class="navbar navbar-default navbar-fixed-top"> 
 					<div class="navbar-header page-scroll">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-							<span class="sr-only">My_Design</span>
+							<span class="sr-only">My_Profile</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
 						<h1><a class="navbar-brand" href="index.html">Badminton Clubs</a></h1>
 					</div> 
+                
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav navbar-right cl-effect-15">
 							<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 							<li class="hidden"><a class="page-scroll" href="#page-top"></a>	</li>
-                            <li><form class="form-inline my-2 my-lg-0">
+                            <li><!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
-        </form></li>
-							<li><a class="page-scroll scroll" href="#tournament">Tournament</a></li>
+        </form>-->  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
+    </form></li>
+							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
 							<li><a class="page-scroll scroll" href="#club">Club</a></li>
-							<li><a class="page-scroll scroll" href="#skills">Friends</a></li>
-							  <ul >
+							<!--  <li><a class="page-scroll scroll" href="#skills">Friends</a></li>
+							<ul >
               <li><a href="#" class="page-scroll scroll dropdown-menu">Drop fgdfg 1</a></li>
               <li><a href="#" class="page-scroll scroll dropdown-menu">Drop Down 3</a></li>
              
                                   
-                            </ul>
+                            </ul>-->
+                            <li>
+                            <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
+   
+  </a>
+  <div class="dropdown-content">
+    
+          <a class="dropdown-item" href="myprofile.php">My Profile</a>
+          <a class="dropdown-item" href="settings.php">Settings</a>
+          <a class="dropdown-item" href="../login/logout.php">Logout</a>
+      
+  </div>
+</div>
+                                </li>
+                           
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -84,9 +104,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <? session_start();
             require('connect.php');
             
-// $user= mysqli_query($connection, 'select * from users where email="'.$_SESSION['email'].'"');
-
-$row = $_SESSION['row'];
+    //andando a prendere gli elementi dal login se modifichi gli elementi non si aggiornano
+ //$user= mysqli_query($connection, 'select * from users where email="'.$_SESSION['email'].'"');
+// $row = $user->fetch_assoc();
+    
+    
+$row = $_SESSION['row'];   
+           
              $email=$row['email'];
              $name=$row['name'];
              $surname=$row['surname'];
@@ -112,11 +136,11 @@ $row = $_SESSION['row'];
 					</ul>
 				</div>
 			</div>
-			<div class="thim-click-to-bottom">
+			<!--<div class="thim-click-to-bottom">
 				<a href="#about" class="scroll">
 					<i class="fa fa-arrows-v" aria-hidden="true"></i>
 				</a>
-			</div>
+			</div>-->
 		</div>
 	</div>
 </div>
@@ -129,45 +153,45 @@ $row = $_SESSION['row'];
 			<div class="modal-content">
 				<div class="modal-header"> 
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						<h4 class="modal-title">About Me</h4>
+						<h4 class="modal-title">Information</h4>
 				</div> 
 				<div class="modal-body">
 					<div class="modalpad"> 
 						<div class="modalpop ">
-							<img src="images/1.jpeg" class="img-responsive" alt=""/>
+							<img src="images/5.jpg" class="img-responsive" alt=""/>
 						</div>
 						<div class="about-modal wthree">
-							<h3>Hi, i'm <span>Phillips Smith</span></h3>
-							<h4>UI/UX Designer</h4>
+							<h3> <span><? echo $name." ".$surname ?></span></h3>
+							<!--<h4>UI/UX Designer</h4>-->
 							<ul class="address">
 								<li>
 									<ul class="agileits-address-text ">
-										<li><b>D.O.B</b></li>
-										<li>14-08-1991</li>
+										<li><b>BIRTHDAY</b></li>  <!--D.O.B-->
+										<li><? echo $birth ?></li>
 									</ul>
 								</li>
 								<li>
 									<ul class="agileits-address-text">
-										<li><b>PHONE </b></li>
-										<li>+0(12) 000 123 3120</li>
+										<li><b>COUNTRY </b></li>
+										<li> <?  echo $country ?></li>
 									</ul>
 								</li>
 								<li>
 									<ul class="agileits-address-text">
-										<li><b>ADDRESS </b></li>
-										<li>1680 Richmond St, London, ON N6G 3Y9, Canada.</li>
+										<li><b>GENDER </b></li>
+										<li> <?  echo $gender ?></li>
 									</ul>
 								</li>
 								<li>
 									<ul class="agileits-address-text">
 										<li><b>E-MAIL </b></li>
-										<li><a href="mailto:example@mail.com"> info@example.com</a></li>
+										<li><a> <?  echo $email ?></a></li>
 									</ul>
 								</li>
 								<li>
 									<ul class="agileits-address-text">
-										<li><b>WEBSITE </b></li>
-										<li><a href="#">www.mydesign.com</a></li>
+										<li><b>CLUB </b></li>
+										<li><a href="#">www.mydesign.com</a></li>  <!-- mettere club in db -->
 									</ul>
 								</li>
 							</ul> 
