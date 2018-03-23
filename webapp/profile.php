@@ -99,25 +99,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </form></li>
 							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
 							<li><a class="page-scroll scroll" href="#club">Club</a></li>
-							<!--  <li><a class="page-scroll scroll" href="#skills">Friends</a></li>
-							<ul >
-              <li><a href="#" class="page-scroll scroll dropdown-menu">Drop fgdfg 1</a></li>
-              <li><a href="#" class="page-scroll scroll dropdown-menu">Drop Down 3</a></li>
-             
-                                  
-                            </ul>-->
-                                       <li>
-                            <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" color:white;"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications</a>
-  <div class="dropdown-content">
-    
-        <!--  <a class="dropdown-item" href="myprofile.php">My Profile</a>
-          <a class="dropdown-item" href="settings.php">Settings</a>
-          <a class="dropdown-item" href="../login/logout.php">Logout</a>-->
-      
-  </div>
-</div>
-                                </li>
+							
+				
+               
                             <li>
                             <div class="dropdown">
   <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
@@ -161,25 +145,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
      $friend= mysqli_query($connection, 'select * from friendship where id1="'.$myemail.'" and id2="'.$email.'" or id1="'.$myemail.'" and id2="'.$email.'"');
      
-     if(mysqli_num_rows($friend)==1){
+     if(mysqli_num_rows($friend)>1){
          
          echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Friend</button></li>";
                                     }
     else {
         $friend= mysqli_query($connection, 'select * from friendrequest where id1="'.$myemail.'" and id2="'.$email.'"');
-        if(mysqli_num_rows($friend)==1){
+        if(mysqli_num_rows($friend)>1){
          echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Request sent</button></li>";
                                     }
         else{
             $friend= mysqli_query($connection, 'select * from friendrequest where id2="'.$myemail.'" and id1="'.$email.'"');
             Ch::log($friend);
-        if(mysqli_num_rows($friend)==1){
+        if(mysqli_num_rows($friend)>1){
          echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Accept</button></li>";
          echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Decline</button></li>";   
                                     }
-            
+            echo "<li><button type='submit' class='scroll w3l_contact'><i aria-hidden='true'></i>Add friend</button></li>";
         }
-        //echo "<li><button type='submit' class='scroll w3l_contact'><i aria-hidden='true'></i>Add friend</button></li>";
+        
     }
    
                         
