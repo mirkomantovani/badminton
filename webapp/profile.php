@@ -136,32 +136,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h2 data-aos="fade-right"><?  echo $name." ".$surname ?></h2>
 					<!--<h5>UI/UX Designer.</h5>-->
 					<p><? echo $bio ?></p>
-                     <form action="addfriend.php" method="get">
+                     
 					<ul data-aos="slide-up">
 						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">More info</a></li>
                        <?
     Ch::log('Hello console!');
     Ch::log('ciaooo');
 						
-     $friend= mysqli_query($connection, 'select * from friendship where id1="'.$myemail.'" and id2="'.$email.'" or id1="'.$myemail.'" and id2="'.$email.'"');
+     $friend= mysqli_query($connection, 'select * from friendship where id2="'.$myemail.'" and id1="'.$email.'" or id1="'.$myemail.'" and id2="'.$email.'"');
      
-     if(mysqli_num_rows($friend)>1){
+     if(mysqli_num_rows($friend)!=0){
          
          echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Friend</button></li>";
                                     }
     else {
         $friend= mysqli_query($connection, 'select * from friendrequest where id1="'.$myemail.'" and id2="'.$email.'"');
-        if(mysqli_num_rows($friend)>1){
+        if(mysqli_num_rows($friend)!=0){
+        
          echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Request sent</button></li>";
+         
                                     }
         else{
             $friend= mysqli_query($connection, 'select * from friendrequest where id2="'.$myemail.'" and id1="'.$email.'"');
             Ch::log($friend);
-        if(mysqli_num_rows($friend)>1){
+        if(mysqli_num_rows($friend)!=0){
+            
+            echo "<form action='acceptrequest.php' method='get'>";
          echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Accept</button></li>";
-         echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Decline</button></li>";   
+            echo "<input type='hidden' name='user' value='".$email."'>";
+            echo "</form>";
+            
+            echo "<form action='declinerequest.php' method='get'>";
+         echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Decline</button></li>"; 
+            echo "<input type='hidden' name='user' value='".$email."'>";
+            echo "</form>";
+            
                                     }
+            else{
+               echo "<form action='addfriend.php' method='get'>";
+                
             echo "<li><button type='submit' class='scroll w3l_contact'><i aria-hidden='true'></i>Add friend</button></li>";
+                echo "<input type='hidden' name='user' value='".$email."'>";
+                    echo "</form>";
+            }
         }
         
     }
@@ -172,9 +189,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     
     
     ?>
-                         <input type="hidden" name="user" value="<? echo $email; ?>">
+
     </ul>
-                        </form>
+                        
 				</div>
 			</div>
 			<!--<div class="thim-click-to-bottom">

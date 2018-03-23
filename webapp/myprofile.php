@@ -8,6 +8,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 <head>
     <? session_start();
+    include 'ChromePhp.php';
+    
             require('connect.php');
             
     //andando a prendere gli elementi dal login se modifichi gli elementi non si aggiornano
@@ -92,25 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </form></li>
 							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
 							<li><a class="page-scroll scroll" href="#club">Club</a></li>
-							<!--  <li><a class="page-scroll scroll" href="#skills">Friends</a></li>
-							<ul >
-              <li><a href="#" class="page-scroll scroll dropdown-menu">Drop fgdfg 1</a></li>
-              <li><a href="#" class="page-scroll scroll dropdown-menu">Drop Down 3</a></li>
-             
-                                  
-                            </ul>-->
-                                       <li>
-                            <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" color:white;"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications</a>
-  <div class="dropdown-content">
-    
-        <!--  <a class="dropdown-item" href="myprofile.php">My Profile</a>
-          <a class="dropdown-item" href="settings.php">Settings</a>
-          <a class="dropdown-item" href="../login/logout.php">Logout</a>-->
-      
-  </div>
-</div>
-                                </li>
+							
                             <li>
                             <div class="dropdown">
   <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
@@ -408,13 +392,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <!-- Portfolio -->
 	<div class="portfolio" id="portfolio">
 		<h3 data-aos="zoom-in" >Portfolio</h3>
+        
+        
 
 		<div class="tabs tabs-style-bar">
 			<nav>
 				<ul>
-					<li><a href="#section-bar-1" class="icon icon-box"><span>Web Design</span></a></li>
-					<li><a href="#section-bar-2" class="icon icon-display"><span>Mobile Apps</span></a></li>
-					<li><a href="#section-bar-3" class="icon icon-upload"><span>UI/UX Design</span></a></li>
+					<li><a href="#section-bar-1" class="icon icon-box"><span>Tournaments</span></a></li>
+					<li><a href="#section-bar-2" class="icon icon-display"><span>Friends</span></a></li>
+					<li><a href="#section-bar-3" class="icon icon-upload"><span>Club</span></a></li>
 					<li><a href="#section-bar-4" class="icon icon-tools"><span>Graphic Design</span></a></li>
 				</ul>
 			</nav>
@@ -430,6 +416,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<figure class="effect-bubba">
 									<img src="images/5.jpg" alt="" class="img-responsive">
 									<figcaption>
+                                        <a ><? ?></a>
 										<h4>Web Design</h4>
 									</figcaption>
 								</figure>
@@ -520,16 +507,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</section>
 				<!-- //Tab-1 -->
 
-				<!-- Tab-2 -->
+                <?
+    $friendsq = "select * from friendship as f,users as u where (f.id2=u.email and f.id1='".$email."') or (f.id1=u.email and f.id2='".$email."')";
+   
+    echo $email;
+    $friends = mysqli_query($connection, $friendsq);
+    
+    $row = mysqli_fetch_assoc($friends);
+      //  Ch::log($row);
+    
+    //$products[$row['id']]=$row;
+    
+    
+    
+    ?>
+                
+                
+				<!-- Friends -->
 				<section id="section-bar-2" class="agileits w3layouts">
-					<h4>Mobile Apps</h4>
+					<h4>Friends</h4>
 					<div class="gallery-grids">
 						<div class="col-md-4 col-sm-4 gallery-top">
 							<a href="images/p1.jpg" class="swipebox">
 								<figure class="effect-bubba">
 									<img src="images/p1.jpg" alt="" class="img-responsive">
 									<figcaption>
-										<h4>Mobile Apps</h4>
+                                        
+										<h4><a href="profile.php?user=<? echo $row['email']; ?>" ><? echo $row['name']; ?></a></h4>
 									</figcaption>
 								</figure>
 							</a>
@@ -614,6 +618,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</figure>
 							</a>
 						</div>
+                        
 						<div class="clearfix"></div>
 					</div>
 				</section>

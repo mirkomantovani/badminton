@@ -367,6 +367,14 @@ a.w3_agile_vimeo:hover{
 	display:inline-block;
 	font-size:1em;
 }
+
+/*MODIFIED*/
+.w3_banner_info_grid ul form {
+	display:inline-block;
+	font-size:1em;
+}
+
+
 .w3_banner_info_grid ul li a{
 	padding:9px 30px;
 	text-decoration:none;
