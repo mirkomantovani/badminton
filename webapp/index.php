@@ -78,23 +78,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              
                                   
                             </ul>-->
-                           
-                            <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
+                                       <li>
+                            <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" color:white;"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications</a>
+  <div class="dropdown-content">
+    
+        <!--  <a class="dropdown-item" href="myprofile.php">My Profile</a>
+          <a class="dropdown-item" href="settings.php">Settings</a>
+          <a class="dropdown-item" href="../login/logout.php">Logout</a>-->
+      
+  </div>
+</div>
+                                </li>
+                            <li>
+                            <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
    
   </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"> <!-- aria-labelledby="dropdownMenuLink"-->
-      <ul>
-          <li><a class="dropdown-item" href="myprofile.php">My Profile</a></li>
-          <li><a class="dropdown-item" href="settings.php">Settings</a></li>
-          <li><a class="dropdown-item" href="../login/logout.php">Logout</a></li>
-      </ul>
+  <div class="dropdown-content">
+    
+          <a class="dropdown-item" href="myprofile.php">My Profile</a>
+          <a class="dropdown-item" href="settings.php">Settings</a>
+          <a class="dropdown-item" href="../login/logout.php">Logout</a>
+      
   </div>
+</div>
+                                </li>
+                       
+                           
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
 				<!-- /.container -->
-			</nav>  
+			</nav> 
 		</div>	
 		<!-- //header -->
             

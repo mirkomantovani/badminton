@@ -8,6 +8,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 <head>
     <? 
+     session_start();
+    
+     include 'ChromePhp.php';
+    Ch::log($_SESSION);
+Ch::log('Hello console!');
+    
+    $myemail= $_SESSION['email'];
             require('connect.php');
             
             $U=$_GET['user'];
@@ -23,17 +30,19 @@ $row = $user->fetch_assoc();
              $birth=$row['birth'];
     
     
-    
+    Ch::log('Hello console!');
     
 ?>
     <link rel="icon" type="image/png" href="../login/img/volano.png"/>
-<title><? echo $name." ".$surname ?></title>
+<title><? Ch::log('Hguvgvu'); echo $name." ".$surname ?></title>
 <!-- custom-theme -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="My Design Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    <? Ch::log('Hejkjhbhkjbe!');
+    ?>
+<!--<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <!-- Portfolio-CSS -->	<link rel="stylesheet" href="css/swipebox.css" type="text/css" media="all">
@@ -75,15 +84,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</button>
 						<h1><a class="navbar-brand" href="index.html">Badminton Clubs</a></h1>
 					</div> 
+                
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav navbar-right cl-effect-15">
 							<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 							<li class="hidden"><a class="page-scroll" href="#page-top"></a>	</li>
-                            <li><form class="form-inline my-2 my-lg-0">
+                            <li><!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
-        </form></li>
+        </form>-->  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
+    </form></li>
 							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
 							<li><a class="page-scroll scroll" href="#club">Club</a></li>
 							<!--  <li><a class="page-scroll scroll" href="#skills">Friends</a></li>
@@ -93,24 +106,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              
                                   
                             </ul>-->
-                           
-                            <a class="btn btn-secondary dropdown-toggle page-scroll scroll" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png" />
+                                       <li>
+                            <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" color:white;"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications</a>
+  <div class="dropdown-content">
+    
+        <!--  <a class="dropdown-item" href="myprofile.php">My Profile</a>
+          <a class="dropdown-item" href="settings.php">Settings</a>
+          <a class="dropdown-item" href="../login/logout.php">Logout</a>-->
+      
+  </div>
+</div>
+                                </li>
+                            <li>
+                            <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
    
   </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <ul>
-          <li><a class="dropdown-item" href="myprofile.php">My Profile</a></li>
-          <li><a class="dropdown-item" href="settings.php">Settings</a></li>
-          <li><a class="dropdown-item" href="../login/logout.php">Logout</a></li>
-      </ul>
+  <div class="dropdown-content">
+    
+          <a class="dropdown-item" href="myprofile.php">My Profile</a>
+          <a class="dropdown-item" href="settings.php">Settings</a>
+          <a class="dropdown-item" href="../login/logout.php">Logout</a>
+      
   </div>
+</div>
+                                </li>
+                       
                            
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
 				<!-- /.container -->
-			</nav>  
+			</nav> 
 		</div>	
 		<!-- //header -->
 
@@ -121,16 +149,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="w3_banner_info_grid">
 					
                <!-- <img src="images/usermale72.png" class="img-circle">-->
-					<h2 data-aos="fade-right"><? echo $name." ".$surname ?></h2>
+					<h2 data-aos="fade-right"><?  echo $name." ".$surname ?></h2>
 					<!--<h5>UI/UX Designer.</h5>-->
 					<p><? echo $bio ?></p>
                      <form action="addfriend.php" method="get">
 					<ul data-aos="slide-up">
 						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">More info</a></li>
+                       <?
+    Ch::log('Hello console!');
+    Ch::log('ciaooo');
+						
+     $friend= mysqli_query($connection, 'select * from friendship where id1="'.$myemail.'" and id2="'.$email.'" or id1="'.$myemail.'" and id2="'.$email.'"');
+     
+     if(mysqli_num_rows($friend)==1){
+         
+         echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Friend</button></li>";
+                                    }
+    else {
+        $friend= mysqli_query($connection, 'select * from friendrequest where id1="'.$myemail.'" and id2="'.$email.'"');
+        if(mysqli_num_rows($friend)==1){
+         echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Request sent</button></li>";
+                                    }
+        else{
+            $friend= mysqli_query($connection, 'select * from friendrequest where id2="'.$myemail.'" and id1="'.$email.'"');
+            Ch::log($friend);
+        if(mysqli_num_rows($friend)==1){
+         echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Accept</button></li>";
+         echo "<li><button class='scroll w3l_contact'><i aria-hidden='true'></i>Decline</button></li>";   
+                                    }
+            
+        }
+        //echo "<li><button type='submit' class='scroll w3l_contact'><i aria-hidden='true'></i>Add friend</button></li>";
+    }
+   
+                        
                        
-						<li><button type="submit" class="scroll w3l_contact"><i aria-hidden="true"></i>Add friend</button></li>
-                        <input type="hidden" name="user" value="<? echo $email; ?>">
-					</ul>
+					
+    
+    
+    ?>
+                         <input type="hidden" name="user" value="<? echo $email; ?>">
+    </ul>
                         </form>
 				</div>
 			</div>

@@ -372,6 +372,11 @@ a.w3_agile_vimeo:hover{
 	text-decoration:none;
 	color:#212121;
 }
+.w3_banner_info_grid ul li button{
+	padding:9px 30px;
+	text-decoration:none;
+	color:#212121;
+}
 .w3l_contact, .w3ls_more:hover {
     border: 2px solid #fff;
     color: #ffffff !important;

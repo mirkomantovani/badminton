@@ -7,6 +7,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <? session_start();
+            require('connect.php');
+            
+    //andando a prendere gli elementi dal login se modifichi gli elementi non si aggiornano
+ //$user= mysqli_query($connection, 'select * from users where email="'.$_SESSION['email'].'"');
+// $row = $user->fetch_assoc();
+    
+    
+$row = $_SESSION['row'];   
+           
+             $email=$row['email'];
+             $name=$row['name'];
+             $surname=$row['surname'];
+             $bio=$row['user_shortbio'];
+             $country=$row['user_country'];
+             $gender=$row['gender'];
+             $birth=$row['birth'];
+            
+
+
+?>
     <link rel="icon" type="image/png" href="../login/img/volano.png"/>
 <title><? echo $name." ".$surname ?></title>  <!-- <? //echo $name." ".$surname ?> ???-->
 <!-- custom-theme -->
@@ -78,6 +99,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              
                                   
                             </ul>-->
+                                       <li>
+                            <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" color:white;"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications</a>
+  <div class="dropdown-content">
+    
+        <!--  <a class="dropdown-item" href="myprofile.php">My Profile</a>
+          <a class="dropdown-item" href="settings.php">Settings</a>
+          <a class="dropdown-item" href="../login/logout.php">Logout</a>-->
+      
+  </div>
+</div>
+                                </li>
                             <li>
                             <div class="dropdown">
   <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
@@ -92,6 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </div>
 </div>
                                 </li>
+                       
                            
 						</ul>
 					</div>
@@ -101,27 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>	
 		<!-- //header -->
 
-<? session_start();
-            require('connect.php');
-            
-    //andando a prendere gli elementi dal login se modifichi gli elementi non si aggiornano
- //$user= mysqli_query($connection, 'select * from users where email="'.$_SESSION['email'].'"');
-// $row = $user->fetch_assoc();
-    
-    
-$row = $_SESSION['row'];   
-           
-             $email=$row['email'];
-             $name=$row['name'];
-             $surname=$row['surname'];
-             $bio=$row['user_shortbio'];
-             $country=$row['user_country'];
-             $gender=$row['gender'];
-             $birth=$row['birth'];
-            
 
-
-?>
             
             
 			<div class="w3_banner_info">
