@@ -11,6 +11,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     include 'ChromePhp.php';
     
             require('connect.php');
+    
+    
+   
+  
+    if(empty($_SESSION['email'])){
+        header('location: ../login/login.php');
+    }
+    
+    
+    
             
     //andando a prendere gli elementi dal login se modifichi gli elementi non si aggiornano
  //$user= mysqli_query($connection, 'select * from users where email="'.$_SESSION['email'].'"');
@@ -628,7 +638,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<section id="section-bar-3" class="agileits w3layouts">
 					<h4>UI/UX Design</h4>
 					<div class="gallery-grids">
-						<div class="col-md-4 col-sm-4 gallery-top">
+						<div class="col-md-12 col-sm-12 gallery-top">
 							<a href="images/p1.jpg" class="swipebox">
 								<figure class="effect-bubba">
 									<img src="images/p1.jpg" alt="" class="img-responsive">

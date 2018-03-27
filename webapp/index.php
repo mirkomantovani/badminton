@@ -7,6 +7,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <? 
+    session_start();
+  
+    if(empty($_SESSION['email'])){
+        header('location: ../login/login.php');
+    }
+    
+    
+    ?>
+    
+    
      <link rel="icon" type="image/png" href="../login/img/volano.png"/>
 <title>Badminton Clubs</title>
 <!-- custom-theme -->
@@ -71,13 +83,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </form></li>
 							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
 							<li><a class="page-scroll scroll" href="#club">Club</a></li>
+                          
+						<li><a href="#"  data-toggle="modal" data-target="#myModal">Notifications</a></li>
+				
 							<!--  <li><a class="page-scroll scroll" href="#skills">Friends</a></li>
 							<ul >
               <li><a href="#" class="page-scroll scroll dropdown-menu">Drop fgdfg 1</a></li>
               <li><a href="#" class="page-scroll scroll dropdown-menu">Drop Down 3</a></li>
              
                                   
-                            </ul>-->
+                            </ul>
                                        <li>
                             <div class="dropdown">
   <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" color:white;"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications</a>
@@ -85,11 +100,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     
         <!--  <a class="dropdown-item" href="myprofile.php">My Profile</a>
           <a class="dropdown-item" href="settings.php">Settings</a>
-          <a class="dropdown-item" href="../login/logout.php">Logout</a>-->
+          <a class="dropdown-item" href="../login/logout.php">Logout</a>
       
   </div>
 </div>
-                                </li>
+                                </li>-->
                             <li>
                             <div class="dropdown">
   <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />

@@ -10,6 +10,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <? 
      session_start();
     
+   
+  
+    if(empty($_SESSION['email'])){
+        header('location: ../login/login.php');
+    }
+    
+    
+    
+    
      include 'ChromePhp.php';
     Ch::log($_SESSION);
 Ch::log('Hello console!');

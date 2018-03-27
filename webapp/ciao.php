@@ -1,5 +1,5 @@
 <?
-echo "ciasao";
+echo "ciaao";
 require('connect.php');
 
 ?>

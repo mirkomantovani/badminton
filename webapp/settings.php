@@ -18,6 +18,28 @@
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
 <title>Settings</title>
+<?
+session_start();
+require('connect.php');
+
+  
+    if(empty($_SESSION['email'])){
+        header('location: ../login/login.php');
+    }
+    
+    
+    $row = $_SESSION['row'];   
+           
+             $email=$row['email'];
+             $name=$row['name'];
+             $surname=$row['surname'];
+             $bio=$row['user_shortbio'];
+             $country=$row['user_country'];
+             $gender=$row['gender'];
+             $birth=$row['birth'];
+
+
+?>
 
 <!------ Include the above in your HEAD tag ---------->
 <nav class="navbar navbar-default navbar-fixed-top"> 
@@ -91,10 +113,11 @@
         <div class="row">
 
             <div class="col-md-3">
-                <ul class="nav nav-pills nav-stacked admin-menu" >
+                <ul class="nav nav-pills nav-stacked admin-menu" style="margin-top:15px;">
+                    
                     <li class="active"><a href="" data-target-id="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
                     <li><a href="" data-target-id="change-password"><i class="glyphicon glyphicon-lock"></i> Change Password</a></li>
-                    <li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
+                  <!--  <li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>-->
                     <li><a href="" data-target-id="logout"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
                 </ul>
             </div>
@@ -105,7 +128,18 @@
                         <h3 class="panel-title">Name</h3>
                     </div>
                     <div class="panel-body">
-                        m
+                        <? echo $name ?> <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                    </div>
+                   
+                </div>
+                 
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Surname</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <? echo $surname ?> <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
@@ -113,16 +147,43 @@
                         <h3 class="panel-title">Email</h3>
                     </div>
                     <div class="panel-body">
-                       mb@hotmail.com
+                       <? echo $email ?>
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Last Password Change</h3>
+                        <h3 class="panel-title">Birthday</h3>
 
                     </div>
                     <div class="panel-body">
-                        4 days Ago
+                        <? echo $birth ?>
+                    </div>
+                </div>
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Gender</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <? echo $gender ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                    </div>
+                </div>
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Country</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <? echo $country ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                    </div>
+                </div>
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Bio</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <? echo $bio ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
                     </div>
                 </div>
 
@@ -198,7 +259,7 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="pull-left">
-                                    <input type="submit" class="form-control btn btn-primary" name="submit" id="submit">
+                                    <input type="submit" class="form-control btn btn-primary" name="submit" id="submit" value="Save changes">
                                 </div>
                             </div>
                         </div>
@@ -219,9 +280,9 @@
                         <a  href="#" class="label label-danger"
                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            <span >   Yes   </span>
+                            <span >   No   </span>
                         </a>    
-                        <a href="/account" class="label label-success"> <span >  No   </span></a>
+                        <a href="../login/login.php" class="label label-success"> <span >  Yes   </span></a>
                     </div>
                     <form id="logout-form" action="#" method="POST" style="display: none;">
                     </form>
