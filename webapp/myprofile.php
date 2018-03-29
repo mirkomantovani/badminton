@@ -116,9 +116,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
         </form>-->
-                                    <form class="form-inline my-2 my-lg-0">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
+                                    <form action='search.php' method="get" class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" aria-label="Search">
+                                        <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
                                     </form>
                                 </li>
                                 <li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
@@ -159,6 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2 data-aos="fade-right">
                             <? echo $name." ".$surname ?>
                         </h2>
+                        
                         <!--<h5>UI/UX Designer.</h5>-->
                         <p>
                             <? echo $bio ?>
