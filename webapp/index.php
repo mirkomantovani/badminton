@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
 
-<!-- googlefonts -->
+<!-- googlefonts
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic,latin-ext" rel="stylesheet">
 <!-- //googlefonts -->
@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
 							<li><a class="page-scroll scroll" href="#club">Club</a></li>
                           
-						<li><a href="#"  data-toggle="modal" data-target="#jjj">Notifications</a></li>
+						<li><a href="#"  data-toggle="modal" data-target="#myModal">Notifications</a></li>
 				
 							<!--  <li><a class="page-scroll scroll" href="#skills">Friends</a></li>
 							<ul >
@@ -156,7 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- bootstrap-modal-pop-up -->
 	<!-- modal -->
-	<div class="modal about-modal fade" id="jjj" tabindex="-1" role="dialog">
+	<div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header"> 

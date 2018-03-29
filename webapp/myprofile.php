@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <link href="css/font-awesome.css" rel="stylesheet">
         <!-- //font-awesome-icons -->
 
-        <!-- googlefonts -->
+        <!-- googlefonts 
         <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic,latin-ext" rel="stylesheet">
         <!-- //googlefonts -->
@@ -259,40 +259,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="modal-body">
                     <div class="modalpad">
-                        
+
                         <style>
-                                        #blacktext {
-                                            color: black;
-                                        }
+                            #blacktext {
+                                color: black;
+                            }
 
-                                    </style>
-
-                        <div class="about-modal wthree">
-                            <h3> <span><? echo $name." ".$surname ?></span></h3>
+                        </style>
+                        <?
+    
+    $sql = "SELECT * FROM friendrequest JOIN users on id1=email where id2='".$email."'";
+    $result = mysqli_query($connection, $sql);
+      
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+     		 echo "<div class='about-modal wthree'>
+                            <h3> <span><a href='profile.php?user=" .$row['id1']."'>".$row['name']." ".$row['surname']."</span></h3>
                             <!--<h4>UI/UX Designer</h4>-->
-                            <ul class="address">
+                            <ul class='address'>
                                 <li>
-                                    <ul class="agileits-address-text ">
+                                    <ul class='agileits-address-text'>
 
-                                        <li>
-                                            <form action='acceptrequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Accept</button><input type='hidden' name='user' value='".$email."'>
-                                            </form>
-                                        </li>
+                                      <li><a href='acceptrequest.php?user=" .$row['id1']."' value='Accept'>Accept</li>
+                                      <li><a href='declinerequest.php?user=" .$row['id1']."' value='Decline'>Decline</li>
 
 
-                                        <li>
-                                            <form action='declinerequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Decline</button><input type='hidden' name='user' value='".$email."'>
-                                            </form>
-                                        </li>
+                                      
 
                                     </ul>
                                 </li>
                             </ul>
-                        </div>
-                        
-                        
-                        
-                        <div class="clearfix"> </div>
+                        </div>";
+        }
+    } else {
+        echo "<p style='text-align:center'>You don't have any friend requests</p>";
+    }
+    
+           
+                        ?>
+                            <!--    <li>
+                                            <form action='acceptrequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Accept</button><input type='hidden' name='user' value='".$row['id1']."'>
+                                            </form>
+                                        </li>
+
+  <li>
+                                            <form action='declinerequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Decline</button><input type='hidden' name='user' value='".$row['id1']."'>
+                                            </form>
+                                        </li>-->
+
+
+
+                            <div class="clearfix"> </div>
                     </div>
                 </div>
             </div>
@@ -609,324 +626,247 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </section>
                 <!-- //Tab-1 -->
 
-                <?
-    $friendsq = "select * from friendship as f,users as u where (f.id2=u.email and f.id1='".$email."') or (f.id1=u.email and f.id2='".$email."')";
+
+
+
+                <!-- Friends -->
+                <section id="section-bar-2" class="agileits w3layouts">
+                    <h4>Friends</h4>
+                    <div class="gallery-grids">
+
+
+                        <?
+    $friendsq = "(select * from friendship as f,users as u where f.id1=u.email and f.id2='".$email."') union
+                 (select * from friendship as f,users as u where f.id2=u.email and f.id1='".$email."')";
    
-    echo $email;
+   
+    
     $friends = mysqli_query($connection, $friendsq);
     
-    $row = mysqli_fetch_assoc($friends);
-      //  Ch::log($row);
-    
-    //$products[$row['id']]=$row;
-    
-    
-    
-    ?>
-
-
-                    <!-- Friends -->
-                    <section id="section-bar-2" class="agileits w3layouts">
-                        <h4>Friends</h4>
-                        <div class="gallery-grids">
-                            <div class="col-md-4 col-sm-4 gallery-top">
+      if ($friends->num_rows > 0) {
+        while($row = $friends->fetch_assoc()) {
+     		 echo '<div class="col-md-4 col-sm-4 gallery-top">
                                 <a href="images/p1.jpg" class="swipebox">
                                     <figure class="effect-bubba">
-                                        <img src="images/p1.jpg" alt="" class="img-responsive">
+                                        <img src="images/p'.rand(1,13).'.jpg" alt="" class="img-responsive">
                                         <figcaption>
 
                                             <h4>
-                                                <a href="profile.php?user=<? echo $row['email']; ?>">
-                                                    <? echo $row['name']; ?>
+                                                <a href="profile.php?user='.$row['email'].'">'.$row['name'].'
                                                 </a>
                                             </h4>
                                         </figcaption>
                                     </figure>
                                 </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p2.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p2.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Mobile Apps</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p3.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p3.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Mobile Apps</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p12.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p12.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Mobile Apps</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p13.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p13.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Mobile Apps</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/8.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/8.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Mobile Apps</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/9.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/9.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Mobile Apps</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/6.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/6.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Mobile Apps</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/7.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/7.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Mobile Apps</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
+                            </div>';
+        }
+    } else {
+        echo "<p style='text-align:center'>You don't have any friend requests</p>";
+    }
 
+    ?>
                             <div class="clearfix"></div>
-                        </div>
-                    </section>
-                    <!-- //Tab-2 -->
+                    </div>
+                </section>
+                <!-- //Tab-2 -->
 
-                    <!-- Tab-3 -->
-                    <section id="section-bar-3" class="agileits w3layouts">
-                        <h4>UI/UX Design</h4>
-                        <div class="gallery-grids">
-                            <div class="col-md-12 col-sm-12 gallery-top">
-                                <a href="images/p1.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p1.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>UI/UX Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p2.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p2.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>UI/UX Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p3.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p3.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>UI/UX Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p4.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p4.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>UI/UX Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p5.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p5.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>UI/UX Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p6.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p6.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>UI/UX Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p7.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p7.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>UI/UX Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p8.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p8.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>UI/UX Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p9.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p9.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>UI/UX Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="clearfix"></div>
+                <!-- Tab-3 -->
+                <section id="section-bar-3" class="agileits w3layouts">
+                    <h4>UI/UX Design</h4>
+                    <div class="gallery-grids">
+                        <div class="col-md-12 col-sm-12 gallery-top">
+                            <a href="images/p1.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p1.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>UI/UX Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
                         </div>
-                    </section>
-                    <!-- //Tab-3 -->
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p2.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p2.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>UI/UX Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p3.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p3.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>UI/UX Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p4.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p4.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>UI/UX Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p5.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p5.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>UI/UX Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p6.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p6.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>UI/UX Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p7.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p7.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>UI/UX Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p8.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p8.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>UI/UX Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p9.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p9.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>UI/UX Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </section>
+                <!-- //Tab-3 -->
 
-                    <!-- Tab-4 -->
-                    <section id="section-bar-4" class="agileits w3layouts">
-                        <h4>Graphic Design</h4>
-                        <div class="gallery-grids">
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p10.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p10.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Graphic Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p11.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p11.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Graphic Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p12.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p12.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Graphic Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p13.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p13.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Graphic Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p5.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p5.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Graphic Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p6.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p6.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Graphic Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p7.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p7.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Graphic Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p8.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p8.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Graphic Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p9.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p9.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Graphic Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="clearfix"></div>
+                <!-- Tab-4 -->
+                <section id="section-bar-4" class="agileits w3layouts">
+                    <h4>Graphic Design</h4>
+                    <div class="gallery-grids">
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p10.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p10.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>Graphic Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
                         </div>
-                    </section>
-                    <!-- //Tab-4 -->
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p11.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p11.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>Graphic Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p12.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p12.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>Graphic Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p13.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p13.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>Graphic Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p5.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p5.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>Graphic Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p6.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p6.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>Graphic Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p7.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p7.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>Graphic Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p8.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p8.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>Graphic Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 gallery-top">
+                            <a href="images/p9.jpg" class="swipebox">
+                                <figure class="effect-bubba">
+                                    <img src="images/p9.jpg" alt="" class="img-responsive">
+                                    <figcaption>
+                                        <h4>Graphic Design</h4>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </section>
+                <!-- //Tab-4 -->
 
             </div>
             <!-- //Content -->
