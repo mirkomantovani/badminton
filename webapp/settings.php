@@ -113,7 +113,12 @@ require('connect.php');
         <div class="row">
 
             <div class="col-md-3">
-                <ul class="nav nav-pills nav-stacked admin-menu" style="margin-top:15px;">
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+                <ul class="nav nav-pills nav-stacked admin-menu" style="margin-top:30px;">
                     
                     <li class="active"><a href="" data-target-id="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
                     <li><a href="" data-target-id="change-password"><i class="glyphicon glyphicon-lock"></i> Change Password</a></li>

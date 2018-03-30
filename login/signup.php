@@ -92,19 +92,21 @@
 require ('connect.php');
     
    if (isset($_POST['signup'])) {
-       header('Location: http://www.google.com');
+       //header('Location: http://www.google.com'); non va 
         if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['birthday']) && isset($_POST['email']) && isset($_POST['pwd'])) {
             $nome = $_POST["name"];
             $cognome = $_POST['surname'];
             $nascita = $_POST['birthday'];
             $email = $_POST['email'];
             $pwd = md5($_POST['pwd']);
+            $age= date("Y-m-d");
             if($nome == "" || $cognome == "" || $nascita == "" && $email == "" || $pwd === ""){
                 unset($_POST);
                // header("Location: ".$_SERVER['PHP_SELF']."?dataNull");
             }else{
-            	$query = "INSERT INTO users (email, name,surname,birth,psw) VALUES ('$email', '$nome', '$cognome', '$nascita','$pwd')";
+            	$query = "INSERT INTO users (email, name,surname,birth,psw,user_age) VALUES ('$email', '$nome', '$cognome', '$nascita','$pwd','$age')";
                 $result = mysqli_query($connection, $query);
+               
                 
                 //header('Location: http://badmintonclubs.altervista.org/login.php');
                 header('Location: login.php');

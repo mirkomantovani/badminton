@@ -80,10 +80,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <link href="css/font-awesome.css" rel="stylesheet">
         <!-- //font-awesome-icons -->
 
-        <!-- googlefonts 
+        <!-- googlefonts -->
         <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic,latin-ext" rel="stylesheet">
-        <!-- //googlefonts -->
+        <!-- //googlefonts 
 
 </head>
 
@@ -128,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <li>
                                     <div class="dropdown">
-                                        <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
+                                        <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="uploads/IMG_4998.JPG" style=" border-radius: 50%!important;" />
    
   </a>
                                         <div class="dropdown-content">
@@ -154,8 +154,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <div class="w3_banner_info">
-                    <div class="w3_banner_info_grid">
-
+                                    <style> 
+                         
+.d-block {
+    display: block!important;
+}
+.rounded-circle {
+    border-radius: 50%!important;
+}
+.img-fluid {
+    max-width: 50%;
+    height: auto;
+    margin-top: -20%;
+}
+img {
+  
+    border-style: none;
+}
+ </style>
+                    <div class="imm">
+<img class="rounded-circle img-fluid d-block mx-auto" src="uploads/IMG_4998.JPG" >
+                        </div>
+                    <div class="w3_banner_info_grid" style="float:right;">
+        
                         <h2 data-aos="fade-right">
                             <? echo $name." ".$surname ?>
                         </h2>
@@ -532,7 +553,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="col-md-4 col-sm-4 gallery-top">
                             <a href="images/5.jpg" class="swipebox">
                                 <figure class="effect-bubba">
-                                    <img src="images/5.jpg" alt="" class="img-responsive">
+                                    <img src="uploads/IMG_4998.JPG" style="width:850px; height:540px;" alt="" class="img-responsive">
                                     <figcaption>
                                         <a>
                                             <? ?>
