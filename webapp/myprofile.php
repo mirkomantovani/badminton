@@ -121,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
                                     </form>
                                 </li>
-                                <li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
+                                <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
                                 <li><a class="page-scroll scroll" href="#club">Club</a></li>
 
                                 <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
@@ -338,6 +338,72 @@ img {
         </div>
     </div>
     <!-- //modal -->
+    
+    <div class="modal about-modal fade" id="tournament" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Tournament</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modalpad">
+                       <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                        <div class="about-modal wthree">
+                            <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
+                           <input type=text placeholder="Name">
+
+                            <!--<h4>UI/UX Designer</h4>-->
+                            <ul class="address">
+                             
+                                <li>
+                                    <ul class="agileits-address-text">
+                                        <li><b>DESCRIPTION </b></li>
+                                        <li>
+                                            <input type="text">
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="agileits-address-text">
+                                        <li><b>GENDER </b></li>
+                                        <li>
+                                           <select>
+                                            <option>Maschile</option>
+                                            <option>Femminile</option>
+                                            </select>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="agileits-address-text">
+                                        <li><b>TYPE </b></li>
+                                        <li>
+                                            <select>
+                                            <option>Singolare</option>
+                                            <option>Doppio</option>
+                                            </select>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="agileits-address-text">
+                                        <li><b>PARTECIPANTS </b></li>
+                                        <li><a href="#">www.mydesign.com</a></li>
+                                        <!-- mettere club in db -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//modal3-->
     <!-- //bootstrap-modal-pop-up -->
 
 
@@ -540,7 +606,7 @@ img {
                     <li><a href="#section-bar-1" class="icon icon-box"><span>Tournaments</span></a></li>
                     <li><a href="#section-bar-2" class="icon icon-display"><span>Friends</span></a></li>
                     <li><a href="#section-bar-3" class="icon icon-upload"><span>Club</span></a></li>
-                    <li><a href="#section-bar-4" class="icon icon-tools"><span>Graphic Design</span></a></li>
+                    <!--<li><a href="#section-bar-4" class="icon icon-tools"><span>Graphic Design</span></a></li>-->
                 </ul>
             </nav>
 
@@ -694,9 +760,9 @@ img {
 
                 <!-- Tab-3 -->
                 <section id="section-bar-3" class="agileits w3layouts">
-                    <h4>UI/UX Design</h4>
+                    <h4><!-- nome club-->Club</h4>
                     <div class="gallery-grids">
-                        <div class="col-md-12 col-sm-12 gallery-top">
+                       <!-- <div class="col-md-12 col-sm-12 gallery-top">
                             <a href="images/p1.jpg" class="swipebox">
                                 <figure class="effect-bubba">
                                     <img src="images/p1.jpg" alt="" class="img-responsive">
@@ -705,95 +771,16 @@ img {
                                     </figcaption>
                                 </figure>
                             </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p2.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p2.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p3.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p3.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p4.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p4.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p5.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p5.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p6.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p6.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p7.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p7.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p8.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p8.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p9.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p9.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
+                        </div>-->
+                      <iframe src="club.html" frameborder=0 name="Portale" width=100% height=100%></iframe>
                         <div class="clearfix"></div>
                     </div>
                 </section>
                 <!-- //Tab-3 -->
 
                 <!-- Tab-4 -->
-                <section id="section-bar-4" class="agileits w3layouts">
-                    <h4>Graphic Design</h4>
+             <!--   <section id="section-bar-4" class="agileits w3layouts">
+                    <h4>Club</h4>
                     <div class="gallery-grids">
                         <div class="col-md-4 col-sm-4 gallery-top">
                             <a href="images/p10.jpg" class="swipebox">
@@ -887,7 +874,7 @@ img {
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                </section>
+                </section>-->
                 <!-- //Tab-4 -->
 
             </div>
