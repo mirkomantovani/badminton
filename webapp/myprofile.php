@@ -37,7 +37,7 @@ $row = $_SESSION['row'];
              $country=$row['user_country'];
              $gender=$row['gender'];
              $birth=$row['birth'];
-            
+             $userimg=$row['user_avatar'];
 
 
 ?>
@@ -89,206 +89,260 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- banner -->
-    <div class="banner" id="home">
-        <div class="agileinfo-dot">
-            <div class="container">
-                <!-- header -->
-                <div class="header-w3layouts">
-                    <!-- Navigation -->
-                    <nav class="navbar navbar-default navbar-fixed-top">
-                        <div class="navbar-header page-scroll">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <div class="banner" id="home">
+            
+            <div class="agileinfo-dot">
+                <div class="container">
+                    <!-- header -->
+                    <div class="header-w3layouts">
+                        <!-- Navigation -->
+                        <nav class="navbar navbar-default navbar-fixed-top">
+                            <div class="navbar-header page-scroll">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 							<span class="sr-only">My_Profile</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-                            <h1><a class="navbar-brand" href="index.html">Badminton Clubs</a></h1>
-                        </div>
+                                <h1><a class="navbar-brand" href="index.php">Badminton Clubs</a></h1>
+                            </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse navbar-ex1-collapse">
-                            <ul class="nav navbar-nav navbar-right cl-effect-15">
-                                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                                <li class="hidden"><a class="page-scroll" href="#page-top"></a> </li>
-                                <li>
-                                    <!--<form class="form-inline my-2 my-lg-0">
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                                <ul class="nav navbar-nav navbar-right cl-effect-15">
+                                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                                    <li class="hidden"><a class="page-scroll" href="#page-top"></a> </li>
+                                    <li>
+                                        <!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
         </form>-->
-                                    <form action='search.php' method="get" class="form-inline my-2 my-lg-0">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" aria-label="Search">
-                                        <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
-                                    </form>
-                                </li>
-                                <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
-                                <li><a class="page-scroll scroll" href="#club">Club</a></li>
+                                        <form action='search.php' method="get" class="form-inline my-2 my-lg-0">
+                                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" aria-label="Search">
+                                            <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+                                        </form>
+                                    </li>
+                                    <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
+                                    <!--<li><a class="page-scroll scroll" href="#club">Club</a></li>-->
+                                    <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>
 
-                                <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
 
-                                <li>
-                                    <div class="dropdown">
-                                        <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="uploads/IMG_4998.JPG" style=" border-radius: 50%!important;" />
+                                    <li>
+                                        <div class="dropdown">
+                                            <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<? echo $userimg;  ?>" style=" border-radius: 50%!important;" />
    
   </a>
-                                        <div class="dropdown-content">
+                                            <div class="dropdown-content">
 
-                                            <a class="dropdown-item" href="myprofile.php">My Profile</a>
-                                            <a class="dropdown-item" href="settings.php">Settings</a>
-                                            <a class="dropdown-item" href="../login/logout.php">Logout</a>
+                                                <a class="dropdown-item" href="myprofile.php">My Profile</a>
+                                                <a class="dropdown-item" href="settings.php">Settings</a>
+                                                <a class="dropdown-item" href="../login/logout.php">Logout</a>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
 
 
-                            </ul>
-                        </div>
-                        <!-- /.navbar-collapse -->
-                        <!-- /.container -->
-                    </nav>
-                </div>
-                <!-- //header -->
-
-
-
-
-                <div class="w3_banner_info">
-                                    <style> 
-                         
-.d-block {
-    display: block!important;
-}
-.rounded-circle {
-    border-radius: 50%!important;
-}
-.img-fluid {
-    max-width: 50%;
-    height: auto;
-    margin-top: -20%;
-}
-img {
-  
-    border-style: none;
-}
- </style>
-                    <div class="imm">
-<img class="rounded-circle img-fluid d-block mx-auto" src="uploads/IMG_4998.JPG" >
-                        </div>
-                    <div class="w3_banner_info_grid" style="float:right;">
-        
-                        <h2 data-aos="fade-right">
-                            <? echo $name." ".$surname ?>
-                        </h2>
-                        
-                        <!--<h5>UI/UX Designer.</h5>-->
-                        <p>
-                            <? echo $bio ?>
-                        </p>
-                        <ul data-aos="slide-up">
-                            <li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">More info</a></li>
-
-                        </ul>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                            <!-- /.container -->
+                        </nav>
                     </div>
-                </div>
-                <!--<div class="thim-click-to-bottom">
+                    <!-- //header -->
+
+ 
+ 
+                       
+                          <div style="float:right; margin-top:7%" class="col-md-6 skill-grids-left">
+                        <div data-aos="flip-left" class="col-md-6 w3labout-img">
+                            <div class="boxw3-agile">
+                                <img src="images/s1.jpg" alt="" class="img-responsive" />
+                                <div class="agile-caption">
+                                    <h3>CLUB</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="flip-right" class="col-md-6 w3labout-img">
+                            <div class="boxw3-agile">
+                                <img src="images/s2.jpg" alt="" class="img-responsive" />
+                                <div class="agile-caption">
+                                    <h3>Tournaments history</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div data-aos="flip-left" class="col-md-6 w3labout-img">
+                            <div class="boxw3-agile">
+                                <img src="images/s3.jpg" alt="" class="img-responsive" />
+                                <div class="agile-caption">
+                                    <h3>Jquery</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="flip-right" class="col-md-6 w3labout-img">
+                            <div class="boxw3-agile">
+                                <img src="images/s4.jpg" alt="" class="img-responsive" />
+                                <div class="agile-caption">
+                                    <h3>JavaScript</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+
+                    <div class="w3_banner_info">
+                        <div>
+
+                            <style>
+                                .d-block {
+                                    display: block!important;
+                                }
+
+                                .rounded-circle {
+                                    border-radius: 50%!important;
+                                }
+
+                                .img-fluid {
+                                    max-width: 50%;
+                                    height: auto;
+                                    margin-top: -20%;
+                                }
+
+                                img {
+
+                                    border-style: none;
+                                }
+
+                            </style>
+                            <div class="imm">
+                                <img class="rounded-circle img-fluid d-block mx-auto" src="<? echo $userimg;  ?>">
+                            </div>
+                            <div class="w3_banner_info_grid">
+
+                                <h2 data-aos="fade-right">
+                                    <? echo $name." ".$surname ?>
+                                </h2>
+
+                                <!--<h5>UI/UX Designer.</h5>-->
+                                <p>
+                                    <? echo $bio ?>
+                                </p>
+                                <ul data-aos="slide-up">
+                                    <li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">More info</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        
+        
+
+                    </div>
+                    <!--<div class="thim-click-to-bottom">
 				<a href="#about" class="scroll">
 					<i class="fa fa-arrows-v" aria-hidden="true"></i>
 				</a>
 			</div>-->
+                </div>
             </div>
         </div>
-    </div>
-    <!-- banner -->
+        <!-- banner -->
 
-    <!-- bootstrap-modal-pop-up -->
-    <!-- modal -->
-    <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Information</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="modalpad">
-                        <div class="modalpop ">
-                            <img src="images/5.jpg" class="img-responsive" alt="" />
+        <!-- bootstrap-modal-pop-up -->
+        <!-- modal -->
+        <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+                            <div class="modalpop ">
+                                <img src="images/5.jpg" class="img-responsive" alt="" />
+                            </div>
+                            <div class="about-modal wthree">
+                                <h3> <span><? echo $name." ".$surname ?></span></h3>
+                                <!--<h4>UI/UX Designer</h4>-->
+                                <ul class="address">
+                                    <li>
+                                        <ul class="agileits-address-text ">
+                                            <li><b>BIRTHDAY</b></li>
+                                            <!--D.O.B-->
+                                            <li>
+                                                <? echo $birth ?>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>COUNTRY </b></li>
+                                            <li>
+                                                <?  echo $country ?>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>GENDER </b></li>
+                                            <li>
+                                                <?  echo $gender ?>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>E-MAIL </b></li>
+                                            <li>
+                                                <a>
+                                                    <?  echo $email ?>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>CLUB </b></li>
+                                            <li><a href="#">www.mydesign.com</a></li>
+                                            <!-- mettere club in db -->
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"> </div>
                         </div>
-                        <div class="about-modal wthree">
-                            <h3> <span><? echo $name." ".$surname ?></span></h3>
-                            <!--<h4>UI/UX Designer</h4>-->
-                            <ul class="address">
-                                <li>
-                                    <ul class="agileits-address-text ">
-                                        <li><b>BIRTHDAY</b></li>
-                                        <!--D.O.B-->
-                                        <li>
-                                            <? echo $birth ?>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul class="agileits-address-text">
-                                        <li><b>COUNTRY </b></li>
-                                        <li>
-                                            <?  echo $country ?>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul class="agileits-address-text">
-                                        <li><b>GENDER </b></li>
-                                        <li>
-                                            <?  echo $gender ?>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul class="agileits-address-text">
-                                        <li><b>E-MAIL </b></li>
-                                        <li>
-                                            <a>
-                                                <?  echo $email ?>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul class="agileits-address-text">
-                                        <li><b>CLUB </b></li>
-                                        <li><a href="#">www.mydesign.com</a></li>
-                                        <!-- mettere club in db -->
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="clearfix"> </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- //modal -->
+        <!-- //modal -->
 
-    <!-- modal -->
-    <div class="modal about-modal fade" id="requests" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Friend Requests</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="modalpad">
+        <!-- modal -->
+        <div class="modal about-modal fade" id="requests" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Friend Requests</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
 
-                        <style>
-                            #blacktext {
-                                color: black;
-                            }
+                            <style>
+                                #blacktext {
+                                    color: black;
+                                }
 
-                        </style>
-                        <?
+                            </style>
+                            <?
     
     $sql = "SELECT * FROM friendrequest JOIN users on id1=email where id2='".$email."'";
     $result = mysqli_query($connection, $sql);
@@ -319,7 +373,7 @@ img {
     
            
                         ?>
-                            <!--    <li>
+                                <!--    <li>
                                             <form action='acceptrequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Accept</button><input type='hidden' name='user' value='".$row['id1']."'>
                                             </form>
                                         </li>
@@ -331,399 +385,377 @@ img {
 
 
 
-                            <div class="clearfix"> </div>
+                                <div class="clearfix"> </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- //modal -->
-    
-    <div class="modal about-modal fade" id="tournament" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Tournament</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="modalpad">
-                       <!-- <div class="modalpop ">
+        <!-- //modal -->
+
+
+
+        <div class="modal about-modal fade" id="tournament" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Tournament</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+                            <!-- <div class="modalpop ">
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
-                        <div class="about-modal wthree">
-                            <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
-                           <input type=text placeholder="Name">
+                            <div class="about-modal wthree">
+                                <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
+                                <input type=text placeholder="Name" value="">
 
-                            <!--<h4>UI/UX Designer</h4>-->
-                            <ul class="address">
-                             
-                                <li>
-                                    <ul class="agileits-address-text">
-                                        <li><b>DESCRIPTION </b></li>
-                                        <li>
-                                            <input type="text">
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul class="agileits-address-text">
-                                        <li><b>GENDER </b></li>
-                                        <li>
-                                           <select>
-                                            <option>Maschile</option>
-                                            <option>Femminile</option>
+                                <!--<h4>UI/UX Designer</h4>-->
+                                <ul class="address">
+
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>DESCRIPTION </b></li>
+                                            <li>
+                                                <input type="text">
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>GENDER </b></li>
+                                            <li>
+                                                <select>
+                                            <option>Male</option>
+                                            <option>Female</option>
                                             </select>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul class="agileits-address-text">
-                                        <li><b>TYPE </b></li>
-                                        <li>
-                                            <select>
-                                            <option>Singolare</option>
-                                            <option>Doppio</option>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>TYPE </b></li>
+                                            <li>
+                                                <select>
+                                            <option>Single</option>
+                                            <option>Double</option>
                                             </select>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul class="agileits-address-text">
-                                        <li><b>PARTECIPANTS </b></li>
-                                        <li><a href="#">www.mydesign.com</a></li>
-                                        <!-- mettere club in db -->
-                                    </ul>
-                                </li>
-                            </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>PARTECIPANTS </b></li>
+                                            <li> <input type="number" name="quantity" min="2" max="500" style="width:130%;"></li>
+                                            <!-- mettere club in db -->
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <center>
+                                <input type="button" class="btn btn-success" value="Create">
+                            </center>
                         </div>
-                        <div class="clearfix"> </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--//modal3-->
-    <!-- //bootstrap-modal-pop-up -->
+        <!--//modal3-->
+        <div class="modal about-modal fade" id="newclub" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Club</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+                            <form  action="createclub.php" method="get" id="club">
+                            <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                            <div class="about-modal wthree">
+                                <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
+                                
+                                <input type=text placeholder="Name"  name="name"value="">
 
+                                <!--<h4>UI/UX Designer</h4>-->
+                                <ul class="address">
 
-    <!-- skills -->
-    <div class="skills" id="skills">
-        <div class="container">
-            <h3 data-aos="zoom-in">Skills</h3>
-            <div class="skill-grids">
-                <div class="col-md-6 skill-grids-left">
-                    <div data-aos="flip-left" class="col-md-6 w3labout-img">
-                        <div class="boxw3-agile">
-                            <img src="images/s1.jpg" alt="" class="img-responsive" />
-                            <div class="agile-caption">
-                                <h3>CLUB</h3>
-                                <p>Lorem ipsum dolor sit amet.</p>
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>DESCRIPTION </b></li>
+                                            <li>
+                                                <input type="text" name="desc">
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>TYPE </b></li>
+                                            <li>
+                                                <select name="type" form="club">
+                                            <option>Aperto</option>
+                                            <option>Su invito</option>
+                                            </select>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="agileits-address-text">
+                                            <li><b>PARTECIPANTS </b></li>
+                                            <li> 50</li>
+                                            <!-- mettere club in db -->
+                                        </ul>
+                                    </li>
+                                    <li><input name="color" type="color" id="myColor">
+                                    </li>
+                                </ul>
+                                    
                             </div>
+                            <div class="clearfix">
+                            </div>
+                            <center>
+                                <input type="submit" class="btn btn-success" value="Create">
+                            </center>
+                                </form>
                         </div>
                     </div>
-                    <div data-aos="flip-right" class="col-md-6 w3labout-img">
-                        <div class="boxw3-agile">
-                            <img src="images/s2.jpg" alt="" class="img-responsive" />
-                            <div class="agile-caption">
-                                <h3>Tournaments history</h3>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div data-aos="flip-left" class="col-md-6 w3labout-img">
-                        <div class="boxw3-agile">
-                            <img src="images/s3.jpg" alt="" class="img-responsive" />
-                            <div class="agile-caption">
-                                <h3>Jquery</h3>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-aos="flip-right" class="col-md-6 w3labout-img">
-                        <div class="boxw3-agile">
-                            <img src="images/s4.jpg" alt="" class="img-responsive" />
-                            <div class="agile-caption">
-                                <h3>JavaScript</h3>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
-                <div class="col-md-6 skill-grids-right">
-
-                    <!-- Skills -->
-                    <div class="skillbar clearfix " data-percent="100%">
-                        <div class="skillbar-title" style="background: #ff4f81;"><span>Win rate</span></div>
-                        <div class="skillbar-bar" style="background: #ff4f81;"></div>
-                        <div class="skill-bar-percent">100%</div>
-                    </div>
-                    <!-- End Skill Bar -->
-
-                    <div class="skillbar clearfix " data-percent="75%">
-                        <div class="skillbar-title" style="background: #ff9900;"><span>Club win rate</span></div>
-                        <div class="skillbar-bar" style="background: #ff9900;"></div>
-                        <div class="skill-bar-percent">75%</div>
-                    </div>
-                    <!-- End Skill Bar -->
-
-                    <div class="skillbar clearfix " data-percent="60%">
-                        <div class="skillbar-title" style="background: #8e43e7;"><span>Rank</span></div>
-                        <div class="skillbar-bar" style="background: #8e43e7;"></div>
-                        <div class="skill-bar-percent">3</div>
-                    </div>
-                    <!-- End Skill Bar -->
-
-                    <div class="skillbar clearfix " data-percent="40%">
-                        <div class="skillbar-title" style="background: #146eb4;"><span>PHP</span></div>
-                        <div class="skillbar-bar" style="background: #146eb4;"></div>
-                        <div class="skill-bar-percent">40%</div>
-                    </div>
-                    <!-- End Skill Bar -->
-
-                    <div class="skillbar clearfix " data-percent="75%">
-                        <div class="skillbar-title" style="background: #11b563;"><span>Wordpress</span></div>
-                        <div class="skillbar-bar" style="background: #11b563;"></div>
-                        <div class="skill-bar-percent">75%</div>
-                    </div>
-                    <!-- End Skill Bar -->
-
-                    <p class="p1">Etiam sit amet porttitor nulla. Nullam tincidunt lectus vel euismodpulvi nar. Aenean a facilisis augue, at convallis lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent faucibus massa elit, vitae ultrices libero dapibus nec. Maecenas cursus rutrum odio ut convallis.</p>
-                    <!-- //Skills -->
-                </div>
-                <div class="clearfix"></div>
             </div>
         </div>
-    </div>
-    <!-- //skills -->
-
-    <!-- /education -->
-    <div class="education" id="education">
-        <div class="col-md-5 education-w3l">
-            <h3 data-aos="zoom-in" class="w3l_head three">My Education</h3>
-            <div class="education-agile-grids">
-                <div class="education-agile-w3l">
-                    <div class="education-agile-w3l-year">
-                        <h4>2014-2015</h4>
-                        <h6>Master Degree</h6>
-                    </div>
-                    <div class="education-agile-w3l-info">
-                        <h4>Computer University</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. commodo ligula eget.</p>
-
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="education-agile-w3l two">
-                    <div class="education-agile-w3l-year">
-                        <h4>2010-2012</h4>
-                        <h6>Master Degree</h6>
-                    </div>
-                    <div class="education-agile-w3l-info">
-                        <h4>Computer University</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. commodo ligula eget.</p>
-
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="education-agile-w3l">
-                    <div class="education-agile-w3l-year last">
-                        <h4>2008-2010</h4>
-                        <h6>Master Degree</h6>
-                    </div>
-                    <div class="education-agile-w3l-info last">
-                        <h4>Computer University</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. commodo ligula eget.</p>
-
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-            </div>
-        </div>
-
-        <div data-aos="slide-up" class="col-md-2 middle">
-            <i class="fa fa-hourglass-end" aria-hidden="true"></i>
-        </div>
-
-        <div class="col-md-5 education-w3l">
-            <h3 data-aos="zoom-in" class="w3l_head three">My Experience</h3>
-            <div class="education-agile-grids">
-                <div class="education-agile-w3l">
-                    <div class="education-agile-w3l-year">
-                        <h4>2013-2015</h4>
-                        <h6>Lorem ipsum</h6>
-                    </div>
-                    <div class="education-agile-w3l-info">
-                        <h4>Web Developer</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. commodo ligula eget.</p>
-
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="education-agile-w3l two">
-                    <div class="education-agile-w3l-year">
-                        <h4>2012-2013</h4>
-                        <h6>Lorem ipsum</h6>
-                    </div>
-                    <div class="education-agile-w3l-info">
-                        <h4>App Developer</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. commodo ligula eget.</p>
-
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="education-agile-w3l">
-                    <div class="education-agile-w3l-year last">
-                        <h4>208-2010</h4>
-                        <h6>Lorem ipsum</h6>
-                    </div>
-                    <div class="education-agile-w3l-info last">
-                        <h4>Graphic Designer</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. commodo ligula eget.</p>
-
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-            </div>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-    <!-- //education -->
-
-    <!-- Portfolio -->
-    <div class="portfolio" id="portfolio">
-        <h3 data-aos="zoom-in">Portfolio</h3>
+        <!--//modal4-->
+        <!-- //bootstrap-modal-pop-up -->
 
 
-
-        <div class="tabs tabs-style-bar">
-            <nav>
-                <ul>
-                    <li><a href="#section-bar-1" class="icon icon-box"><span>Tournaments</span></a></li>
-                    <li><a href="#section-bar-2" class="icon icon-display"><span>Friends</span></a></li>
-                    <li><a href="#section-bar-3" class="icon icon-upload"><span>Club</span></a></li>
-                    <!--<li><a href="#section-bar-4" class="icon icon-tools"><span>Graphic Design</span></a></li>-->
-                </ul>
-            </nav>
-
-            <div class="content-wrap">
-
-                <!-- Tab-1 -->
-                <section id="section-bar-1" class="agileits w3layouts">
-                    <h4>Web Design</h4>
-                    <div class="gallery-grids">
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/5.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="uploads/IMG_4998.JPG" style="width:850px; height:540px;" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <a>
-                                            <? ?>
-                                        </a>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
+        <!-- skills -->
+        <div class="skills" id="skills">
+            <div class="container">
+                <h3 data-aos="zoom-in">Skills</h3>
+                <div class="skill-grids">
+                     <div class="col-md-6 skill-grids-left">
+                        <div data-aos="flip-left" class="col-md-6 w3labout-img">
+                            <div class="boxw3-agile">
+                                <img src="images/s1.jpg" alt="" class="img-responsive" />
+                                <div class="agile-caption">
+                                    <h3>CLUB</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p4.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p4.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
+                        <div data-aos="flip-right" class="col-md-6 w3labout-img">
+                            <div class="boxw3-agile">
+                                <img src="images/s2.jpg" alt="" class="img-responsive" />
+                                <div class="agile-caption">
+                                    <h3>Tournaments history</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p5.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p5.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
+                        <div class="clearfix"></div>
+                        <div data-aos="flip-left" class="col-md-6 w3labout-img">
+                            <div class="boxw3-agile">
+                                <img src="images/s3.jpg" alt="" class="img-responsive" />
+                                <div class="agile-caption">
+                                    <h3>Jquery</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p6.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p6.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p7.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p7.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p8.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p8.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p9.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p9.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p10.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p10.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p11.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p11.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
+                        <div data-aos="flip-right" class="col-md-6 w3labout-img">
+                            <div class="boxw3-agile">
+                                <img src="images/s4.jpg" alt="" class="img-responsive" />
+                                <div class="agile-caption">
+                                    <h3>JavaScript</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                </section>
-                <!-- //Tab-1 -->
+                    <div class="col-md-6 skill-grids-right">
+
+                        <!-- Skills -->
+                        <div class="skillbar clearfix " data-percent="100%">
+                            <div class="skillbar-title" style="background: #ff4f81;"><span>Win rate</span></div>
+                            <div class="skillbar-bar" style="background: #ff4f81;"></div>
+                            <div class="skill-bar-percent">100%</div>
+                        </div>
+                        <!-- End Skill Bar -->
+
+                        <div class="skillbar clearfix " data-percent="75%">
+                            <div class="skillbar-title" style="background: #ff9900;"><span>Club win rate</span></div>
+                            <div class="skillbar-bar" style="background: #ff9900;"></div>
+                            <div class="skill-bar-percent">75%</div>
+                        </div>
+                        <!-- End Skill Bar -->
+
+                        <div class="skillbar clearfix " data-percent="60%">
+                            <div class="skillbar-title" style="background: #8e43e7;"><span>Rank</span></div>
+                            <div class="skillbar-bar" style="background: #8e43e7;"></div>
+                            <div class="skill-bar-percent">3</div>
+                        </div>
+                        <!-- End Skill Bar -->
+
+                        <div class="skillbar clearfix " data-percent="40%">
+                            <div class="skillbar-title" style="background: #146eb4;"><span>PHP</span></div>
+                            <div class="skillbar-bar" style="background: #146eb4;"></div>
+                            <div class="skill-bar-percent">40%</div>
+                        </div>
+                        <!-- End Skill Bar -->
+
+                        <div class="skillbar clearfix " data-percent="75%">
+                            <div class="skillbar-title" style="background: #11b563;"><span>Wordpress</span></div>
+                            <div class="skillbar-bar" style="background: #11b563;"></div>
+                            <div class="skill-bar-percent">75%</div>
+                        </div>
+                        <!-- End Skill Bar -->
+
+                        <p class="p1">Etiam sit amet porttitor nulla. Nullam tincidunt lectus vel euismodpulvi nar. Aenean a facilisis augue, at convallis lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent faucibus massa elit, vitae ultrices libero dapibus nec. Maecenas cursus rutrum odio ut convallis.</p>
+                        <!-- //Skills -->
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!-- //skills -->
+
+        
+
+        <!-- Portfolio -->
+        <div class="portfolio" id="portfolio">
+            <h3 data-aos="zoom-in">Portfolio</h3>
+
+
+
+            <div class="tabs tabs-style-bar">
+                <nav>
+                    <ul>
+                        <li><a href="#section-bar-1" class="icon icon-box"><span>Tournaments</span></a></li>
+                        <li><a href="#section-bar-2" class="icon icon-display"><span>Friends</span></a></li>
+                        <li><a href="#section-bar-3" class="icon icon-upload"><span>Club</span></a></li>
+                        <!--<li><a href="#section-bar-4" class="icon icon-tools"><span>Graphic Design</span></a></li>-->
+                    </ul>
+                </nav>
+
+                <div class="content-wrap">
+
+                    <!-- Tab-1 -->
+                    <section id="section-bar-1" class="agileits w3layouts">
+                        <h4>Web Design</h4>
+                        <div class="gallery-grids">
+                            <div class="col-md-4 col-sm-4 gallery-top">
+                                <a href="images/5.jpg" class="swipebox">
+                                    <figure class="effect-bubba">
+                                        <img src="uploads/IMG_4998.JPG" style="width:850px; height:540px;" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <a>
+                                                <? ?>
+                                            </a>
+                                            <h4>Web Design</h4>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-4 gallery-top">
+                                <a href="images/p4.jpg" class="swipebox">
+                                    <figure class="effect-bubba">
+                                        <img src="images/p4.jpg" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <h4>Web Design</h4>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-4 gallery-top">
+                                <a href="images/p5.jpg" class="swipebox">
+                                    <figure class="effect-bubba">
+                                        <img src="images/p5.jpg" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <h4>Web Design</h4>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-4 gallery-top">
+                                <a href="images/p6.jpg" class="swipebox">
+                                    <figure class="effect-bubba">
+                                        <img src="images/p6.jpg" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <h4>Web Design</h4>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-4 gallery-top">
+                                <a href="images/p7.jpg" class="swipebox">
+                                    <figure class="effect-bubba">
+                                        <img src="images/p7.jpg" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <h4>Web Design</h4>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-4 gallery-top">
+                                <a href="images/p8.jpg" class="swipebox">
+                                    <figure class="effect-bubba">
+                                        <img src="images/p8.jpg" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <h4>Web Design</h4>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-4 gallery-top">
+                                <a href="images/p9.jpg" class="swipebox">
+                                    <figure class="effect-bubba">
+                                        <img src="images/p9.jpg" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <h4>Web Design</h4>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-4 gallery-top">
+                                <a href="images/p10.jpg" class="swipebox">
+                                    <figure class="effect-bubba">
+                                        <img src="images/p10.jpg" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <h4>Web Design</h4>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-4 gallery-top">
+                                <a href="images/p11.jpg" class="swipebox">
+                                    <figure class="effect-bubba">
+                                        <img src="images/p11.jpg" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <h4>Web Design</h4>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </section>
+                    <!-- //Tab-1 -->
 
 
 
 
-                <!-- Friends -->
-                <section id="section-bar-2" class="agileits w3layouts">
-                    <h4>Friends</h4>
-                    <div class="gallery-grids">
+                    <!-- Friends -->
+                    <section id="section-bar-2" class="agileits w3layouts">
+                        <h4>Friends</h4>
+                        <div class="gallery-grids">
 
 
-                        <?
+                            <?
     $friendsq = "(select * from friendship as f,users as u where f.id1=u.email and f.id2='".$email."') union
                  (select * from friendship as f,users as u where f.id2=u.email and f.id1='".$email."')";
    
@@ -753,16 +785,17 @@ img {
     }
 
     ?>
-                            <div class="clearfix"></div>
-                    </div>
-                </section>
-                <!-- //Tab-2 -->
+                                <div class="clearfix"></div>
+                        </div>
+                    </section>
+                    <!-- //Tab-2 -->
 
-                <!-- Tab-3 -->
-                <section id="section-bar-3" class="agileits w3layouts">
-                    <h4><!-- nome club-->Club</h4>
-                    <div class="gallery-grids">
-                       <!-- <div class="col-md-12 col-sm-12 gallery-top">
+                    <!-- Tab-3 -->
+                    <section id="section-bar-3" class="agileits w3layouts">
+                        <h4>
+                            <!-- nome club-->Club</h4>
+                        <div class="gallery-grids">
+                            <!-- <div class="col-md-12 col-sm-12 gallery-top">
                             <a href="images/p1.jpg" class="swipebox">
                                 <figure class="effect-bubba">
                                     <img src="images/p1.jpg" alt="" class="img-responsive">
@@ -772,14 +805,14 @@ img {
                                 </figure>
                             </a>
                         </div>-->
-                      <iframe src="club.html" frameborder=0 name="Portale" width=100% height=100%></iframe>
-                        <div class="clearfix"></div>
-                    </div>
-                </section>
-                <!-- //Tab-3 -->
+                            <iframe src="club.html" frameborder=0 name="Portale" width=100% height=100%></iframe>
+                            <div class="clearfix"></div>
+                        </div>
+                    </section>
+                    <!-- //Tab-3 -->
 
-                <!-- Tab-4 -->
-             <!--   <section id="section-bar-4" class="agileits w3layouts">
+                    <!-- Tab-4 -->
+                    <!--   <section id="section-bar-4" class="agileits w3layouts">
                     <h4>Club</h4>
                     <div class="gallery-grids">
                         <div class="col-md-4 col-sm-4 gallery-top">
@@ -875,109 +908,109 @@ img {
                         <div class="clearfix"></div>
                     </div>
                 </section>-->
-                <!-- //Tab-4 -->
+                    <!-- //Tab-4 -->
 
+                </div>
+                <!-- //Content -->
             </div>
-            <!-- //Content -->
+            <!-- //Tabs -->
         </div>
-        <!-- //Tabs -->
-    </div>
-    <!-- //Portfolio -->
+        <!-- //Portfolio -->
 
 
 
-    <!-- copyright -->
-    <div class="copyright-agile">
-        <div class="container">
-            <h4> My Design</h4>
-            <p>© 2017 My Design. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-            <div class="clearfix"></div>
+        <!-- copyright -->
+        <div class="copyright-agile">
+            <div class="container">
+                <h4> Badminton Clubs</h4>
+                <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
+                <div class="clearfix"></div>
+            </div>
         </div>
-    </div>
-    <!-- copyright -->
+        <!-- copyright -->
 
-    <!-- js -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <!-- for bootstrap working -->
-    <script src="js/bootstrap.js"></script>
-    <!-- //for bootstrap working -->
-    <!-- //js -->
+        <!-- js -->
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <!-- for bootstrap working -->
+        <script src="js/bootstrap.js"></script>
+        <!-- //for bootstrap working -->
+        <!-- //js -->
 
-    <!-- Gallery-Tab-JavaScript -->
-    <script src="js/cbpFWTabs.js"></script>
-    <script>
-        (function() {
-            [].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) {
-                new CBPFWTabs(el);
-            });
-        })();
+        <!-- Gallery-Tab-JavaScript -->
+        <script src="js/cbpFWTabs.js"></script>
+        <script>
+            (function() {
+                [].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) {
+                    new CBPFWTabs(el);
+                });
+            })();
 
-    </script>
-    <!-- //Gallery-Tab-JavaScript -->
-    <!-- Swipe-Box-JavaScript -->
-    <script src="js/jquery.swipebox.min.js"></script>
-    <script type="text/javascript">
-        jQuery(function($) {
-            $(".swipebox").swipebox();
-        });
-
-    </script>
-    <!-- //Swipe-Box-JavaScript -->
-
-    <!-- Scrolling Nav JavaScript -->
-    <script src="js/scrolling-nav.js"></script>
-    <!-- //fixed-scroll-nav-js -->
-
-    <script src="js/index.js"></script>
-    <!-- skills bars JS FILE-->
-
-    <!-- animation effects-js files-->
-    <script src="js/aos.js"></script>
-    <!-- //animation effects-js-->
-    <script src="js/aos1.js"></script>
-    <!-- //animation effects-js-->
-    <!-- animation effects-js files-->
-
-    <!-- //here starts scrolling icon -->
-    <script src="js/SmoothScroll.min.js"></script>
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
-    <!-- here stars scrolling script -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            /*
-            	var defaults = {
-            	containerID: 'toTop', // fading element id
-            	containerHoverID: 'toTopHover', // fading element hover id
-            	scrollSpeed: 1200,
-            	easingType: 'linear' 
-            	};
-            */
-
-            $().UItoTop({
-                easingType: 'easeOutQuart'
+        </script>
+        <!-- //Gallery-Tab-JavaScript -->
+        <!-- Swipe-Box-JavaScript -->
+        <script src="js/jquery.swipebox.min.js"></script>
+        <script type="text/javascript">
+            jQuery(function($) {
+                $(".swipebox").swipebox();
             });
 
-        });
+        </script>
+        <!-- //Swipe-Box-JavaScript -->
 
-    </script>
-    <!-- //here ends scrolling script -->
-    <!-- //here ends scrolling icon -->
+        <!-- Scrolling Nav JavaScript -->
+        <script src="js/scrolling-nav.js"></script>
+        <!-- //fixed-scroll-nav-js -->
 
-    <!-- scrolling script -->
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event) {
-                event.preventDefault();
-                $('html,body').animate({
-                    scrollTop: $(this.hash).offset().top
-                }, 1000);
+        <script src="js/index.js"></script>
+        <!-- skills bars JS FILE-->
+
+        <!-- animation effects-js files-->
+        <script src="js/aos.js"></script>
+        <!-- //animation effects-js-->
+        <script src="js/aos1.js"></script>
+        <!-- //animation effects-js-->
+        <!-- animation effects-js files-->
+
+        <!-- //here starts scrolling icon -->
+        <script src="js/SmoothScroll.min.js"></script>
+        <script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>
+        <!-- here stars scrolling script -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                /*
+                	var defaults = {
+                	containerID: 'toTop', // fading element id
+                	containerHoverID: 'toTopHover', // fading element hover id
+                	scrollSpeed: 1200,
+                	easingType: 'linear' 
+                	};
+                */
+
+                $().UItoTop({
+                    easingType: 'easeOutQuart'
+                });
+
             });
-        });
 
-    </script>
-    <!-- //scrolling script -->
+        </script>
+        <!-- //here ends scrolling script -->
+        <!-- //here ends scrolling icon -->
 
-</body>
+        <!-- scrolling script -->
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event) {
+                    event.preventDefault();
+                    $('html,body').animate({
+                        scrollTop: $(this.hash).offset().top
+                    }, 1000);
+                });
+            });
+
+        </script>
+        <!-- //scrolling script -->
+
+        </body>
 
 </html>

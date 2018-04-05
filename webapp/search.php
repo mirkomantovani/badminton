@@ -158,7 +158,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <br>
                 
     <div class="portfolio" id="portfolio">
-        <h3 data-aos="zoom-in">Portfolio</h3>
+        <h3 data-aos="zoom-in">Results</h3>
 
 
 
@@ -242,86 +242,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </figure>
                             </a>
                         </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p4.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p4.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p5.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p5.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p6.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p6.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p7.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p7.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p8.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p8.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p9.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p9.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p10.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p10.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p11.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p11.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
+                       
                         <div class="clearfix"></div>
                     </div>
                 </section>
@@ -341,86 +262,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </figure>
                             </a>
                         </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p2.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p2.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p3.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p3.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p4.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p4.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p5.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p5.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p6.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p6.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p7.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p7.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p8.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p8.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/p9.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p9.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
+                       
                         <div class="clearfix"></div>
                     </div>
                 </section>
@@ -440,8 +282,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- copyright -->
     <div class="copyright-agile">
         <div class="container">
-            <h4> My Design</h4>
-            <p>© 2017 My Design. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+            <h4> Badminton Clubs</h4>
+            <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
             <div class="clearfix"></div>
         </div>
     </div>

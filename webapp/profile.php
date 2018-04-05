@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
     </form></li>
-							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
+							<li><a class="icon icon-box" href="#section-bar-3">New Tournament</a></li>
 							<li><a class="page-scroll scroll" href="#club">Club</a></li>
 							
 				
@@ -457,6 +457,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <div class="clearfix"> </div>
 		</div>
  <!-- //education -->
+    
  
  <!-- Portfolio -->
 	<div class="portfolio" id="portfolio">
@@ -465,7 +466,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="tabs tabs-style-bar">
 			<nav>
 				<ul>
-					<li><a href="#section-bar-1" class="icon icon-box"><span>Web Design</span></a></li>
+					<li><a href="#section-bar-1" class="icon icon-box"><span>ijkbkh Design</span></a></li>
 					<li><a href="#section-bar-2" class="icon icon-display"><span>Mobile Apps</span></a></li>
 					<li><a href="#section-bar-3" class="icon icon-upload"><span>UI/UX Design</span></a></li>
 					<li><a href="#section-bar-4" class="icon icon-tools"><span>Graphic Design</span></a></li>
@@ -879,12 +880,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- copyright -->
 <div class="copyright-agile">
-	<div class="container">
-		<h4> My Design</h4>
-		<p>© 2017 My Design. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-		<div class="clearfix"></div>
-	</div>
-</div>
+        <div class="container">
+            <h4> Badminton Clubs</h4>
+            <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
+            <div class="clearfix"></div>
+        </div>
+    </div>
 <!-- copyright -->
 
 <!-- js -->

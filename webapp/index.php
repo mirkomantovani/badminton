@@ -52,9 +52,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!-- banner -->
-<div class="banner" id="home">
-	<div class="agileinfo-dot">
-		<div class="container">
+<div class="" id="home">
+	<div class="-dot">
+		<div class="">
 			<!-- header -->
 		<div class="header-w3layouts"> 
 			<!-- Navigation -->
@@ -131,19 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             
 
 
-			<div class="w3_banner_info">
-				<div class="w3_banner_info_grid">
-					<h2 data-aos="fade-right">Hi, iam </h2>
-					<h2 data-aos="fade-right">Phillips Smith.</h2>
-					<h5>UI/UX Designer.</h5>
-					<p>Aenean congue vitae mauris sed tristique. Mauris quis nulla at sapien blandit.
-							Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit.</p>
-					<ul data-aos="slide-up">
-						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">Know More</a></li>
-						<li><a href="#" class="scroll w3l_contact"><i class="fa fa-download" aria-hidden="true"></i> Download CV</a></li>
-					</ul>
-				</div>
-			</div>
+			
 			<!--<div class="thim-click-to-bottom">
 				<a href="#about" class="scroll">
 					<i class="fa fa-arrows-v" aria-hidden="true"></i>
@@ -154,95 +142,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- banner -->
 
-<!-- bootstrap-modal-pop-up -->
-	<!-- modal -->
-	<div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header"> 
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						<h4 class="modal-title">About Me</h4>
-				</div> 
-				<div class="modal-body">
-					<div class="modalpad"> 
-						<div class="modalpop ">
-							<img src="images/1.jpeg" class="img-responsive" alt=""/>
-						</div>
-						<div class="about-modal wthree">
-							<h3>Hi, i'm <span>Phillips Smith</span></h3>
-							<h4>UI/UX Designer</h4>
-							<ul class="address">
-								<li>
-									<ul class="agileits-address-text ">
-										<li><b>D.O.B</b></li>
-										<li>14-08-1991</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="agileits-address-text">
-										<li><b>PHONE </b></li>
-										<li>+0(12) 000 123 3120</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="agileits-address-text">
-										<li><b>ADDRESS </b></li>
-										<li>1680 Richmond St, London, ON N6G 3Y9, Canada.</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="agileits-address-text">
-										<li><b>E-MAIL </b></li>
-										<li><a href="mailto:example@mail.com"> info@example.com</a></li>
-									</ul>
-								</li>
-								<li>
-									<ul class="agileits-address-text">
-										<li><b>WEBSITE </b></li>
-										<li><a href="#">www.mydesign.com</a></li>
-									</ul>
-								</li>
-							</ul> 
-						</div> 
-						<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	<!-- //modal -->	
-<!-- //bootstrap-modal-pop-up --> 
-
-<!-- about -->
-<div class="about" id="about">
-	<h3 data-aos="zoom-in">About me</h3>
-	<div class="col-md-6 about-left">
-		<h3 data-aos="slide-up">Hello</h3>
-		<p>Ut enim ad minima veniam, quis nostrum 
-				exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-				nisi ut aliquid ex ea commodi consequatur? Quis autem exercitationem ullam corporis suscipit laboriosam, 
-				vel eum iure reprehenderit qui in ea voluptate velit 
-				esse quam nihil molestiae consequatur, vel illum qui 
-				dolorem eum fugiat quo voluptas nulla pariatur.</p>
-		<p>Ut enim ad minima veniam, quis nostrum 
-				exercitationem ullam corporis suscipit laboriosam, 
-				nisi ut aliquid ex ea commodi consequatur? Quis autem 
-				vel eum iure reprehenderit.</p>
-		<img src="images/signature.jpg" alt="" />
-	</div>
-	<div data-aos="flip-right" class="col-md-6 about-right">
-		<img src="images/about.jpg" alt="" />
-	</div>
-	<div class="clearfix"></div>
-</div>
-<!-- //about -->
+<br><br>
 
 <!-- skills -->
 <div class="skills" id="skills">
 	<div class="container">
-				<h3 data-aos="zoom-in">Skills</h3>
+				<h3 data-aos="zoom-in">Homepage</h3>
 		<div class="skill-grids">
 			<div class="col-md-6 skill-grids-left">
+                
+                <h3 data-aos="zoom-in">New users</h3>
+                
+                
 				<div data-aos="flip-left" class="col-md-6 w3labout-img"> 
 				<div class="boxw3-agile"> 
 					<img src="images/s1.jpg" alt="" class="img-responsive" />
@@ -283,6 +194,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-md-6 skill-grids-right">
+                
+                <h3 data-aos="zoom-in">Club ranking</h3>
 					
 			<!-- Skills -->
 			<div class="skillbar clearfix " data-percent="80%">
@@ -308,6 +221,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="skillbar-bar" style="background: #146eb4;"></div>
 				<div class="skill-bar-percent">40%</div>
 			</div> <!-- End Skill Bar -->
+                
+                <div class="skillbar clearfix " data-percent="40%">
+				<div class="skillbar-title" style="background: #146eb4;"><span>PHP</span></div>
+				<div class="skillbar-bar" style="background: #146eb4;"></div>
+				<div class="skill-bar-percent">40%</div>
+			</div> <!-- End Skill Bar -->
+                
+                <div class="skillbar clearfix " data-percent="40%">
+				<div class="skillbar-title" style="background: #146eb4;"><span>PHP</span></div>
+				<div class="skillbar-bar" style="background: #146eb4;"></div>
+				<div class="skill-bar-percent">40%</div>
+			</div> <!-- End Skill Bar -->
+                
+               
 
 			<div class="skillbar clearfix " data-percent="75%">
 				<div class="skillbar-title" style="background: #11b563;"><span>Wordpress</span></div>
@@ -315,10 +242,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="skill-bar-percent">75%</div>
 			</div> <!-- End Skill Bar -->
 
-				<p class="p1">Etiam sit amet porttitor nulla. Nullam tincidunt lectus vel euismodpulvi nar. 
-					Aenean a facilisis augue, at convallis lacus. Interdum et malesuada fames ac ante
-					ipsum primis in faucibus. Praesent faucibus massa elit, vitae ultrices libero dapibus nec. 
-					Maecenas cursus rutrum odio ut convallis.</p>
 			<!-- //Skills -->
 			</div>
 			<div class="clearfix"></div>
@@ -906,12 +829,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- copyright -->
 <div class="copyright-agile">
-	<div class="container">
-		<h4> My Design</h4>
-		<p>© 2017 My Design. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-		<div class="clearfix"></div>
-	</div>
-</div>
+        <div class="container">
+            <h4> Badminton Clubs</h4>
+            <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
+            <div class="clearfix"></div>
+        </div>
+    </div>
 <!-- copyright -->
 
 <!-- js -->

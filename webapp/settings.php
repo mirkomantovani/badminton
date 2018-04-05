@@ -298,6 +298,13 @@ require('connect.php');
             </div>
         </div>
 </div>
+<div class="copyright-agile">
+        <div class="container">
+            <h4> Badminton Clubs</h4>
+            <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
+            <div class="clearfix"></div>
+        </div>
+    </div>
 
 <script>
          $(document).ready(function()
