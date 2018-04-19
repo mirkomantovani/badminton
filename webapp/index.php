@@ -15,6 +15,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         header('location: ../login/login.php');
     }
     
+require('connect.php');
+    
     
     ?>
     
@@ -198,49 +200,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h3 data-aos="zoom-in">Club ranking</h3>
 					
 			<!-- Skills -->
-			<div class="skillbar clearfix " data-percent="80%">
-				<div class="skillbar-title" style="background: #ff4f81;"><span>HTML5</span></div>
-				<div class="skillbar-bar" style="background: #ff4f81;"></div>
-				<div class="skill-bar-percent">80%</div>
-			</div> <!-- End Skill Bar -->
-
-			<div class="skillbar clearfix " data-percent="75%">
-				<div class="skillbar-title" style="background: #ff9900;"><span>CSS3</span></div>
-				<div class="skillbar-bar" style="background: #ff9900;"></div>
-				<div class="skill-bar-percent">75%</div>
-			</div> <!-- End Skill Bar -->
-
-			<div class="skillbar clearfix " data-percent="60%">
-				<div class="skillbar-title" style="background: #8e43e7;"><span>jQuery</span></div>
-				<div class="skillbar-bar" style="background: #8e43e7;"></div>
-				<div class="skill-bar-percent">60%</div>
-			</div> <!-- End Skill Bar -->
-
-			<div class="skillbar clearfix " data-percent="40%">
-				<div class="skillbar-title" style="background: #146eb4;"><span>PHP</span></div>
-				<div class="skillbar-bar" style="background: #146eb4;"></div>
-				<div class="skill-bar-percent">40%</div>
-			</div> <!-- End Skill Bar -->
+                <?
                 
-                <div class="skillbar clearfix " data-percent="40%">
-				<div class="skillbar-title" style="background: #146eb4;"><span>PHP</span></div>
-				<div class="skillbar-bar" style="background: #146eb4;"></div>
-				<div class="skill-bar-percent">40%</div>
-			</div> <!-- End Skill Bar -->
-                
-                <div class="skillbar clearfix " data-percent="40%">
-				<div class="skillbar-title" style="background: #146eb4;"><span>PHP</span></div>
-				<div class="skillbar-bar" style="background: #146eb4;"></div>
-				<div class="skill-bar-percent">40%</div>
-			</div> <!-- End Skill Bar -->
-                
+                $query="SElECT score FROM club ORDER BY score desc limit 1";
+                $m=mysqli_query($connection,$query);
+                $maxscore=0;
+                while($row = mysqli_fetch_assoc($m)) {
+    $maxscore=$row['score'];
+    }
                
+                
+                $query="SElECT * FROM club ORDER BY score desc limit 7";
+                $result=mysqli_query($connection,$query);
+                
+              
+                while($row = $result->fetch_assoc()) {
+                    
+                    $s=($row['score']/$maxscore)*100;
+            
+     		echo '<div class="skillbar clearfix " data-percent="'.$s.'%">
+				<div class="skillbar-title" style="background: '.$row['color'].';"><span>'.$row['name'].'</span></div>
+				<div class="skillbar-bar" style="background: '.$row['color'].';"></div>
+				<div class="skill-bar-percent">'.$row['score'].'</div>
+			</div>';
+                }
 
-			<div class="skillbar clearfix " data-percent="75%">
-				<div class="skillbar-title" style="background: #11b563;"><span>Wordpress</span></div>
-				<div class="skillbar-bar" style="background: #11b563;"></div>
-				<div class="skill-bar-percent">75%</div>
-			</div> <!-- End Skill Bar -->
+                
+                ?>
+			 
 
 			<!-- //Skills -->
 			</div>

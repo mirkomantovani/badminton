@@ -164,14 +164,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div style="float:right; margin-top:7%" class="col-md-6 skill-grids-left">
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
-                                
-                                
+
                                 <img src="images/insertlogo.png" alt="" class="img-responsive" />
                                 <div class="agile-caption">
-                                   <form action="upload.php" method="post" enctype="multipart/form-data">
-                                    <input type="file" name="fileToUpload" id="fileToUpload">
-                                    <input type="submit" value="Upload Image" name="submit">
-                                </form>
+                                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                                        <input type="file" name="fileToUpload" id="fileToUpload">
+                                        <input type="submit" value="Upload Image" name="submit">
+                                    </form>
                                 </div>
                             </div>
                         </div>
