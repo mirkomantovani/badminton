@@ -90,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- banner -->
         <div class="banner" id="home">
-            
+
             <div class="agileinfo-dot">
                 <div class="container">
                     <!-- header -->
@@ -130,9 +130,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <li>
                                         <div class="dropdown">
-                                            <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<? echo $userimg;  ?>" style=" border-radius: 50%!important;" />
-   
-  </a>
+                                            <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <!--<div name="img">
+                                                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                                                        <input type="file" name="fileToUpload" id="fileToUpload">
+                                                        <input type="submit" value="Upload Image" name="submit">
+                                                    </form>
+                                                    <img src="<? echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>-->
+
+                                            </a>
                                             <div class="dropdown-content">
 
                                                 <a class="dropdown-item" href="myprofile.php">My Profile</a>
@@ -152,16 +158,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <!-- //header -->
 
- 
- 
-                       
-                          <div style="float:right; margin-top:7%" class="col-md-6 skill-grids-left">
+
+
+
+                    <div style="float:right; margin-top:7%" class="col-md-6 skill-grids-left">
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
-                                <img src="images/s1.jpg" alt="" class="img-responsive" />
+                                
+                                
+                                <img src="images/insertlogo.png" alt="" class="img-responsive" />
                                 <div class="agile-caption">
-                                    <h3>CLUB</h3>
-                                    <p>Lorem ipsum dolor sit amet.</p>
+                                   <form action="upload.php" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="fileToUpload" id="fileToUpload">
+                                    <input type="submit" value="Upload Image" name="submit">
+                                </form>
                                 </div>
                             </div>
                         </div>
@@ -241,8 +251,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </ul>
                             </div>
                         </div>
-                        
-        
+
+
 
                     </div>
                     <!--<div class="thim-click-to-bottom">
@@ -402,64 +412,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Tournament</h4>
                     </div>
-                    <div class="modal-body">
-                        <div class="modalpad">
-                            <!-- <div class="modalpop ">
+                    <form action="newtournament.php">
+                        <div class="modal-body">
+                            <div class="modalpad">
+                                <!-- <div class="modalpop ">
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
-                            <div class="about-modal wthree">
-                                <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
-                                <input type=text placeholder="Name" value="">
+                                <div class="about-modal wthree">
+                                    <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
+                                    <input type=text placeholder="Name" value="">
 
-                                <!--<h4>UI/UX Designer</h4>-->
-                                <ul class="address">
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
 
-                                    <li>
-                                        <ul class="agileits-address-text">
-                                            <li><b>DESCRIPTION </b></li>
-                                            <li>
-                                                <input type="text">
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul class="agileits-address-text">
-                                            <li><b>GENDER </b></li>
-                                            <li>
-                                                <select>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                    <input type="text" name="tournament">
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>GENDER </b></li>
+                                                <li>
+                                                    <select>
                                             <option>Male</option>
                                             <option>Female</option>
                                             </select>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul class="agileits-address-text">
-                                            <li><b>TYPE </b></li>
-                                            <li>
-                                                <select>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>TYPE </b></li>
+                                                <li>
+                                                    <select>
                                             <option>Single</option>
                                             <option>Double</option>
                                             </select>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul class="agileits-address-text">
-                                            <li><b>PARTECIPANTS </b></li>
-                                            <li> <input type="number" name="quantity" min="2" max="500" style="width:130%;"></li>
-                                            <!-- mettere club in db -->
-                                        </ul>
-                                    </li>
-                                </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>PARTECIPANTS </b></li>
+                                                <li> <input type="number" name="quantity" min="2" max="500" style="width:130%;" name="partecipants"></li>
+                                                <!-- mettere club in db -->
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    <input type="button" class="btn btn-success" value="Create">
+                                </center>
                             </div>
-                            <div class="clearfix">
-                            </div>
-                            <center>
-                                <input type="button" class="btn btn-success" value="Create">
-                            </center>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -473,56 +485,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="modal-body">
                         <div class="modalpad">
-                            <form  action="createclub.php" method="get" id="club">
-                            <!-- <div class="modalpop ">
+                            <form action="createclub.php" method="get" id="club">
+                                <!-- <div class="modalpop ">
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
-                            <div class="about-modal wthree">
-                                <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
-                                
-                                <input type=text placeholder="Name"  name="name"value="">
+                                <div class="about-modal wthree">
+                                    <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
 
-                                <!--<h4>UI/UX Designer</h4>-->
-                                <ul class="address">
+                                    <input type=text placeholder="Name" name="name" value="">
 
-                                    <li>
-                                        <ul class="agileits-address-text">
-                                            <li><b>DESCRIPTION </b></li>
-                                            <li>
-                                                <input type="text" name="desc">
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
 
-                                    <li>
-                                        <ul class="agileits-address-text">
-                                            <li><b>TYPE </b></li>
-                                            <li>
-                                                <select name="type" form="club">
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                    <input type="text" name="desc">
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>TYPE </b></li>
+                                                <li>
+                                                    <select name="type" form="club">
                                             <option>Aperto</option>
                                             <option>Su invito</option>
                                             </select>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul class="agileits-address-text">
-                                            <li><b>PARTECIPANTS </b></li>
-                                            <li> 50</li>
-                                            <!-- mettere club in db -->
-                                        </ul>
-                                    </li>
-                                    <li><input name="color" type="color" id="myColor">
-                                    </li>
-                                </ul>
-                                    
-                            </div>
-                            <div class="clearfix">
-                            </div>
-                            <center>
-                                <input type="submit" class="btn btn-success" value="Create">
-                            </center>
-                                </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>PARTECIPANTS </b></li>
+                                                <li> 50</li>
+                                                <!-- mettere club in db -->
+                                            </ul>
+                                        </li>
+                                        <li><input name="color" type="color" id="myColor">
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    <input type="submit" class="btn btn-success" value="Create">
+                                </center>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -537,7 +549,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="container">
                 <h3 data-aos="zoom-in">Skills</h3>
                 <div class="skill-grids">
-                     <div class="col-md-6 skill-grids-left">
+                    <div class="col-md-6 skill-grids-left">
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
                                 <img src="images/s1.jpg" alt="" class="img-responsive" />
@@ -624,7 +636,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <!-- //skills -->
 
-        
+
 
         <!-- Portfolio -->
         <div class="portfolio" id="portfolio">
