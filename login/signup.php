@@ -104,7 +104,7 @@ require ('connect.php');
                 unset($_POST);
                // header("Location: ".$_SERVER['PHP_SELF']."?dataNull");
             }else{
-            	$query = "INSERT INTO users (email, name,surname,birth,psw,user_age) VALUES ('$email', '$nome', '$cognome', '$nascita','$pwd','$age')";
+            	$query = "INSERT INTO users (email, name,surname,birth,psw,registration_date) VALUES ('$email', '$nome', '$cognome', '$nascita','$pwd','$age')";
                 $result = mysqli_query($connection, $query);
                
                 

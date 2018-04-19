@@ -44,7 +44,7 @@ if ($uploadOk == 0) {
         $query="UPDATE users set user_avatar='".$target_file."' where email='".$_SESSION['email']."'";
         $result=mysqli_query($connection,$query);
         
-        header("location: settings.php")
+        header("location: settings.php");
         
     } else {
         echo "Sorry, there was an error uploading your file.";

@@ -155,6 +155,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 
                 <h3 data-aos="zoom-in">New users</h3>
                 
+                  <?
+                
+                $query="SElECT * FROM users ORDER BY registration_date desc limit 4";
+                $result=mysqli_query($connection,$query);
+                
+                $i=0;
+                $aos="";
+                while($row = $result->fetch_assoc()) { 
+                    if($i%2==0)
+                        $aos="flip-left";
+                    else
+                        $aos="flip-right";
+                    
+                    if($i==3)
+                        echo '<div class="clearfix"></div>';
+                
+            
+     		echo '<div data-aos="'.$aos.'" class="col-md-6 w3labout-img"> 
+				<div class="boxw3-agile"> 
+					<img src="'.$row['user_avatar'].'" alt="" class="img-responsive" />
+					<div class="agile-caption">
+						<h3>'.$row['name']." ".$row['surname'].'</h3>
+						
+					</div> 
+				</div>
+				</div>';
+                    
+                    $i++;
+                }
+
+                
+                ?>
+			 
                 
 				<div data-aos="flip-left" class="col-md-6 w3labout-img"> 
 				<div class="boxw3-agile"> 
