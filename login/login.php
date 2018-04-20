@@ -94,11 +94,20 @@
         $email = $_POST['email'];
         $pwd = md5($_POST['pwd']);
         $risul = mysqli_query($connection, 'select * from users where email="' . $email . '" and psw ="' . $pwd . '"');
+       
         if (mysqli_num_rows($risul) == 1) { 
             
             $_SESSION['email'] = $email;
             $_SESSION['row'] = $risul->fetch_assoc();
             
+            $ris = mysqli_query($connection, 'select * from userimages where user="'.$email.'"');
+       
+        if (mysqli_num_rows($ris) == 1) { 
+            
+            $_SESSION['userimages'] = $ris->fetch_assoc();
+            
+        }
+                  
             header('Location: ../webapp/');
             
         } else {
@@ -106,6 +115,8 @@
             header("Location: ".$_SERVER['PHP_SELF']."?invalidLogin");
         }
               } 
+    
+
     
     ?>
     

@@ -3,7 +3,7 @@ session_start();
 require("connect.php");
 
 $previous = $_SERVER['HTTP_REFERER'];
-
+$imgnumber=$_POST['imgnumber'];
 $target_dir = "uploads/".$_SESSION['email'];
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
@@ -44,13 +44,16 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         
-        $query="UPDATE users set user_avatar='".$target_file."' where email='".$_SESSION['email']."'";
+        
+        
+        $query="UPDATE userimages set img".$imgnumber."='".$target_file."' where user='".$_SESSION['email']."'";
+        echo $query;
         $result=mysqli_query($connection,$query);
         
-        //inserting into user_avatar variable in session imgname
-        $_SESSION['row']['user_avatar']=$target_file;
         
-        header("location: ".$previous);
+         //inserting into user_avatar variable in session imgname
+        $_SESSION['userimage']['img'.$imgnumber]=$target_file;
+      //  header("Location: ".$_SERVER['PHP_SELF']);
         
     } else {
         echo "Sorry, there was an error uploading your file.";

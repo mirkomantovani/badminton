@@ -106,6 +106,11 @@ require ('connect.php');
             }else{
             	$query = "INSERT INTO users (email, name,surname,birth,psw,registration_date) VALUES ('$email', '$nome', '$cognome', '$nascita','$pwd','$age')";
                 $result = mysqli_query($connection, $query);
+                
+                $query = "INSERT INTO userimages (user) VALUES ('$email')";
+                $r = mysqli_query($connection, $query);
+                
+                
                
                 
                 //header('Location: http://badmintonclubs.altervista.org/login.php');

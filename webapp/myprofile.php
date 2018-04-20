@@ -38,8 +38,13 @@ $row = $_SESSION['row'];
              $gender=$row['gender'];
              $birth=$row['birth'];
              $userimg=$row['user_avatar'];
-
-
+    
+$userimages = $_SESSION['userimages'];
+$img1=$userimages['img1'];
+$img2=$userimages['img2'];   
+$img3=$userimages['img3'];   
+$img4=$userimages['img4'];   
+    
 ?>
         <link rel="icon" type="image/png" href="../login/img/volano.png" />
         <title>
@@ -48,6 +53,7 @@ $row = $_SESSION['row'];
         <!-- <? //echo $name." ".$surname ?> ???-->
         <!-- custom-theme -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="My Design Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -131,12 +137,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <li>
                                         <div class="dropdown">
                                             <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <!--<div name="img">
-                                                    <form action="upload.php" method="post" enctype="multipart/form-data">
-                                                        <input type="file" name="fileToUpload" id="fileToUpload">
-                                                        <input type="submit" value="Upload Image" name="submit">
-                                                    </form>
-                                                    <img src="<? echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>-->
+                                                <!--commento-->
+                                                <div name="img">
+
+                                                    <img src="<? echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
 
                                             </a>
                                             <div class="dropdown-content">
@@ -165,45 +169,115 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
 
-                                <img src="images/insertlogo.png" alt="" class="img-responsive" />
+                                <img src="<? echo $img1; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
-                                    <form action="upload.php" method="post" enctype="multipart/form-data">
-                                        <input type="file" name="fileToUpload" id="fileToUpload">
+                                    <form action="uploadimage.php" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="1" name="imgnumber">
+                                        <input type="file" class="fileToUpload" name="fileToUpload" id="fileToUpload">
+                                        <label for="fileToUpload" class="lbl">Select image</label>
                                         <input type="submit" value="Upload Image" name="submit">
+
+                                        <script>
+                                            var input = document.querySelector('.fileToUpload');
+                                            input.style.opacity = 0;
+
+                                        </script>
+
+
                                     </form>
                                 </div>
                             </div>
                         </div>
                         <div data-aos="flip-right" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
-                                <img src="images/s2.jpg" alt="" class="img-responsive" />
+                                <img src="<? echo $img2; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
-                                    <h3>Tournaments history</h3>
-                                    <p>Lorem ipsum dolor sit amet.</p>
+                                    <form action="uploadimage.php" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="1" name="imgnumber">
+                                        <input type="file" class="fileToUpload1" name="fileToUpload" id="fileToUpload">
+                                        <label for="fileToUpload" class="lbl">Select image</label>
+                                        <input type="submit" value="Upload Image" name="submit">
+
+                                        <script>
+                                            var input = document.querySelector('.fileToUpload1');
+                                            input.style.opacity = 0;
+
+                                        </script>
+
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
-                                <img src="images/s3.jpg" alt="" class="img-responsive" />
+                                <img src="<? echo $img3; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
-                                    <h3>Jquery</h3>
-                                    <p>Lorem ipsum dolor sit amet.</p>
+                                    <form action="uploadimage.php" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="1" name="imgnumber">
+                                        <input type="file" class="fileToUpload2" name="fileToUpload" id="fileToUpload">
+                                        <label for="fileToUpload" class="lbl">Select image</label>
+                                        <input type="submit" value="Upload Image" name="submit">
+
+                                        <script>
+                                            var input = document.querySelector('.fileToUpload2');
+                                            input.style.opacity = 0;
+
+                                        </script>
+
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
                         <div data-aos="flip-right" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
-                                <img src="images/s4.jpg" alt="" class="img-responsive" />
+                                <img src="<? echo $img4; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
-                                    <h3>JavaScript</h3>
-                                    <p>Lorem ipsum dolor sit amet.</p>
+                                    <form action="uploadimage.php" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" value="1" name="imgnumber">
+                                        <input type="file" class="fileToUpload3" name="fileToUpload" id="fileToUpload">
+                                        <label for="fileToUpload" class="lbl">Select image</label>
+                                        <input type="submit" value="Upload Image" name="submit">
+
+
+                                        <script>
+                                            var input = document.querySelector('.fileToUpload3');
+                                            input.style.opacity = 0;
+
+                                        </script>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
+
+                        <style>
+                            .lbl {
+                                background-color: #7F9CCB;
+                                padding: 5px 10px;
+                                border-radius: 5px;
+                                border: 1px ridge black;
+                                font-size: 0.8rem;
+                                height: auto;
+                            }
+
+                            .lbl:hover {
+                                background-color: #2D5BA3;
+                                color: white;
+                            }
+
+                            .lbl:active {
+                                background-color: #0D3F8F;
+                                color: white;
+                            }
+
+                        </style>
                     </div>
+
+
 
 
 
@@ -232,7 +306,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             </style>
                             <div class="imm">
+                                <form action="upload.php" method="post" id='autouploadform' enctype="multipart/form-data">
+                                    <input type="file" name="fileToUpload" id="fup">
+                                    <label for="fup">
                                 <img class="rounded-circle img-fluid d-block mx-auto" src="<? echo $userimg;  ?>">
+                                </label>
+                                    <script>
+                                        var input = document.querySelector('#fup');
+                                        input.style.opacity = 0;
+                                        document.getElementById("fup").onchange = function() {
+                                            document.getElementById("autouploadform").submit();
+                                        };
+
+                                    </script>
+                                </form>
                             </div>
                             <div class="w3_banner_info_grid">
 
