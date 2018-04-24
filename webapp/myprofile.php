@@ -193,9 +193,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <img src="<? echo $img2; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" value="1" name="imgnumber">
-                                        <input type="file" class="fileToUpload1" name="fileToUpload" id="fileToUpload">
-                                        <label for="fileToUpload" class="lbl">Select image</label>
+                                        <input type="hidden" value="2" name="imgnumber">
+                                        <input type="file" class="fileToUpload1" name="fileToUpload" id="fileToUpload1">
+                                        <label for="fileToUpload1" class="lbl">Select image</label>
                                         <input type="submit" value="Upload Image" name="submit">
 
                                         <script>
@@ -215,9 +215,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <img src="<? echo $img3; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" value="1" name="imgnumber">
-                                        <input type="file" class="fileToUpload2" name="fileToUpload" id="fileToUpload">
-                                        <label for="fileToUpload" class="lbl">Select image</label>
+                                        <input type="hidden" value="3" name="imgnumber">
+                                        <input type="file" class="fileToUpload2" name="fileToUpload" id="fileToUpload2">
+                                        <label for="fileToUpload2" class="lbl">Select image</label>
                                         <input type="submit" value="Upload Image" name="submit">
 
                                         <script>
@@ -236,9 +236,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <img src="<? echo $img4; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" value="1" name="imgnumber">
-                                        <input type="file" class="fileToUpload3" name="fileToUpload" id="fileToUpload">
-                                        <label for="fileToUpload" class="lbl">Select image</label>
+                                        <input type="hidden" value="4" name="imgnumber">
+                                        <input type="file" class="fileToUpload3" name="fileToUpload" id="fileToUpload3">
+                                        <label for="fileToUpload3" class="lbl">Select image</label>
                                         <input type="submit" value="Upload Image" name="submit">
 
 
@@ -506,7 +506,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>-->
                                 <div class="about-modal wthree">
                                     <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
-                                    <input type=text placeholder="Name" value="">
+                                    <input type=text placeholder="Name" value="" name="name">
 
                                     <!--<h4>UI/UX Designer</h4>-->
                                     <ul class="address">
@@ -515,7 +515,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <ul class="agileits-address-text">
                                                 <li><b>DESCRIPTION </b></li>
                                                 <li>
-                                                    <input type="text" name="tournament">
+                                                    <input type="text" name="desc">
                                                 </li>
                                             </ul>
                                         </li>
@@ -523,9 +523,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <ul class="agileits-address-text">
                                                 <li><b>GENDER </b></li>
                                                 <li>
-                                                    <select>
+                                                    <select name="sex">
                                             <option>Male</option>
                                             <option>Female</option>
+                                             <option>Mixed</option>
                                             </select>
                                                 </li>
                                             </ul>
@@ -534,7 +535,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <ul class="agileits-address-text">
                                                 <li><b>TYPE </b></li>
                                                 <li>
-                                                    <select>
+                                                    <select name="sd">
                                             <option>Single</option>
                                             <option>Double</option>
                                             </select>
@@ -544,17 +545,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <li>
                                             <ul class="agileits-address-text">
                                                 <li><b>PARTECIPANTS </b></li>
-                                                <li> <input type="number" name="quantity" min="2" max="500" style="width:130%;" name="partecipants"></li>
+                                                <li>  <select name="participants">
+                                            <option>2</option>
+                                            <option>4</option>
+                                            <option>8</option>
+                                            <option>16</option>
+                                            <option>32</option>
+                                            </select></li>
                                                 <!-- mettere club in db -->
                                             </ul>
                                         </li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="clearfix">
                                 </div>
                                 <center>
-                                    <input type="button" class="btn btn-success" value="Create">
+                                    <input type="submit" class="btn btn-success" value="Create">
                                 </center>
+                                
                             </div>
                         </div>
                     </form>
@@ -864,9 +873,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       if ($friends->num_rows > 0) {
         while($row = $friends->fetch_assoc()) {
      		 echo '<div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p1.jpg" class="swipebox">
+                                
                                     <figure class="effect-bubba">
-                                        <img src="images/p'.rand(1,13).'.jpg" alt="" class="img-responsive">
+                                        <img src="'.$row['user_avatar'].'" alt="" class="img-responsive">
                                         <figcaption>
 
                                             <h4>
@@ -875,11 +884,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </h4>
                                         </figcaption>
                                     </figure>
-                                </a>
                             </div>';
         }
     } else {
-        echo "<p style='text-align:center'>You don't have any friend requests</p>";
+        echo "<p style='text-align:center'>You don't have any friends</p>";
     }
 
     ?>

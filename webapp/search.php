@@ -201,9 +201,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       if ($friends->num_rows > 0) {
         while($row = $friends->fetch_assoc()) {
      		 echo '<div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p1.jpg" class="swipebox">
+                                
                                     <figure class="effect-bubba">
-                                        <img src="images/p'.rand(1,13).'.jpg" alt="" class="img-responsive">
+                                        <img src="'.$row['user_avatar'].'" alt="" class="img-responsive">
                                         <figcaption>
 
                                             <h4>
@@ -212,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </h4>
                                         </figcaption>
                                     </figure>
-                                </a>
+                                
                             </div>';
         }
     } else {

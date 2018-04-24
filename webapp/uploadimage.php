@@ -52,8 +52,8 @@ if ($uploadOk == 0) {
         
         
          //inserting into user_avatar variable in session imgname
-        $_SESSION['userimage']['img'.$imgnumber]=$target_file;
-      //  header("Location: ".$_SERVER['PHP_SELF']);
+        $_SESSION['userimages']['img'.$imgnumber]=$target_file;
+        header("Location: ".$previous);
         
     } else {
         echo "Sorry, there was an error uploading your file.";

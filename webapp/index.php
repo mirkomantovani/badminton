@@ -168,16 +168,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     else
                         $aos="flip-right";
                     
-                    if($i==3)
+                    if($i==2)
                         echo '<div class="clearfix"></div>';
                 
             
      		echo '<div data-aos="'.$aos.'" class="col-md-6 w3labout-img"> 
 				<div class="boxw3-agile"> 
-					<img src="'.$row['user_avatar'].'" alt="" class="img-responsive" />
+					
+						<a href="profile.php?user='.$row['email'].'">
+                        <img src="'.$row['user_avatar'].'" alt="" class="img-responsive" />
 					<div class="agile-caption">
 						<h3>'.$row['name']." ".$row['surname'].'</h3>
-						
+                                                </a>
 					</div> 
 				</div>
 				</div>';
@@ -189,43 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 ?>
 			 
                 
-				<div data-aos="flip-left" class="col-md-6 w3labout-img"> 
-				<div class="boxw3-agile"> 
-					<img src="images/s1.jpg" alt="" class="img-responsive" />
-					<div class="agile-caption">
-						<h3>Html5</h3>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div> 
-				</div>
-				</div>
-				<div data-aos="flip-right" class="col-md-6 w3labout-img"> 
-				<div class="boxw3-agile"> 
-					<img src="images/s2.jpg" alt="" class="img-responsive" />
-					<div class="agile-caption">
-						<h3>Php</h3>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div> 
-				</div>
-				</div>
-				<div class="clearfix"></div>
-				<div  data-aos="flip-left" class="col-md-6 w3labout-img"> 
-				<div class="boxw3-agile"> 
-					<img src="images/s3.jpg" alt="" class="img-responsive" />
-					<div class="agile-caption">
-						<h3>Jquery</h3>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div> 
-				</div>
-				</div>
-				<div data-aos="flip-right" class="col-md-6 w3labout-img"> 
-				<div class="boxw3-agile"> 
-					<img src="images/s4.jpg" alt="" class="img-responsive" />
-					<div class="agile-caption">
-						<h3>JavaScript</h3>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div> 
-				</div>
-				</div>
+				
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-md-6 skill-grids-right">
@@ -781,71 +747,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div><!-- //Tabs -->
 </div>
 <!-- //Portfolio -->
-
-<!-- contact -->
-<div class="contact" id="contact">
-	<div class="container">
-		<div class="col-md-6 contact-left">
-			<h3 data-aos="zoom-in" >contact me</h3>
-				<p>Lorem ipsum primis in faucibus. Praesent faucibus massa elit, vitae ultrices libero dapibus nec. 
-					Maecenas cursus rutrum odio ut convallis. Curabitur viverra est in diam tincidunt, nec tincidunt tortor dapibus.</p>
-			<form action="#" method="post">
-					<div class="col-md-6 agileits_agile_about_mail_left">
-						<input type="text" name="Name" placeholder="Name" required="">
-						<input type="text" name="Subject" placeholder="Company Name" required="">
-					</div>
-					<div class="col-md-6 agileits_agile_about_mail_left">
-						<input type="email" name="Email" placeholder="Email" required="">
-						<input type="text" name="Phone" placeholder="Phone" required="">
-					</div>
-				<div class="clearfix"> </div>
-				<textarea name="Message" placeholder="Message..." required=""></textarea>
-				<input type="submit" value="Submit">
-			</form>
-		</div>
-		<div class="col-md-6 contact-right">
-			<div data-aos="flip-down" class="col-md-6 contactright1">
-			<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-			<h4>Location</h4>
-			<p>1680 Richmond St, London, ON N6G 3Y9, Canada</p>
-			</div>
-			<div data-aos="flip-down" class="col-md-6 contactright1">
-			<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-			<h4>Phone</h4>
-			<p>+0(12) 000 123 3120</p>
-			<p>+0(12) 000 123 3121</p>
-			</div>
-			<div class="clearfix"></div>
-			<div data-aos="flip-up"class="col-md-6 contactright1">
-			<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-			<h4>Support</h4>
-			<p><a href="mailto:info@example.com">info@support.com</a></p>
-			</div>
-			<div data-aos="flip-up" class="col-md-6 contactright1">
-			<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-			<h4>Mail</h4>
-			<p><a href="mailto:info@example.com">info@example.com</a></p>
-			<p><a href="mailto:info@example.com">info@example1.com</a></p>
-			</div>
-			<div class="clearfix"></div>
-			<ul class="top-links">
-				<li data-aos="flip-right"><a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li data-aos="flip-right"><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li data-aos="flip-right"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-				<li data-aos="flip-right"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-			</ul>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
-<!-- //contact -->
-
-<!-- map -->
-<div class="map">
-	<h3 data-aos="zoom-in" >Locate Me</h3>
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2916.728658933401!2d-81.28171468446989!3d43.026098179147766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882eee436c9b672f%3A0xbb99862bef7c6ace!2s1680+Richmond+St%2C+London%2C+ON+N6G+3Y9%2C+Canada!5e0!3m2!1sen!2sin!4v1496125001525"></iframe>
-</div>
-<!-- //map -->
 
 <!-- copyright -->
 <div class="copyright-agile">
