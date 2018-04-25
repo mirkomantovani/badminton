@@ -17,7 +17,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
 require('connect.php');
     
-    
+    $row = $_SESSION['row'];   
+           
+             $email=$row['email'];
+             $name=$row['name'];
+             $surname=$row['surname'];
+             $bio=$row['user_shortbio'];
+             $country=$row['user_country'];
+             $gender=$row['gender'];
+             $birth=$row['birth'];
+             $userimg=$row['user_avatar'];
     ?>
     
     
@@ -46,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
 
-<!-- googlefonts
+<!-- googlefonts-->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic,latin-ext" rel="stylesheet">
 <!-- //googlefonts -->
@@ -58,77 +67,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="-dot">
 		<div class="">
 			<!-- header -->
-		<div class="header-w3layouts"> 
-			<!-- Navigation -->
-			<nav class="navbar navbar-default navbar-fixed-top"> 
-					<div class="navbar-header page-scroll">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		<div class="header-w3layouts">
+                        <!-- Navigation -->
+                        <nav class="navbar navbar-default navbar-fixed-top">
+                            <div class="navbar-header page-scroll">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 							<span class="sr-only">My_Profile</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<h1><a class="navbar-brand" href="index.html">Badminton Clubs</a></h1>
-					</div> 
-                
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse navbar-ex1-collapse">
-						<ul class="nav navbar-nav navbar-right cl-effect-15">
-							<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-							<li class="hidden"><a class="page-scroll" href="#page-top"></a>	</li>
-                            <li><!--<form class="form-inline my-2 my-lg-0">
+                                <h1><a class="navbar-brand" href="index.php">Badminton Clubs</a></h1>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                                <ul class="nav navbar-nav navbar-right cl-effect-15">
+                                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                                    <li class="hidden"><a class="page-scroll" href="#page-top"></a> </li>
+                                    <li>
+                                        <!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
-        </form>-->  <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
-    </form></li>
-							<li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
-							<li><a class="page-scroll scroll" href="#club">Club</a></li>
-                          
-						<li><a href="#"  data-toggle="modal" data-target="#myModal">Notifications</a></li>
-				
-							<!--  <li><a class="page-scroll scroll" href="#skills">Friends</a></li>
-							<ul >
-              <li><a href="#" class="page-scroll scroll dropdown-menu">Drop fgdfg 1</a></li>
-              <li><a href="#" class="page-scroll scroll dropdown-menu">Drop Down 3</a></li>
-             
-                                  
-                            </ul>
-                                       <li>
-                            <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" color:white;"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications</a>
-  <div class="dropdown-content">
-    
-        <!--  <a class="dropdown-item" href="myprofile.php">My Profile</a>
-          <a class="dropdown-item" href="settings.php">Settings</a>
-          <a class="dropdown-item" href="../login/logout.php">Logout</a>
-      
-  </div>
-</div>
-                                </li>-->
-                            <li>
-                            <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
-   
-  </a>
-  <div class="dropdown-content">
-    
-          <a class="dropdown-item" href="myprofile.php">My Profile</a>
-          <a class="dropdown-item" href="settings.php">Settings</a>
-          <a class="dropdown-item" href="../login/logout.php">Logout</a>
-      
-  </div>
-</div>
-                                </li>
-                       
-                           
-						</ul>
-					</div>
-					<!-- /.navbar-collapse -->
-				<!-- /.container -->
-			</nav> 
-		</div>	
+        </form>-->
+                                        <form action='search.php' method="get" class="form-inline my-2 my-lg-0">
+                                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" aria-label="Search">
+                                            <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+                                        </form>
+                                    </li>
+                                    <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
+                                    <!--<li><a class="page-scroll scroll" href="#club">Club</a></li>-->
+                                    <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>
+
+                                    <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
+
+                                    <li>
+                                        <div class="dropdown">
+                                            <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <!--commento-->
+                                                <div name="img">
+
+                                                    <img src="<? echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
+
+                                            </a>
+                                            <div class="dropdown-content">
+
+                                                <a class="dropdown-item" href="myprofile.php">My Profile</a>
+                                                <a class="dropdown-item" href="settings.php">Settings</a>
+                                                <a class="dropdown-item" href="../login/logout.php">Logout</a>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                            <!-- /.container -->
+                        </nav>
+                    </div>
 		<!-- //header -->
             
 
