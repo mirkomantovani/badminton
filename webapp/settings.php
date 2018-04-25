@@ -194,6 +194,7 @@ require('connect.php');
                 
                 
             </div>
+            
    <div class="col-md-9  admin-content" id="settings">
                 <div class="panel panel-info" style="margin: 1em;">
                     <div class="panel-heading">
@@ -294,6 +295,74 @@ require('connect.php');
             </div>
         </div>
 </div>
+<br><br><br><br><br><br><br><br><br>
+     <!-- modal -->
+        <div class="modal about-modal fade" id="requests" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Friend Requests</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+
+                            <style>
+                                #blacktext {
+                                    color: black;
+                                }
+
+                            </style>
+                            <?
+    
+    $sql = "SELECT * FROM friendrequest JOIN users on id1=email where id2='".$email."'";
+    $result = mysqli_query($connection, $sql);
+      
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+     		 echo "<div class='about-modal wthree'>
+                            <h3> <span><a href='profile.php?user=" .$row['id1']."'>".$row['name']." ".$row['surname']."</span></h3>
+                            <!--<h4>UI/UX Designer</h4>-->
+                            <ul class='address'>
+                                <li>
+                                    <ul class='agileits-address-text'>
+
+                                      <li><a href='acceptrequest.php?user=" .$row['id1']."' value='Accept'>Accept</li>
+                                      <li><a href='declinerequest.php?user=" .$row['id1']."' value='Decline'>Decline</li>
+
+
+                                      
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>";
+        }
+    } else {
+        echo "<p style='text-align:center'>You don't have any friend requests</p>";
+    }
+    
+           
+                        ?>
+                                <!--    <li>
+                                            <form action='acceptrequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Accept</button><input type='hidden' name='user' value='".$row['id1']."'>
+                                            </form>
+                                        </li>
+
+  <li>
+                                            <form action='declinerequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Decline</button><input type='hidden' name='user' value='".$row['id1']."'>
+                                            </form>
+                                        </li>-->
+
+
+
+                                <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //modal -->
 
 <div class="copyright-agile">
         <div class="container">
