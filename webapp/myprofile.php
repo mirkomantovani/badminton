@@ -8,7 +8,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-    <? session_start();
+    <?php 
+    session_start();
     include 'ChromePhp.php';
     
             require('connect.php');
@@ -48,9 +49,9 @@ $img4=$userimages['img4'];
 ?>
         <link rel="icon" type="image/png" href="../login/img/volano.png" />
         <title>
-            <? echo $name." ".$surname ?>
+            <?php echo $name." ".$surname ?>
         </title>
-        <!-- <? //echo $name." ".$surname ?> ???-->
+        <!-- <?php //echo $name." ".$surname ?> ???-->
         <!-- custom-theme -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -140,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <!--commento-->
                                                 <div name="img">
 
-                                                    <img src="<? echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
+                                                    <img src="<?php echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
 
                                             </a>
                                             <div class="dropdown-content">
@@ -169,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
 
-                                <img src="<? echo $img1; ?>" alt="" class="img-responsive" />
+                                <img src="<?php echo $img1; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" value="1" name="imgnumber">
@@ -190,7 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div data-aos="flip-right" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
-                                <img src="<? echo $img2; ?>" alt="" class="img-responsive" />
+                                <img src="<?php echo $img2; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" value="2" name="imgnumber">
@@ -212,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="clearfix"></div>
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
-                                <img src="<? echo $img3; ?>" alt="" class="img-responsive" />
+                                <img src="<?php echo $img3; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" value="3" name="imgnumber">
@@ -233,7 +234,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div data-aos="flip-right" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
-                                <img src="<? echo $img4; ?>" alt="" class="img-responsive" />
+                                <img src="<?php echo $img4; ?>" alt="" class="img-responsive" />
                                 <div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" value="4" name="imgnumber">
@@ -309,7 +310,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <form action="upload.php" method="post" id='autouploadform' enctype="multipart/form-data">
                                     <input type="file" name="fileToUpload" id="fup">
                                     <label for="fup">
-                                <img class="rounded-circle img-fluid d-block mx-auto" src="<? echo $userimg;  ?>">
+                                <img class="rounded-circle img-fluid d-block mx-auto" src="<?php echo $userimg;  ?>">
                                 </label>
                                     <script>
                                         var input = document.querySelector('#fup');
@@ -324,12 +325,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="w3_banner_info_grid">
 
                                 <h2 data-aos="fade-right">
-                                    <? echo $name." ".$surname ?>
+                                    <?php echo $name." ".$surname ?>
                                 </h2>
 
                                 <!--<h5>UI/UX Designer.</h5>-->
                                 <p>
-                                    <? echo $bio ?>
+                                    <?php echo $bio ?>
                                 </p>
                                 <ul data-aos="slide-up">
                                     <li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">More info</a></li>
@@ -366,7 +367,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <img src="images/5.jpg" class="img-responsive" alt="" />
                             </div>
                             <div class="about-modal wthree">
-                                <h3> <span><? echo $name." ".$surname ?></span></h3>
+                                <h3> <span><?php echo $name." ".$surname ?></span></h3>
                                 <!--<h4>UI/UX Designer</h4>-->
                                 <ul class="address">
                                     <li>
@@ -374,7 +375,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <li><b>BIRTHDAY</b></li>
                                             <!--D.O.B-->
                                             <li>
-                                                <? echo $birth ?>
+                                                <?php echo $birth ?>
                                             </li>
                                         </ul>
                                     </li>
@@ -382,7 +383,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <ul class="agileits-address-text">
                                             <li><b>COUNTRY </b></li>
                                             <li>
-                                                <?  echo $country ?>
+                                                <?php  echo $country ?>
                                             </li>
                                         </ul>
                                     </li>
@@ -390,7 +391,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <ul class="agileits-address-text">
                                             <li><b>GENDER </b></li>
                                             <li>
-                                                <?  echo $gender ?>
+                                                <?php  echo $gender ?>
                                             </li>
                                         </ul>
                                     </li>
@@ -399,7 +400,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <li><b>E-MAIL </b></li>
                                             <li>
                                                 <a>
-                                                    <?  echo $email ?>
+                                                    <?php  echo $email ?>
                                                 </a>
                                             </li>
                                         </ul>
@@ -438,7 +439,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 }
 
                             </style>
-                            <?
+                            <?php
     
     $sql = "SELECT * FROM friendrequest JOIN users on id1=email where id2='".$email."'";
     $result = mysqli_query($connection, $sql);
@@ -505,7 +506,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
                                 <div class="about-modal wthree">
-                                    <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
+                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
                                     <input type=text placeholder="Name" value="" name="name">
 
                                     <!--<h4>UI/UX Designer</h4>-->
@@ -585,7 +586,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
                                 <div class="about-modal wthree">
-                                    <!--<h3> <span><? //echo $name." ".$surname ?></span></h3>-->
+                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
 
                                     <input type=text placeholder="Name" name="name" value="">
 
@@ -761,7 +762,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <img src="uploads/IMG_4998.JPG" style="width:850px; height:540px;" alt="" class="img-responsive">
                                         <figcaption>
                                             <a>
-                                                <? ?>
+                                                <?php ?>
                                             </a>
                                             <h4>Web Design</h4>
                                         </figcaption>
@@ -862,7 +863,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="gallery-grids">
 
 
-                            <?
+                            <?php
     $friendsq = "(select * from friendship as f,users as u where f.id1=u.email and f.id2='".$email."') union
                  (select * from friendship as f,users as u where f.id2=u.email and f.id1='".$email."')";
    

@@ -18,7 +18,7 @@
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
 <title>Settings</title>
-<?
+<?php
 session_start();
 require('connect.php');
 
@@ -83,7 +83,7 @@ require('connect.php');
                                                 <!--commento-->
                                                 <div name="img">
 
-                                                    <img src="<? echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
+                                                    <img src="<?php echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
 
                                             </a>
                                             <div class="dropdown-content">
@@ -129,7 +129,7 @@ require('connect.php');
                         <h3 class="panel-title">Name</h3>
                     </div>
                     <div class="panel-body">
-                        <? echo $name ?> <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $name ?> <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
                     </div>
                    
                 </div>
@@ -140,7 +140,7 @@ require('connect.php');
 
                     </div>
                     <div class="panel-body">
-                        <? echo $surname ?> <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $surname ?> <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
@@ -148,7 +148,7 @@ require('connect.php');
                         <h3 class="panel-title">Email</h3>
                     </div>
                     <div class="panel-body">
-                       <? echo $email ?>
+                       <?php echo $email ?>
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
@@ -157,7 +157,7 @@ require('connect.php');
 
                     </div>
                     <div class="panel-body">
-                        <? echo $birth ?>
+                        <?php echo $birth ?>
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
@@ -166,7 +166,7 @@ require('connect.php');
 
                     </div>
                     <div class="panel-body">
-                        <? echo $gender ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $gender ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
@@ -175,7 +175,7 @@ require('connect.php');
 
                     </div>
                     <div class="panel-body">
-                        <? echo $country ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $country ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
@@ -184,7 +184,7 @@ require('connect.php');
 
                     </div>
                     <div class="panel-body">
-                        <? echo $bio ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $bio ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
                     </div>
                 </div>
 
@@ -313,7 +313,7 @@ require('connect.php');
                                 }
 
                             </style>
-                            <?
+                            <?php
     
     $sql = "SELECT * FROM friendrequest JOIN users on id1=email where id2='".$email."'";
     $result = mysqli_query($connection, $sql);

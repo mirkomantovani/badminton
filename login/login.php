@@ -51,7 +51,7 @@
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
                    
 					</div>
-                    <?
+                    <?php
                      if(isset($_GET['invalidLogin'])){
         echo '<p style="color:red; text-align:center;">Wrong email or password</p><br>';         
                         } ?>
@@ -93,7 +93,10 @@
     if (isset($_POST['login'])) {
         $email = $_POST['email'];
         $pwd = md5($_POST['pwd']);
-        $risul = mysqli_query($connection, 'select * from users where email="' . $email . '" and psw ="' . $pwd . '"');
+        $qu = 'select * from users where email="' . $email . '" and psw ="' . $pwd . '"';
+        echo $qu;
+        $risul = mysqli_query($connection, $qu);
+        
        
         if (mysqli_num_rows($risul) == 1) { 
             
@@ -107,7 +110,7 @@
             $_SESSION['userimages'] = $ris->fetch_assoc();
             
         }
-                  
+                
             header('Location: ../webapp/');
             
         } else {

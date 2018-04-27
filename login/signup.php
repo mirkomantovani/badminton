@@ -60,7 +60,7 @@
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100" data-placeholder="&#xf15a;"></span>
 					</div>
-<?
+<?php
                      if(isset($_GET['invalidLogin'])){
         echo '<p style="color:red; text-align:center;">Wrong email or password</p><br>';         
                         } ?>
@@ -89,7 +89,7 @@
  
 <?php 
     session_start();
-require ('connect.php');
+    require ('connect.php');
     
    if (isset($_POST['signup'])) {
        //header('Location: http://www.google.com'); non va 

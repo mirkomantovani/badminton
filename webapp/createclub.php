@@ -1,5 +1,5 @@
 
-<?
+<?php
 session_start();
 require("connect.php");
 
@@ -12,6 +12,7 @@ echo $e;
 echo $n;
 
 $query="INSERT INTO club (creator, name, description,color) values ('$e','$n','$d','$c')";
+echo $query;
 $result=mysqli_query($connection,$query);
 
 //header("location: ")

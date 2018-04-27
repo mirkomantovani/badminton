@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-    <? session_start();
+    <?php session_start();
     include 'ChromePhp.php';
     
             require('connect.php');
@@ -43,9 +43,9 @@ $row = $_SESSION['row'];
 ?>
         <link rel="icon" type="image/png" href="../login/img/volano.png" />
         <title>
-            <? echo $name." ".$surname ?>
+            <?php echo $name." ".$surname ?>
         </title>
-        <!-- <? //echo $name." ".$surname ?> ???-->
+        <!-- <?php //echo $name." ".$surname ?> ???-->
         <!-- custom-theme -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -333,7 +333,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="gallery-grids">
 
 
-                        <?
+                        <?php
     
     $query = $_GET['query'];
     $fields = explode(' ',$query);
@@ -383,7 +383,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="images/5.jpg" alt="" class="img-responsive">
                                     <figcaption>
                                         <a>
-                                            <? ?>
+                                            <?php ?>
                                         </a>
                                         <h4>Web Design</h4>
                                     </figcaption>

@@ -71,7 +71,7 @@
             </ul>
           </li>-->
           <li><a href="#" method="get">
-          <? 
+          <?php
           require ('connect.php');
           $query = "SELECT name FROM users";
           $risultati = mysql_query($query);

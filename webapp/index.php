@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 <head>
     
-    <? 
+    <?php 
     session_start();
   
     if(empty($_SESSION['email'])){
@@ -107,7 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <!--commento-->
                                                 <div name="img">
 
-                                                    <img src="<? echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
+                                                    <img src="<?php echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
 
                                             </a>
                                             <div class="dropdown-content">
@@ -159,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 }
 
                             </style>
-                            <?
+                            <?php
     
     $sql = "SELECT * FROM friendrequest JOIN users on id1=email where id2='".$email."'";
     $result = mysqli_query($connection, $sql);
@@ -220,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 
                 <h3 data-aos="zoom-in">New users</h3>
                 
-                  <?
+                  <?php
                 
                 $query="SElECT * FROM users ORDER BY registration_date desc limit 4";
                 $result=mysqli_query($connection,$query);
@@ -264,7 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h3 data-aos="zoom-in">Club ranking</h3>
 					
 			<!-- Skills -->
-                <?
+                <?php
                 
                 $query="SElECT score FROM club ORDER BY score desc limit 1";
                 $m=mysqli_query($connection,$query);
