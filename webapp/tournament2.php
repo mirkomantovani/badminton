@@ -29,7 +29,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     $id=$_GET['id'];
     $trn=mysqli_query($connection, 'select * from tournament where id="'.$id.'"');
-    $participants=mysqli_query($connection, 'select * from participant,users where id="'.$id.'" and participant.player=users.email order by position');
 $row = $_SESSION['row'];   
            
              $email=$row['email'];
@@ -45,13 +44,6 @@ $tr = $trn->fetch_assoc();
              $name=$tr['name'];
              $description=$tr['description'];
              $maxplayers=$tr['maxplayers'];
-    
-    $part=array();
-    $i=0;
-    while($r = mysqli_fetch_assoc($participants)) {
-    $part[$i]=$r;
-        $i++;
-    }
     
 
 ?>
@@ -247,49 +239,261 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
 
+                
 
-                <script>
-                    <?php
-                    
-                    function nextRound($partArray,$round) {
-                        $new=array();
-                        $j=0;
-                        $stringround=(string)$round;
-                        for($i=0;$i<count($partArray);$i++){
-                            if($partArray[$i]['round'.$stringround]==1)
-                            {
-                                $new[$j]=$partArray[$i];
-                                $j++;
-                            }
-                        }
-                        return $new;
-                    }
-    
-    
-                        echo "
+                            <?php
+                        echo "<script>
                     var rounds;
 
-                    rounds = [";
+                    rounds = [//-- ronda 1
+                                 [
+
+                                     {
+                                         player1: {
+                                             name: "."name 111".",
+                                              
+                                             ID: 111,
+                                             url: 'http://www.google.com'
+                                         },
+                                         player2: {
+                                             name: "."name 211".",
+                                             ID: 211
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 112".",
+                                              
+                                             ID: 112
+                                         },
+                                         player2: {
+                                             name: "."name 212".",
+                                             ID: 212
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 113".",
+                                              
+                                             ID: 113
+                                         },
+                                         player2: {
+                                             name: "."name 213".",
+                                             ID: 213
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 114".",
+                                              
+                                             ID: 114
+                                         },
+                                         player2: {
+                                             name: "."name 214".",
+                                             ID: 214
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 115".",
+                                              
+                                             ID: 115,
+                                             url: 'goggle.com'
+                                         },
+                                         player2: {
+                                             name: "."name 215".",
+                                             ID: 215
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 116".",
+                                              
+                                             ID: 116
+                                         },
+                                         player2: {
+                                             name: "."name 216".",
+                                             ID: 216
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 117".",
+                                              
+                                             ID: 117
+                                         },
+                                         player2: {
+                                             name: "."name 217".",
+                                             ID: 217
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 118".",
+                                              
+                                             ID: 118
+                                         },
+                                         player2: {
+                                             name: "."name 218".",
+                                             ID: 218
+                                         }
+                                     },
+                                 ],
+
+                                 //-- ronda 2
+                                 [
+
+                                     {
+                                         player1: {
+                                             name: "."name 111".",
+                                              
+                                             ID: 111
+                                         },
+                                         player2: {
+                                             name: "."name 212".",
+                                             ID: 212
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 113".",
+                                              
+                                             ID: 113
+                                         },
+                                         player2: {
+                                             name: "."name 214".",
+                                             ID: 214
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 115".",
+                                              
+                                             ID: 115
+                                         },
+                                         player2: {
+                                             name: "."name 216".",
+                                             ID: 216
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 117".",
+                                              
+                                             ID: 117
+                                         },
+                                         player2: {
+                                             name: "."name 218".",
+                                             ID: 218
+                                         }
+                                     },
+                                 ],
+
+                                 //-- ronda 3
+                                 [
+
+                                     {
+                                         player1: {
+                                             name: "."name 111".",
+                                              
+                                             ID: 111
+                                         },
+                                         player2: {
+                                             name: "."name 113".",
+                                             ID: 113
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "."name 115".",
+                                              
+                                             ID: 115
+                                         },
+                                         player2: {
+                                             name: "."name 218".",
+                                             ID: 218
+                                         }
+                                     },
+                                 ],
+
+                                 //-- ronda 4
+                                 [
+
+                                     {
+                                         player1: {
+                                             name: "."name 113".",
+                                              
+                                             ID: 113
+                                         },
+                                         player2: {
+                                             name: "."name 218".",
+                                              
+                                             ID: 218
+                                         },
+                                     },
+                                 ],
+                                 //-- Champion
+                                 [
+
+                                     {
+                                         player1: {
+                                             name: "."name 113".",
+                                              
+                                             ID: 113
+                                         },
+                                     },
+                                 ],
+
+                             ];
+                             var titles = ['Round 1', 'Round 2', 'Round 3', 'Round 4','Round 5'];
+
+
+                            ;
+                            (function($) {
+
+                                $('.brackets').brackets({
+                                    titles: titles,
+                                    rounds: rounds,
+                                    color_title: 'black',
+                                    border_color: 'green',
+                                    color_player: 'black',
+                                    bg_player: 'white',
+                                    color_player_hover: 'white',
+                                    bg_player_hover: 'green',
+                                    border_radius_player: '10px',
+                                    border_radius_lines: '10px',
+                                });
+
+                            })(jQuery);
+                            </script>";
                         
-                        $round=0;
                         
-                        for ($i = $maxplayers; $i >= 1; $i=$i/2) {
-                            $round++;
+                       /* for ($i = $maxplayers; $i >= 1; $i=$i/2) {
                             
                             echo "[";
                             
                             for($j = 1; $j <= $i/2; $j++) {
-                                
                                 echo "{
                                 player1: {
-                                    name: '".$part[($j-1)*2]['email']."',
+                                    name: "."name".",
                                      
-                                    ID: '".$part[($j-1)*2]['position']."',
-                                    url: 'http://www.google.com'
+                                    ID: 1,
+                                    //url: 'http://www.google.com'
                                 },
                                 player2: {
-                                    name: '".$part[($j-1)*2+1]['email']."',
-                                    ID: '".$part[($j-1)*2+1]['position']."'
+                                    name: "."name2".",
+                                    ID: 2
                                 }
                             
                             },"; 
@@ -301,7 +505,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             {
                                 player1: {
-                                    name: "."'winner'".",
+                                    name: "."winner".",
                                      
                                     ID: 113
                                 },
@@ -310,35 +514,236 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 }
                             echo "],";
                             
-                            $part=nextRound($part,$round+1);
-                            
                         }
                         
                         echo "];";
-                
-                 echo "var titles = ['Round 1', 'Round 2', 'Round 3', 'Round 4'];";
-        
-                        
+                        */
                         ?>
+                            //-- ronda 1
+                            /*     [
 
-                    (function($) {
+                                     {
+                                         player1: {
+                                             name: "Player 111",
+                                              
+                                             ID: 111,
+                                             url: 'http://www.google.com'
+                                         },
+                                         player2: {
+                                             name: "Player 211",
+                                             ID: 211
+                                         }
+                                     },
 
-                        $(".brackets").brackets({
-                            titles: titles,
-                            rounds: rounds,
-                            color_title: 'black',
-                            border_color: 'green',
-                            color_player: 'black',
-                            bg_player: 'white',
-                            color_player_hover: 'white',
-                            bg_player_hover: 'green',
-                            border_radius_player: '10px',
-                            border_radius_lines: '10px',
-                        });
+                                     {
+                                         player1: {
+                                             name: "Player 112",
+                                              
+                                             ID: 112
+                                         },
+                                         player2: {
+                                             name: "Player 212",
+                                             ID: 212
+                                         }
+                                     },
 
-                    })(jQuery);
+                                     {
+                                         player1: {
+                                             name: "Player 113",
+                                              
+                                             ID: 113
+                                         },
+                                         player2: {
+                                             name: "Player 213",
+                                             ID: 213
+                                         }
+                                     },
 
-                </script>
+                                     {
+                                         player1: {
+                                             name: "Player 114",
+                                              
+                                             ID: 114
+                                         },
+                                         player2: {
+                                             name: "Player 214",
+                                             ID: 214
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "Player 115",
+                                              
+                                             ID: 115,
+                                             url: 'goggle.com'
+                                         },
+                                         player2: {
+                                             name: "Player 215",
+                                             ID: 215
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "Player 116",
+                                              
+                                             ID: 116
+                                         },
+                                         player2: {
+                                             name: "Player 216",
+                                             ID: 216
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "Player 117",
+                                              
+                                             ID: 117
+                                         },
+                                         player2: {
+                                             name: "Player 217",
+                                             ID: 217
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "Player 118",
+                                              
+                                             ID: 118
+                                         },
+                                         player2: {
+                                             name: "Player 218",
+                                             ID: 218
+                                         }
+                                     },
+                                 ],
+
+                                 //-- ronda 2
+                                 [
+
+                                     {
+                                         player1: {
+                                             name: "Player 111",
+                                              
+                                             ID: 111
+                                         },
+                                         player2: {
+                                             name: "Player 212",
+                                             ID: 212
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "Player 113",
+                                              
+                                             ID: 113
+                                         },
+                                         player2: {
+                                             name: "Player 214",
+                                             ID: 214
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "Player 115",
+                                              
+                                             ID: 115
+                                         },
+                                         player2: {
+                                             name: "Player 216",
+                                             ID: 216
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "Player 117",
+                                              
+                                             ID: 117
+                                         },
+                                         player2: {
+                                             name: "Player 218",
+                                             ID: 218
+                                         }
+                                     },
+                                 ],
+
+                                 //-- ronda 3
+                                 [
+
+                                     {
+                                         player1: {
+                                             name: "Player 111",
+                                              
+                                             ID: 111
+                                         },
+                                         player2: {
+                                             name: "Player 113",
+                                             ID: 113
+                                         }
+                                     },
+
+                                     {
+                                         player1: {
+                                             name: "Player 115",
+                                              
+                                             ID: 115
+                                         },
+                                         player2: {
+                                             name: "Player 218",
+                                             ID: 218
+                                         }
+                                     },
+                                 ],
+
+                                 //-- ronda 4
+                                 [
+
+                                     {
+                                         player1: {
+                                             name: "Player 113",
+                                              
+                                             ID: 113
+                                         },
+                                         player2: {
+                                             name: "Player 218",
+                                              
+                                             ID: 218
+                                         },
+                                     },
+                                 ],
+                                 //-- Champion
+                                 [
+
+                                     {
+                                         player1: {
+                                             name: "Player 113",
+                                              
+                                             ID: 113
+                                         },
+                                     },
+                                 ],
+
+                             ];
+                             
+                             */
+
+                            
+
+              
+
+
+
+
+
+
+
+
 
 
                 <!-- Portfolio --><br>
