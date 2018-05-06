@@ -12,8 +12,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     include 'ChromePhp.php';
     
             require('connect.php');
-    
-    
    
   
     if(empty($_SESSION['email'])){
@@ -37,6 +35,7 @@ $row = $_SESSION['row'];
              $country=$row['user_country'];
              $gender=$row['gender'];
              $birth=$row['birth'];
+             $userimg=$row['user_avatar'];
             
 
 
@@ -95,64 +94,282 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- header -->
                 <div class="header-w3layouts">
                     <!-- Navigation -->
-                    <nav class="navbar navbar-default navbar-fixed-top">
-                        <div class="navbar-header page-scroll">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                            <div class="navbar-header page-scroll">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 							<span class="sr-only">My_Profile</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-                            <h1><a class="navbar-brand" href="index.html">Badminton Clubs</a></h1>
-                        </div>
+                                <h1><a class="navbar-brand" href="index.php">Badminton Clubs</a></h1>
+                            </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse navbar-ex1-collapse">
-                            <ul class="nav navbar-nav navbar-right cl-effect-15">
-                                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                                <li class="hidden"><a class="page-scroll" href="#page-top"></a> </li>
-                                <li>
-                                    <!--<form class="form-inline my-2 my-lg-0">
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                                <ul class="nav navbar-nav navbar-right cl-effect-15">
+                                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                                    <li class="hidden"><a class="page-scroll" href="#page-top"></a> </li>
+                                    <li>
+                                        <!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
         </form>-->
-                                    <form action='search.php' method="get" class="form-inline my-2 my-lg-0">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" aria-label="Search">
-                                        <button class="btn btn-outline-success my-2 my-sm-0 page-scroll scroll" type="submit">Search</button>
-                                    </form>
-                                </li>
-                                <li><a class="page-scroll scroll" href="#tournament">New Tournament</a></li>
-                                <li><a class="page-scroll scroll" href="#club">Club</a></li>
+                                        <form action='search.php' method="get" class="form-inline my-2 my-lg-0">
+                                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" aria-label="Search">
+                                            <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+                                        </form>
+                                    </li>
+                                    <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
+                                    <!--<li><a class="page-scroll scroll" href="#club">Club</a></li>-->
+                                    <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>
 
-                                <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
 
-                                <li>
-                                    <div class="dropdown">
-                                        <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/userm64.png"  />
-   
-  </a>
-                                        <div class="dropdown-content">
+                                    <li>
+                                        <div class="dropdown">
+                                            <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <!--commento-->
+                                                <div name="img">
 
-                                            <a class="dropdown-item" href="myprofile.php">My Profile</a>
-                                            <a class="dropdown-item" href="settings.php">Settings</a>
-                                            <a class="dropdown-item" href="../login/logout.php">Logout</a>
+                                                    <img src="<?php echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
 
+                                            </a>
+                                            <div class="dropdown-content">
+
+                                                <a class="dropdown-item" href="myprofile.php">My Profile</a>
+                                                <a class="dropdown-item" href="settings.php">Settings</a>
+                                                <a class="dropdown-item" href="../login/logout.php">Logout</a>
+
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
 
 
-                            </ul>
-                        </div>
-                        <!-- /.navbar-collapse -->
-                        <!-- /.container -->
-                    </nav>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                            <!-- /.container -->
+                        </nav>
                 </div>
                 <!-- //header -->
 
 
 
+ <div class="modal about-modal fade" id="requests" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Friend Requests</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
 
+                            <style>
+                                #blacktext {
+                                    color: black;
+                                }
+
+                            </style>
+                            <?php
+    
+    $sql = "SELECT * FROM friendrequest JOIN users on id1=email where id2='".$email."'";
+    $result = mysqli_query($connection, $sql);
+      
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+     		 echo "<div class='about-modal wthree'>
+                            <h3> <span><a href='profile.php?user=" .$row['id1']."'>".$row['name']." ".$row['surname']."</span></h3>
+                            <!--<h4>UI/UX Designer</h4>-->
+                            <ul class='address'>
+                                <li>
+                                    <ul class='agileits-address-text'>
+
+                                      <li><a href='acceptrequest.php?user=" .$row['id1']."' value='Accept'>Accept</li>
+                                      <li><a href='declinerequest.php?user=" .$row['id1']."' value='Decline'>Decline</li>
+
+
+                                      
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>";
+        }
+    } else {
+        echo "<p style='text-align:center'>You don't have any friend requests</p>";
+    }
+    
+           
+                        ?>
+                                <!--    <li>
+                                            <form action='acceptrequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Accept</button><input type='hidden' name='user' value='".$row['id1']."'>
+                                            </form>
+                                        </li>
+
+  <li>
+                                            <form action='declinerequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Decline</button><input type='hidden' name='user' value='".$row['id1']."'>
+                                            </form>
+                                        </li>-->
+
+
+
+                                <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //modal -->
+
+
+
+        <div class="modal about-modal fade" id="tournament" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Tournament</h4>
+                    </div>
+                    <form action="newtournament.php">
+                        <div class="modal-body">
+                            <div class="modalpad">
+                                <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                                <div class="about-modal wthree">
+                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
+                                    <input type=text placeholder="Name" value="" name="name">
+
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                    <input type="text" name="desc">
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>GENDER </b></li>
+                                                <li>
+                                                    <select name="sex">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                             <option>Mixed</option>
+                                            </select>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>TYPE </b></li>
+                                                <li>
+                                                    <select name="sd">
+                                            <option>Single</option>
+                                            <option>Double</option>
+                                            </select>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>PARTECIPANTS </b></li>
+                                                <li>  <select name="participants">
+                                            <option>2</option>
+                                            <option>4</option>
+                                            <option>8</option>
+                                            <option>16</option>
+                                            <option>32</option>
+                                            </select></li>
+                                                <!-- mettere club in db -->
+                                            </ul>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    <input type="submit" class="btn btn-success" value="Create">
+                                </center>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--//modal3-->
+        <div class="modal about-modal fade" id="newclub" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Club</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+                            <form action="createclub.php" method="get" id="club">
+                                <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                                <div class="about-modal wthree">
+                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
+
+                                    <input type=text placeholder="Name" name="name" value="">
+
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                    <input type="text" name="desc">
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>TYPE </b></li>
+                                                <li>
+                                                    <select name="type" form="club">
+                                            <option>Aperto</option>
+                                            <option>Su invito</option>
+                                            </select>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>PARTECIPANTS </b></li>
+                                                <li> 50</li>
+                                                <!-- mettere club in db -->
+                                            </ul>
+                                        </li>
+                                        <li><input name="color" type="color" id="myColor">
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    <input type="submit" class="btn btn-success" value="Create">
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//mo
               
     <!-- Portfolio --><br>
             <br>
@@ -229,20 +446,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <section id="section-bar-1" class="agileits w3layouts">
                     <h4>Tournaments</h4>
                     <div class="gallery-grids">
-                        <div class="col-md-4 col-sm-4 gallery-top">
-                            <a href="images/5.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/5.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <a>
-                                            <?php ?>
-                                        </a>
-                                        <h4>Web Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                       
+                         <?php
+    /*
+    $query = $_GET['query'];
+    $fields = explode(' ',$query);
+    $n = $fields[0];
+    $s = $fields[1];
+     
+    $tourq = "select * from tournament where name COLLATE UTF8_GENERAL_CI like '%".$n."%'";
+   
+   
+    
+    $tours = mysqli_query($connection, $tourq);
+    
+      if ($friends->num_rows > 0) {
+        while($row = $tours->fetch_assoc()) {
+     		 echo '<div class="col-md-4 col-sm-4 gallery-top">
+                                
+                                    <figure class="effect-bubba">
+                                        <img src="'.$row['user_avatar'].'" alt="" class="img-responsive">
+                                        <figcaption>
+
+                                            <h4>
+                                                <a href="profile.php?user='.$row['email'].'">'.$row['name'].'
+                                                </a>
+                                            </h4>
+                                        </figcaption>
+                                    </figure>
+                                
+                            </div>';
+        }
+    } else {
+        echo "<p style='text-align:center'>Your research didn't produce any results</p>";
+    }
+*/
+    ?>
                         <div class="clearfix"></div>
                     </div>
                 </section>
