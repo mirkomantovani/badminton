@@ -27,6 +27,9 @@ Ch::log('Hello console!');
             require('connect.php');
             
             $U=$_GET['user'];
+    
+   
+    
  $user= mysqli_query($connection, 'select * from users where email="'.$U.'"');
    // $useri= mysqli_query($connection, 'select * from userimages where email="'.$U.'"');
 
@@ -39,6 +42,11 @@ $row = $user->fetch_assoc();
              $gender=$row['gender'];
              $birth=$row['birth'];
              $userimg=$row['user_avatar'];
+    
+     //if it's me, go to myprofile
+    if($U==$email)
+        header('location: myprofile.php');
+    
     
     
 $userimages = $user->fetch_assoc();   //controllare

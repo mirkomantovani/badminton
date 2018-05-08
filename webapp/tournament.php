@@ -42,7 +42,7 @@ $row = $_SESSION['row'];
              $userimg=$row['user_avatar'];
             
 $tr = $trn->fetch_assoc();
-             $name=$tr['name'];
+             $namet=$tr['name'];
              $description=$tr['description'];
              $maxplayers=$tr['maxplayers'];
     
@@ -170,11 +170,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <!-- //header -->
 
-
-
-
-
                 <br><br><br>
+                <div>
+                    <div class="w3_banner_info_grid">
+
+                        <h2 data-aos="fade-right">
+                            <?php echo $namet ?>
+                        </h2>
+
+                        <!--<h5>UI/UX Designer.</h5>-->
+                        <p style="color:white;">
+                            <?php echo $description ?>
+                        </p>
+                        <?php 
+                      $query="select * from participant where id='".$id."' and player='".$email."'";
+                      $rs = mysqli_query($connection, $query);
+                      
+                      $q="select maxplayers from tournament where id='".$id."'";
+                      $r = mysqli_query($connection, $q);
+                        $row=$r->fetch_assoc();
+                        $maxpl=$row['maxplayers'];
+                        
+                      $allparticipants="select * from participant where id='".$id."'";
+                      $allpartic = mysqli_query($connection, $allparticipants);
+                        
+                        
+                        
+                        if($rs->num_rows == 0 && $allpartic->num_rows < $maxpl){
+    echo "         <ul>
+                                    <li><a href='addparticipant.php?id=".$id."' class='w3ls_more' >JOIN</a></li>
+
+                                </ul>
+                                 <br><br>";
+                        }else if($allpartic->num_rows == $maxpl){ 
+                            echo "         <ul>
+                                    <li><a class='w3ls_more' >FULL</a></li>
+
+                                </ul>
+                                 <br><br>";
+                            
+                        }
+                
+                ?>
+                    </div>
+                    <div style="float:right;">
+                        <h2>Admin menu</h2>
+                        <form action="addwinner.php" method="get">
+                            <input type="number" name="winner" style="width:50px" min="1" max="<?php echo $maxpl ?>">
+                            <input type="submit" value="Select winner" class='w3ls_more'>
+                            <input type="hidden" name="id" value="<?php echo $id ?>">
+                        </form>
+
+
+
+                    </div>
+
+                </div>
+
+
+
 
 
 
@@ -282,14 +336,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 
                                 echo "{
                                 player1: {
-                                    name: '".$part[($j-1)*2]['email']."',
-                                     
+                                    name: '".$part[($j-1)*2]['name']." ".$part[($j-1)*2]['position']."',
                                     ID: '".$part[($j-1)*2]['position']."',
-                                    url: 'http://www.google.com'
+                                    url: 'profile.php?user=".$part[($j-1)*2]['email']."',
                                 },
                                 player2: {
-                                    name: '".$part[($j-1)*2+1]['email']."',
-                                    ID: '".$part[($j-1)*2+1]['position']."'
+                                    name: '".$part[($j-1)*2+1]['name']." ".$part[($j-1)*2+1]['position']."',
+                                    ID: '".$part[($j-1)*2+1]['position']."',
+                                    url: 'profile.php?user=".$part[($j-1)*2+1]['email']."',
                                 }
                             
                             },"; 
@@ -297,13 +351,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             }
                             
                             if($i==1){
+                                
                                     echo "
 
                             {
                                 player1: {
-                                    name: "."'winner'".",
-                                     
-                                    ID: 113
+                                    name: '".$part[0]['name']." ".$part[0]['position']."',
+                                    ID: '".$part[0]['position']."',
+                                    url: 'profile.php?user=".$part[0]['email']."',
                                 },
                             },
                         ";
@@ -315,9 +370,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         }
                         
                         echo "];";
+                    
+                    //echo "var titles = ['Round 1','Round 2'];";
                 
-                 echo "var titles = ['Round 1', 'Round 2', 'Round 3', 'Round 4'];";
-        
+                $numrounds = log($maxplayers,2)+1;
+                    echo "var titles = [";
+                    for($f=1;$f<=$numrounds;$f++){
+                        if($f!=$numrounds)
+                            echo "'Round ".$f."',";
+                        else
+                            echo "'Round ".$f."'";
+                    }
+                    echo "];";
                         
                         ?>
 

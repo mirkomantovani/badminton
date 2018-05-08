@@ -447,28 +447,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h4>Tournaments</h4>
                     <div class="gallery-grids">
                          <?php
-    /*
+    
     $query = $_GET['query'];
     $fields = explode(' ',$query);
     $n = $fields[0];
     $s = $fields[1];
      
-    $tourq = "select * from tournament where name COLLATE UTF8_GENERAL_CI like '%".$n."%'";
+    $tourq = "select * from tournament where name like '%".$n."%'";
    
    
     
     $tours = mysqli_query($connection, $tourq);
     
-      if ($friends->num_rows > 0) {
+      if ($tours->num_rows > 0) {
         while($row = $tours->fetch_assoc()) {
      		 echo '<div class="col-md-4 col-sm-4 gallery-top">
                                 
                                     <figure class="effect-bubba">
-                                        <img src="'.$row['user_avatar'].'" alt="" class="img-responsive">
+                                        <img src="images/5.jpg" alt="" class="img-responsive">
                                         <figcaption>
 
                                             <h4>
-                                                <a href="profile.php?user='.$row['email'].'">'.$row['name'].'
+                                                <a href="tournament.php?id='.$row['id'].'">'.$row['name'].'
                                                 </a>
                                             </h4>
                                         </figcaption>
@@ -479,7 +479,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     } else {
         echo "<p style='text-align:center'>Your research didn't produce any results</p>";
     }
-*/
+
     ?>
                         <div class="clearfix"></div>
                     </div>

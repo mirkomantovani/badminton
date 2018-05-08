@@ -16,7 +16,7 @@ $d=$_GET['desc'];
 
 
 $query = "INSERT INTO tournament (name,description,maxplayers,creator,male,female,single) VALUES ('".$n."','".$d."','".$p."','".$U."','".$m."','".$f."','".$s."')";
-echo $query;
+
 $result = mysqli_query($connection, $query);
 
 ?>
