@@ -26,6 +26,17 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+    
+  <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.1/mobile-detect.min.js"></script>
+    <script>
+        var md = new MobileDetect(window.navigator.userAgent);
+        
+        if(md.os() == 'iOS' || md.os() == 'AndroidOS' ){
+            window.location.replace("loginM.php");
+        }
+
+    </script>
+    
 </head>
 <body>
 	
@@ -94,7 +105,7 @@
         $email = $_POST['email'];
         $pwd = md5($_POST['pwd']);
         $qu = 'select * from users where email="' . $email . '" and psw ="' . $pwd . '"';
-        echo $qu;
+       // echo $qu;
         $risul = mysqli_query($connection, $qu);
         
        

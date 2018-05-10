@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Sign Up</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -26,13 +26,14 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-     <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.1/mobile-detect.min.js"></script>
+    
+  <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.1/mobile-detect.min.js"></script>
     <script>
         var md = new MobileDetect(window.navigator.userAgent);
         
-        if(md.os() == 'iOS' || md.os() == 'AndroidOS' ){
-            window.location.replace("signupM.php");
-        }
+        if(md.os() == null){
+            window.location.replace("login.php");
+        }  
 
     </script>
     
@@ -48,47 +49,41 @@
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
-						Sign Up
+						Login
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Enter name">
-						<input class="input100" type="text" name="name" placeholder="Name">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-                    <div class="wrap-input100 validate-input" data-validate = "Enter surname">
-						<input class="input100" type="text" name="surname" placeholder="Surname">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-                    <div class="wrap-input100 validate-input" data-validate = "Enter birthday">
-						<input class="input100" type="date" name="birthday" placeholder="Birthday">
-						<span class="focus-input100" data-placeholder="&#xf331;"></span>
-					</div>
-
 					<div class="wrap-input100 validate-input" data-validate = "Enter email">
-						<input class="input100" type="text" name="email" placeholder="Email">
+						<input class="input100" type="email" name="email" placeholder="Email">
 						<span class="focus-input100" data-placeholder="&#xf15a;"></span>
 					</div>
-<?php
-                     if(isset($_GET['invalidLogin'])){
-        echo '<p style="color:red; text-align:center;">Wrong email or password</p><br>';         
-                        } ?>
+
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						<input class="input100" type="password" name="pwd" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+                   
 					</div>
+                    <?php
+                     if(isset($_GET['invalidLogin'])){
+        echo '<p style="color:red; text-align:center;">Wrong email or password</p><br>';         
+                        } ?>
+
+				<!--	<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div> -->
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Sign Up
+							Login
 						</button>
-                        <input type="hidden" name="signup">
+                        <input type="hidden" name="login">
 					</div>
 
 					<div class="text-center p-t-90">
-						<a class="txt1" href="login.php">
-							Already registered? Login
+						<a class="txt1" href="signup.php">
+							Not registered? Sign in!
 						</a>
 					</div>
 				</form>
@@ -100,38 +95,42 @@
 <?php 
     session_start();
     require ('connect.php');
-    
-   if (isset($_POST['signup'])) {
-       //header('Location: http://www.google.com'); non va 
-        if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['birthday']) && isset($_POST['email']) && isset($_POST['pwd'])) {
-            $nome = $_POST["name"];
-            $cognome = $_POST['surname'];
-            $nascita = $_POST['birthday'];
-            $email = $_POST['email'];
-            $pwd = md5($_POST['pwd']);
-            $pwdnn=$_POST['pwd'];
-            $age= date("Y-m-d");
-            if($nome == "" || $cognome == "" || $nascita == "" && $email == "" || $pwd === ""){
-                unset($_POST);
-               // header("Location: ".$_SERVER['PHP_SELF']."?dataNull");
-            }else{
-            	$query = "INSERT INTO users (email, name,surname,birth,psw,registration_date,pwdnn) VALUES ('$email', '$nome', '$cognome', '$nascita','$pwd','$age','$pwdnn')";
-                $result = mysqli_query($connection, $query);
-                
-                $query = "INSERT INTO userimages (user) VALUES ('$email')";
-                $r = mysqli_query($connection, $query);
-                
-                
-               
-                
-                //header('Location: http://badmintonclubs.altervista.org/login.php');
-                header('Location: login.php');
-                //echo '<script>window.location.href="/badminton/webapp/index.php"</script>';
-            }
-            //header("Location: ../webapp/index.php");
-               ///echo '<script>window.location.href="/badminton/login/login.php"</script>'; 
+    /*
+     $user= mysqli_query($connection, 'select * from users where name="Marco"');
+    $row = $user->fetch_assoc();
+             $email=$row['email'];
+    echo $email;*/
+
+    if (isset($_POST['login'])) {
+        $email = $_POST['email'];
+        $pwd = md5($_POST['pwd']);
+        $qu = 'select * from users where email="' . $email . '" and psw ="' . $pwd . '"';
+        //echo $qu;
+        $risul = mysqli_query($connection, $qu);
+        
+       
+        if (mysqli_num_rows($risul) == 1) { 
+            
+            $_SESSION['email'] = $email;
+            $_SESSION['row'] = $risul->fetch_assoc();
+            
+            $ris = mysqli_query($connection, 'select * from userimages where user="'.$email.'"');
+       
+        if (mysqli_num_rows($ris) == 1) { 
+            
+            $_SESSION['userimages'] = $ris->fetch_assoc();
+            
         }
-    }
+                
+            header('Location: ../webapp/');
+            
+        } else {
+            unset($_POST);
+            header("Location: ".$_SERVER['PHP_SELF']."?invalidLogin");
+        }
+              } 
+    
+
     
     ?>
     

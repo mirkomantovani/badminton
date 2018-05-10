@@ -26,13 +26,13 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-     <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.1/mobile-detect.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.1/mobile-detect.min.js"></script>
     <script>
         var md = new MobileDetect(window.navigator.userAgent);
         
-        if(md.os() == 'iOS' || md.os() == 'AndroidOS' ){
-            window.location.replace("signupM.php");
-        }
+        if(md.os() == null){
+            window.location.replace("signup.php");
+        }  
 
     </script>
     

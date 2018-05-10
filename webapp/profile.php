@@ -33,6 +33,7 @@ Ch::log('Hello console!');
  $user= mysqli_query($connection, 'select * from users where email="'.$U.'"');
    // $useri= mysqli_query($connection, 'select * from userimages where email="'.$U.'"');
 
+   
 $row = $user->fetch_assoc();
              $email=$row['email'];
              $name=$row['name'];
@@ -43,13 +44,15 @@ $row = $user->fetch_assoc();
              $birth=$row['birth'];
              $userimg=$row['user_avatar'];
     
+    
+     $userprofile= mysqli_query($connection, 'select * from users where email="'.$email.'"');
      //if it's me, go to myprofile
-    if($U==$email)
+    if($U==$_SESSION['email']){       // if($U==$email){ errore 
         header('location: myprofile.php');
     
+    }
     
-    
-$userimages = $user->fetch_assoc();   //controllare
+$userimages = $userprofile->fetch_assoc();   //controllare
 $img1=$userimages['img1'];
 $img2=$userimages['img2'];   
 $img3=$userimages['img3'];   
@@ -66,8 +69,7 @@ $img4=$userimages['img4'];
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="My Design Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <?php Ch::log('Hejkjhbhkjbe!');
-    ?>
+    <?php Ch::log('Heiiiiiii!'); ?>
 <!--<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 
@@ -86,7 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
 
-<!-- googlefonts 
+<!-- googlefonts -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic,latin-ext" rel="stylesheet">
 <!-- //googlefonts -->
@@ -166,7 +168,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="boxw3-agile">
 
                                 <img src="<?php echo $img1; ?>" alt="" class="img-responsive" />
-                                <div class="agile-caption">
+                               <!-- <div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" value="1" name="imgnumber">
                                         <input type="file" class="fileToUpload" name="fileToUpload" id="fileToUpload">
@@ -181,13 +183,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                     </form>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div data-aos="flip-right" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
                                 <img src="<?php echo $img2; ?>" alt="" class="img-responsive" />
-                                <div class="agile-caption">
+                                <!--<div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" value="2" name="imgnumber">
                                         <input type="file" class="fileToUpload1" name="fileToUpload" id="fileToUpload1">
@@ -202,14 +204,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                     </form>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="clearfix"></div>
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
                                 <img src="<?php echo $img3; ?>" alt="" class="img-responsive" />
-                                <div class="agile-caption">
+                                <!--<div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" value="3" name="imgnumber">
                                         <input type="file" class="fileToUpload2" name="fileToUpload" id="fileToUpload2">
@@ -224,13 +226,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                     </form>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div data-aos="flip-right" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
                                 <img src="<?php echo $img4; ?>" alt="" class="img-responsive" />
-                                <div class="agile-caption">
+                                <!--<div class="agile-caption">
                                     <form action="uploadimage.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" value="4" name="imgnumber">
                                         <input type="file" class="fileToUpload3" name="fileToUpload" id="fileToUpload3">
@@ -245,7 +247,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </script>
 
                                     </form>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -469,7 +471,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="modal-body">
 					<div class="modalpad"> 
 						<div class="modalpop ">
-							<!--<img src="images/userm64.png" class="img-responsive" alt=""/>-->immagine
+				            <img src="<?php echo $userimg  ?> " class="img-responsive" alt=""/>
 						</div>
 						<div class="about-modal wthree">
 							<h3> <span><?php echo $name." ".$surname ?></span></h3>
@@ -501,7 +503,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</li>
 								<li>
 									<ul class="agileits-address-text">
-										<li><b>WEBSITE </b></li>
+										<li><b>CLUB </b></li>
 										<li><a href="#">www.mydesign.com</a></li>
 									</ul>
 								</li>
@@ -710,7 +712,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="tabs tabs-style-bar">
 			<nav>
 				<ul>
-					<li><a href="#section-bar-1" class="icon icon-box"><span>ijkbkh Design</span></a></li>
+					<li><a href="#section-bar-1" class="icon icon-box"><span>Design</span></a></li>
 					<li><a href="#section-bar-2" class="icon icon-display"><span>Mobile Apps</span></a></li>
 					<li><a href="#section-bar-3" class="icon icon-upload"><span>UI/UX Design</span></a></li>
 					<li><a href="#section-bar-4" class="icon icon-tools"><span>Graphic Design</span></a></li>

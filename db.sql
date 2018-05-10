@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Apr 24, 2018 alle 17:39
+-- Creato il: Mag 08, 2018 alle 19:12
 -- Versione del server: 5.6.34
 -- Versione PHP: 7.1.0
 
@@ -68,7 +68,8 @@ CREATE TABLE `friendrequest` (
 --
 
 INSERT INTO `friendrequest` (`id`, `id1`, `id2`, `date`) VALUES
-(4, 'marcobissessur@hotmail.com', 'bissessur@hotmail.com', '2018-04-24');
+(4, 'marcobissessur@hotmail.com', 'bissessur@hotmail.com', '2018-04-24'),
+(5, 'matteo@gmail.com', 'asd@asd.it', '2018-05-08');
 
 -- --------------------------------------------------------
 
@@ -98,8 +99,28 @@ INSERT INTO `friendship` (`id`, `date`, `id1`, `id2`) VALUES
 
 CREATE TABLE `participant` (
   `id` int(6) NOT NULL,
-  `player` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+  `player` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `position` int(20) NOT NULL,
+  `round2` tinyint(1) NOT NULL DEFAULT '0',
+  `round3` tinyint(1) NOT NULL DEFAULT '0',
+  `round4` tinyint(1) NOT NULL DEFAULT '0',
+  `round5` tinyint(1) NOT NULL DEFAULT '0',
+  `round6` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `participant`
+--
+
+INSERT INTO `participant` (`id`, `player`, `position`, `round2`, `round3`, `round4`, `round5`, `round6`) VALUES
+(3, 'Bissessurmarxo@gmail.con', 6, 0, 0, 0, 0, 0),
+(3, 'asd@asd.it', 7, 0, 0, 0, 0, 0),
+(3, 'bissessur@hotmail.com', 1, 1, 0, 0, 0, 0),
+(3, 'marco@hotmail.com', 4, 1, 1, 1, 0, 0),
+(3, 'marcobissessur@hotmail.com', 2, 0, 0, 0, 0, 0),
+(3, 'matteo@gmail.com', 8, 1, 1, 0, 0, 0),
+(3, 'prova@prova.com', 3, 0, 0, 0, 0, 0),
+(3, 'wer@wer.it', 5, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -137,7 +158,10 @@ CREATE TABLE `tournament` (
 
 INSERT INTO `tournament` (`name`, `id`, `description`, `maxplayers`, `creator`, `location`, `male`, `female`, `single`) VALUES
 ('MARCO', 1, 'wesdc', 16, 'marcobissessur@hotmail.com', '', 1, 0, 0),
-('givu', 2, 'wesdc', 16, 'marcobissessur@hotmail.com', '', 1, 0, 0);
+('givu', 2, 'wesdc', 16, 'marcobissessur@hotmail.com', '', 1, 0, 0),
+('prova', 3, 'ddddd', 8, 'marcobissessur@hotmail.com', '', 1, 0, 0),
+('assdf', 4, 'khbb', 32, 'marcobissessur@hotmail.com', '', 1, 0, 0),
+('ncg', 5, '', 2, 'matteo@gmail.com', '', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -212,8 +236,10 @@ INSERT INTO `userimages` (`id`, `user`, `img1`, `img2`, `img3`, `img4`) VALUES
 (1, 'prova@prova.com', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png'),
 (2, 'marco@hotmail.com', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png'),
 (3, 'bissessur@hotmail.com', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png'),
-(4, 'matteo@gmail.com', 'uploads/matteo@gmail.comtyui.JPG', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png'),
-(5, 'marcobissessur@hotmail.com', 'uploads/marcobissessur@hotmail.comyufv.png', 'images/insertlogo.png', 'uploads/marcobissessur@hotmail.comjbuho.JPG', 'uploads/marcobissessur@hotmail.commatteo@gmail.comsearch.png');
+(4, 'matteo@gmail.com', 'images/userm.png', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png'),
+(5, 'marcobissessur@hotmail.com', 'images/userm.png', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png'),
+(6, 'asd@asd.it', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png'),
+(7, 'wer@wer.it', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png', 'images/insertlogo.png');
 
 -- --------------------------------------------------------
 
@@ -236,20 +262,23 @@ CREATE TABLE `users` (
   `score` int(11) NOT NULL,
   `won` int(11) NOT NULL,
   `lost` int(11) NOT NULL,
-  `club` int(6) NOT NULL
+  `club` int(6) NOT NULL,
+  `pwdnn` varchar(30) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dump dei dati per la tabella `users`
 --
 
-INSERT INTO `users` (`email`, `psw`, `name`, `surname`, `user_avatar`, `user_country`, `user_shortbio`, `gender`, `birth`, `isAdmin`, `registration_date`, `score`, `won`, `lost`, `club`) VALUES
-('Bissessurmarxo@gmail.con', '3bf056b06d5d02ca750d3102ab13654b', 'Hdhd', 'Djdujd', 'uploads/Bissessurmarxo@gmail.conddd.JPG', NULL, NULL, NULL, '1985-12-19', 0, '2018-04-19', 0, 0, 0, 0),
-('bissessur@hotmail.com', '1058a42a81e5252c76cb308bcd6a0214', 'qw', 'qw', 'images/userm.png', NULL, NULL, NULL, '2323-03-22', 0, '2018-04-20', 0, 0, 0, 0),
-('marco@hotmail.com', '1058a42a81e5252c76cb308bcd6a0214', 'Maa', 'Bs', 'images/userm.png', NULL, NULL, NULL, '1212-12-12', 0, '2018-04-20', 0, 0, 0, 0),
-('marcobissessur@hotmail.com', '1058a42a81e5252c76cb308bcd6a0214', 'Marco', 'Bissessur', 'uploads/marcobissessur@hotmail.comEFE7881C-083F-4DE9-8514-6040394423B8.jpeg', NULL, NULL, NULL, '1999-10-21', 0, '2018-04-05', 0, 0, 0, 0),
-('matteo@gmail.com', '1058a42a81e5252c76cb308bcd6a0214', 'Matteo', 'Badminton', 'uploads/matteo@gmail.commarcobissessur@hotmail.comEFE7881C-083F-4DE9-8514-6040394423B8.jpeg', NULL, NULL, NULL, '1998-12-22', 0, '2018-04-20', 0, 0, 0, 0),
-('prova@prova.com', '6e6bc4e49dd477ebc98ef4046c067b5f', 'prova', 'prima', 'images/userm.png', NULL, NULL, NULL, '2112-11-11', 0, '2018-04-10', 0, 0, 0, 0);
+INSERT INTO `users` (`email`, `psw`, `name`, `surname`, `user_avatar`, `user_country`, `user_shortbio`, `gender`, `birth`, `isAdmin`, `registration_date`, `score`, `won`, `lost`, `club`, `pwdnn`) VALUES
+('Bissessurmarxo@gmail.con', '3bf056b06d5d02ca750d3102ab13654b', 'Hdhd', 'Djdujd', 'images/userm.png', NULL, NULL, NULL, '1985-12-19', 0, '2018-04-19', 0, 0, 0, 0, ''),
+('asd@asd.it', '76d80224611fc919a5d54f0ff9fba446', 'sdsad', 'fwefwe', 'images/userm.png', NULL, NULL, NULL, '0766-07-06', 0, '2018-05-04', 0, 0, 0, 0, ''),
+('bissessur@hotmail.com', '1058a42a81e5252c76cb308bcd6a0214', 'qw', 'qw', 'images/userm.png', NULL, NULL, NULL, '2323-03-22', 0, '2018-04-20', 0, 0, 0, 0, ''),
+('marco@hotmail.com', '1058a42a81e5252c76cb308bcd6a0214', 'Maa', 'Bs', 'images/userm.png', NULL, NULL, NULL, '1212-12-12', 0, '2018-04-20', 0, 0, 0, 0, ''),
+('marcobissessur@hotmail.com', '1058a42a81e5252c76cb308bcd6a0214', 'Marco', 'Bissessur', 'images/userm.png', NULL, NULL, NULL, '1999-10-21', 0, '2018-04-05', 0, 0, 0, 0, ''),
+('matteo@gmail.com', '1058a42a81e5252c76cb308bcd6a0214', 'Matteo', 'Badminton', 'images/userm.png', NULL, NULL, NULL, '1998-12-22', 0, '2018-04-20', 0, 0, 0, 0, ''),
+('prova@prova.com', '6e6bc4e49dd477ebc98ef4046c067b5f', 'prova', 'prima', 'images/userm.png', NULL, NULL, NULL, '2112-11-11', 0, '2018-04-10', 0, 0, 0, 0, ''),
+('wer@wer.it', '22c276a05aa7c90566ae2175bcc2a9b0', 'wer', 'wer1', 'images/userm.png', NULL, NULL, NULL, '0076-07-06', 0, '2018-05-04', 0, 0, 0, 0, '');
 
 --
 -- Indici per le tabelle scaricate
@@ -350,7 +379,7 @@ ALTER TABLE `club`
 -- AUTO_INCREMENT per la tabella `friendrequest`
 --
 ALTER TABLE `friendrequest`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT per la tabella `friendship`
 --
@@ -365,7 +394,7 @@ ALTER TABLE `rankingclub`
 -- AUTO_INCREMENT per la tabella `tournament`
 --
 ALTER TABLE `tournament`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT per la tabella `tournamentinvite`
 --
@@ -380,7 +409,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT per la tabella `userimages`
 --
 ALTER TABLE `userimages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Limiti per le tabelle scaricate
 --
