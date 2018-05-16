@@ -7,25 +7,13 @@
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="img/volano.png"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/material-design-iconic-font.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="css/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="css/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+	
+    
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="css/loginmobile.css" rel="stylesheet">
+    
     
   <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.1/mobile-detect.min.js"></script>
     <script>
@@ -40,7 +28,7 @@
 </head>
 <body>
 	
-	<div class="limiter">
+	<!--<div class="limiter">
 		<div class="container-login100" style="background-image: url('img/login-wallpaper.jpg');">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST">
@@ -62,10 +50,7 @@
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
                    
 					</div>
-                    <?php
-                     if(isset($_GET['invalidLogin'])){
-        echo '<p style="color:red; text-align:center;">Wrong email or password</p><br>';         
-                        } ?>
+                   
 
 				<!--	<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
@@ -74,7 +59,7 @@
 						</label>
 					</div> -->
 
-					<div class="container-login100-form-btn">
+				<!--	<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
 							Login
 						</button>
@@ -89,9 +74,8 @@
 				</form>
 			</div>
 		</div>
-	</div>
-	
- 
+	</div>-->
+
 <?php 
     session_start();
     require ('connect.php');
@@ -134,6 +118,43 @@
     
     ?>
     
+    
+<!------ Include the above in your HEAD tag ---------->
+
+<!--
+    you can substitue the span of reauth email for a input with the email and
+    include the remember me checkbox
+    -->
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" method="post">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+                <input type="password" id="inputPassword" name="pwd" class="form-control" placeholder="Password" required>
+               <!-- <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>--><div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                <input type="hidden" name="login">
+                </div>
+                 <?php
+                     if(isset($_GET['invalidLogin'])){
+        echo '<p style="color:red; text-align:center;">Wrong email or password</p><br>';         
+                        } ?>
+            </form><!-- /form -->
+            <!--<a href="#" class="forgot-password">
+                Forgot the password?
+            </a>-->
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+	
+ 
+    
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
@@ -152,6 +173,7 @@
 	<script src="js/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+    <script src="js/loginmobile.js"></script>
 
 </body>
 </html>

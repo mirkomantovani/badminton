@@ -213,6 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 
                 ?>
                     </div>
+                   <!-- type hidden cercare-->
                     <div style="float:right;">
                         <h2>Admin menu</h2>
                         <form action="addwinner.php" method="get">
@@ -356,7 +357,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             {
                                 player1: {
-                                    name: '".$part[0]['name']." ".$part[0]['position']."',
+                                    name: '".$part[0]['name']." ".$part[0]['surname']." ".$part[0]['position']."',
                                     ID: '".$part[0]['position']."',
                                     url: 'profile.php?user=".$part[0]['email']."',
                                 },
@@ -403,8 +404,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     })(jQuery);
 
                 </script>
-
-
+<br><br>
+<table>
+    <tr><td> Name </td> <td> Club </td> <td> Position </td></tr>
+                
+                
+                
+                
+                
+                </table>
                 <!-- Portfolio --><br>
                 <br>
 

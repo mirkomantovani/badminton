@@ -39,6 +39,7 @@ $row = $_SESSION['row'];
              $gender=$row['gender'];
              $birth=$row['birth'];
              $userimg=$row['user_avatar'];
+    $club=$row['club'];
     
 $userimages = $_SESSION['userimages'];
 $img1=$userimages['img1'];
@@ -354,7 +355,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <?php    
     
-    $clubinfo="SELECT * from clubmember where idmember=".$_SESSION['email']; 
+   /* $clubinfo="SELECT * from clubmember where idmember=".$_SESSION['email']; 
     $clubinf = mysqli_query($connection, $clubinfo);
                                     
     $cl = $clubinf->fetch_assoc();    
@@ -366,7 +367,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     
     $club = $creatorclub->fetch_assoc(); 
     $creator=$club['creator'];
-    
+    */
     ?>
         <!-- bootstrap-modal-pop-up -->
         <!-- modal -->
@@ -424,7 +425,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <li>
                                         <ul class="agileits-address-text">
                                             <li><b>CLUB </b></li>
-                                            <li><a href="#">www.mydesign.com</a></li>
+                                            <li><a href="#"><?php echo $club ?></a></li>
                                             <!-- mettere club in db -->
                                         </ul>
                                     </li>
