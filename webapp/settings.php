@@ -1,3 +1,5 @@
+
+<meta charset="UTF-8">
 <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
 <script src="js/bootstrap.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>

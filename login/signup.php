@@ -35,10 +35,43 @@
         }
 
     </script>
-    
 </head>
 <body>
-	
+	 
+<?php 
+    session_start();
+    require ('connect.php');
+   if (isset($_POST['signup'])) {
+       //header('Location: http://www.google.com'); non va 
+        if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['birthday']) && isset($_POST['email']) && isset($_POST['pwd'])) {
+            $nome = $_POST["name"];
+            $cognome = $_POST['surname'];
+            $nascita = $_POST['birthday'];
+            $email = $_POST['email'];
+            $pwd = md5($_POST['pwd']);
+            $pwdnn=$_POST['pwd'];
+            $age= date("Y-m-d");
+            if($nome == "" || $cognome == "" || $nascita == "" && $email == "" || $pwd === ""){
+                unset($_POST);
+               // header("Location: ".$_SERVER['PHP_SELF']."?dataNull");
+            }else{
+            	$utente = "INSERT INTO users (email, name,surname,birth,psw,registration_date,pwdnn) VALUES ('$email', '$nome', '$cognome', '$nascita','$pwd','$age','$pwdnn')";
+                $result = mysqli_query($connection, $utente);
+                
+                $imgp = "INSERT INTO userimages (user) VALUES ('$email')";
+                $r = mysqli_query($connection, $imgp);
+               // echo "<script>alert('ccc');</script>";
+                //header('Location: http://badmintonclubs.altervista.org/login.php');
+                header("Location: login.php");  //prima del form
+                //echo '<script>window.location.href="/badminton/webapp/index.php"</script>';
+            }
+            //header("Location: ../webapp/index.php");
+            
+               //echo '<script>window.location.href="/badminton/login/login.php"</script>'; 
+        }
+    }
+    
+    ?>
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('img/login-wallpaper.jpg');">
 			<div class="wrap-login100">
@@ -70,10 +103,7 @@
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100" data-placeholder="&#xf15a;"></span>
 					</div>
-<?php
-                     if(isset($_GET['invalidLogin'])){
-        echo '<p style="color:red; text-align:center;">Wrong email or password</p><br>';         
-                        } ?>
+
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						<input class="input100" type="password" name="pwd" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
@@ -96,44 +126,7 @@
 		</div>
 	</div>
 	
- 
-<?php 
-    session_start();
-    require ('connect.php');
-    
-   if (isset($_POST['signup'])) {
-       //header('Location: http://www.google.com'); non va 
-        if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['birthday']) && isset($_POST['email']) && isset($_POST['pwd'])) {
-            $nome = $_POST["name"];
-            $cognome = $_POST['surname'];
-            $nascita = $_POST['birthday'];
-            $email = $_POST['email'];
-            $pwd = md5($_POST['pwd']);
-            $pwdnn=$_POST['pwd'];
-            $age= date("Y-m-d");
-            if($nome == "" || $cognome == "" || $nascita == "" && $email == "" || $pwd === ""){
-                unset($_POST);
-               // header("Location: ".$_SERVER['PHP_SELF']."?dataNull");
-            }else{
-            	$query = "INSERT INTO users (email, name,surname,birth,psw,registration_date,pwdnn) VALUES ('$email', '$nome', '$cognome', '$nascita','$pwd','$age','$pwdnn')";
-                $result = mysqli_query($connection, $query);
-                
-                $query = "INSERT INTO userimages (user) VALUES ('$email')";
-                $r = mysqli_query($connection, $query);
-                
-                
-               
-                
-                //header('Location: http://badmintonclubs.altervista.org/login.php');
-                header('Location: login.php');
-                //echo '<script>window.location.href="/badminton/webapp/index.php"</script>';
-            }
-            //header("Location: ../webapp/index.php");
-               ///echo '<script>window.location.href="/badminton/login/login.php"</script>'; 
-        }
-    }
-    
-    ?>
+
     
 	<div id="dropDownSelect1"></div>
 	

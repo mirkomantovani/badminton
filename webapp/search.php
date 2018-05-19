@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html lang="en">
-
+<meta charset="UTF-8">
 <head>
     <?php session_start();
     include 'ChromePhp.php';

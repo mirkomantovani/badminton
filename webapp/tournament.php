@@ -214,17 +214,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 ?>
                     </div>
                    <!-- type hidden cercare-->
-                    <div style="float:right;">
+                    <?php 
+                    
+                    $admin="SELECT creator from tournament where id='".$id."'";
+                    $admint = mysqli_query($connection, $admin);
+                    
+                    $ad=$admint->fetch_assoc();
+                    $creat=$ad['creator'];
+                    
+                    if($creat == $_SESSION['email']){
+                        echo '<div style="float:right;">
                         <h2>Admin menu</h2>
                         <form action="addwinner.php" method="get">
                             <input type="number" name="winner" style="width:50px" min="1" max="<?php echo $maxpl ?>">
-                            <input type="submit" value="Select winner" class='w3ls_more'>
+                            <input type="submit" value="Select winner" class="w3ls_more">
                             <input type="hidden" name="id" value="<?php echo $id ?>">
                         </form>
-
-
-
-                    </div>
+                    </div>';
+                        
+                    }
+                    
+                    
+                    ?>
+                    
+                    
 
                 </div>
 

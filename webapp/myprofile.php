@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html lang="en">
-
+<meta charset="UTF-8">
 <head>
     <?php 
     session_start();
@@ -132,7 +132,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </li>
                                     <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
                                     <!--<li><a class="page-scroll scroll" href="#club">Club</a></li>-->
-                                    <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>
+                                    <?php 
+    $check="SELECT * from clubmember where idmember='".$_SESSION['email']."'"; 
+    $res = mysqli_query($connection, $check);
+            
+                
+    if ($res->num_rows > 0) {
+         echo ' <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#myclub">Club</a></li>';
+    } else {
+        echo ' <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>';
+    }
+    
+    ?>
+                           
 
                                     <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
 
@@ -353,22 +365,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <!-- banner -->
 
-    <?php    
     
-   /* $clubinfo="SELECT * from clubmember where idmember=".$_SESSION['email']; 
-    $clubinf = mysqli_query($connection, $clubinfo);
-                                    
-    $cl = $clubinf->fetch_assoc();    
-    $creator=cl['creator'];  
-        
-        
-    $clubcr="SELECT * from club where ";  //selezionare club in cui sono da tab club 
-    $creatorclub = mysqli_query($connection, $clubcr);
-                                    
-    $club = $creatorclub->fetch_assoc(); 
-    $creator=$club['creator'];
-    */
-    ?>
         <!-- bootstrap-modal-pop-up -->
         <!-- modal -->
         <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
@@ -438,25 +435,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
         <!-- //modal -->
+    <?php    
     
+   
+        
+    $clubcr="SELECT * from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
+    $infoclub = mysqli_query($connection, $clubcr);
+            
+     if ($infoclub->num_rows > 0) {
+          $club = $infoclub->fetch_assoc(); 
+    $creator=$club['creator'];
+    $clubname=$club['name'];
+    $desc=$club['description'];
+    $score=$club['score'];
+    $color=$club['color'];
+    }                              
+   
+      ?>
     <!--//modal3-->
         <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title"><?php echo $clubname ?></h4>
+                        
                     </div>
                     <div class="modal-body">
                         <div class="modalpad">
-                            <form action="createclub.php" method="get" id="club">
+                            
                                 <!-- <div class="modalpop ">
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
                                 <div class="about-modal wthree">
-                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
-
-                                    <input type=text placeholder="Name" name="name" value="">
+                                    <h3> <span><?php echo "".$clubname ?></span></h3>
+<h4 class="modal-title"><?php echo $creator ?></h4>
+                                   
 
                                     <!--<h4>UI/UX Designer</h4>-->
                                     <ul class="address">
@@ -465,40 +478,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <ul class="agileits-address-text">
                                                 <li><b>DESCRIPTION </b></li>
                                                 <li>
-                                                    <input type="text" name="desc">
+                                                   <?php echo "".$desc ?>
                                                 </li>
                                             </ul>
                                         </li>
 
                                         <li>
                                             <ul class="agileits-address-text">
-                                                <li><b>TYPE </b></li>
+                                                <li><b>SCORE </b></li>
                                                 <li>
-                                                    <select name="type" form="club">
-                                            <option>Aperto</option>
-                                            <option>Su invito</option>
-                                            </select>
+                                                    <?php echo "".$score ?>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
-                                            <ul class="agileits-address-text">
-                                                <li><b>PARTECIPANTS </b></li>
-                                                <li> 50</li>
-                                                <!-- mettere club in db -->
-                                            </ul>
-                                        </li>
-                                        <li><input name="color" type="color" id="myColor">
-                                        </li>
+                                      
                                     </ul>
+                                    <hr>
 
                                 </div>
                                 <div class="clearfix">
                                 </div>
                                 <center>
-                                    <input type="submit" class="btn btn-success" value="Create">
+                                    
                                 </center>
-                            </form>
+                           
                         </div>
                     </div>
                 </div>

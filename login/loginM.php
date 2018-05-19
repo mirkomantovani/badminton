@@ -144,7 +144,7 @@
                 </div>
                  <?php
                      if(isset($_GET['invalidLogin'])){
-        echo '<p style="color:red; text-align:center;">Wrong email or password</p><br>';         
+        echo '<br> <p style="color:red; text-align:center;">Wrong email or password</p>';         
                         } ?>
             </form><!-- /form -->
             <!--<a href="#" class="forgot-password">
