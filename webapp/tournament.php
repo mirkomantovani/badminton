@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html lang="en">
-
+<meta charset="UTF-8">
 <head>
     <?php session_start();
     include 'ChromePhp.php';
@@ -551,15 +551,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-                <!-- copyright -->
-                <div class="copyright-agile">
-                    <div class="container">
-                        <h4> Badminton Clubs</h4>
-                        <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <!-- copyright -->
+               
 
                 <!-- js -->
                 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -645,6 +637,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
+     <!-- copyright -->
+                <div class="copyright-agile">
+                    <div class="container">
+                        <h4> Badminton Clubs</h4>
+                        <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- copyright -->
 </body>
 
 </html>

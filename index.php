@@ -8,6 +8,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Badminton Clubs</title>
 <link href="login/img/volano.png" rel="icon">
+    <meta charset="UTF-8">
+    
+    
+    <?php 
+   
+   
+  
+    if(empty($_SESSION['email'])){
+        header('location: login/login.php');  //su internet mettere baminton/login/
+    }
+    ?>
+    
+    
+    
+      <!--   WORK IN PROGRESS-->
+    
+    
+    
 <!-- Custom Theme files -->
 <link href="style.css" rel="stylesheet" type="text/css" media="all"/>
 <!-- Custom Theme files -->
@@ -19,6 +37,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <!--Google Fonts-->
 </head>
+    
 <body>
 
 <!--search start here-->
