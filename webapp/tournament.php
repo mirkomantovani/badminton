@@ -138,7 +138,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </li>
                                 <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
                                 <!--<li><a class="page-scroll scroll" href="#club">Club</a></li>-->
-                                <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>
+                                  <?php 
+    $check="SELECT * from clubmember where idmember='".$_SESSION['email']."'"; 
+    $res = mysqli_query($connection, $check);
+            
+                
+    if ($res->num_rows > 0) {
+         echo ' <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#myclub">Club</a></li>';
+    } else {
+        echo ' <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>';
+    }
+    
+    ?>
 
                                 <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
 
@@ -314,6 +325,304 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                     </div>
                 </div>
+                
+                 <div class="modal about-modal fade" id="tournament" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Tournament</h4>
+                    </div>
+                    <form action="newtournament.php">
+                        <div class="modal-body">
+                            <div class="modalpad">
+                                <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                                <div class="about-modal wthree">
+                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
+                                    <input type=text placeholder="Name" value="" name="name">
+
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                    <input type="text" name="desc">
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>GENDER </b></li>
+                                                <li>
+                                                    <select name="sex">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                             <option>Mixed</option>
+                                            </select>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>TYPE </b></li>
+                                                <li>
+                                                    <select name="sd">
+                                            <option>Single</option>
+                                            <option>Double</option>
+                                            </select>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>PARTECIPANTS </b></li>
+                                                <li>  <select name="participants">
+                                            <option>2</option>
+                                            <option>4</option>
+                                            <option>8</option>
+                                            <option>16</option>
+                                            <option>32</option>
+                                            </select></li>
+                                                <!-- mettere club in db -->
+                                            </ul>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    <input type="submit" class="btn btn-success" value="Create">
+                                </center>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--//modal3-->
+        <div class="modal about-modal fade" id="newclub" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Club</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+                            <form action="createclub.php" method="get" id="club">
+                                <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                                <div class="about-modal wthree">
+                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
+
+                                    <input type=text placeholder="Name" name="name" value="">
+
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                    <input type="text" name="desc">
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>TYPE </b></li>
+                                                <li>
+                                                    <select name="type" form="club">
+                                            <option>Aperto</option>
+                                            <option>Su invito</option>
+                                            </select>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>PARTECIPANTS </b></li>
+                                                <li> 50</li>
+                                                <!-- mettere club in db -->
+                                            </ul>
+                                        </li>
+                                        <li><input name="color" type="color" id="myColor">
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    <input type="submit" class="btn btn-success" value="Create">
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+                <div class="modal about-modal fade" id="newclub" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Club</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+                            <form action="createclub.php" method="get" id="club">
+                                <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                                <div class="about-modal wthree">
+                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
+
+                                    <input type=text placeholder="Name" name="name" value="">
+
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                    <input type="text" name="desc">
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>TYPE </b></li>
+                                                <li>
+                                                    <select name="type" form="club">
+                                            <option>Aperto</option>
+                                            <option>Su invito</option>
+                                            </select>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>PARTECIPANTS </b></li>
+                                                <li> 50</li>
+                                                <!-- mettere club in db -->
+                                            </ul>
+                                        </li>
+                                        <li><input name="color" type="color" id="myColor">
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    <input type="submit" class="btn btn-success" value="Create">
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+                
+                <?php    
+    
+   
+        
+    $clubcr="SELECT * from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
+    $infoclub = mysqli_query($connection, $clubcr);
+            
+     if ($infoclub->num_rows > 0) {
+          $club = $infoclub->fetch_assoc(); 
+    $creator=$club['creator'];
+    $clubname=$club['name'];
+    $desc=$club['description'];
+    $score=$club['score'];
+    $color=$club['color'];
+    }                              
+   
+      ?>
+    <!--//modal3-->
+        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+                            
+                                <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                                <div class="about-modal wthree">
+                                    <h3> <span><?php echo "".$clubname ?></span></h3>
+<h4 class="modal-title"><?php echo "Created by: ".$creator ?></h4>
+                                   
+
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                   <?php echo "".$desc ?>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>SCORE </b></li>
+                                                <li>
+                                                    <?php echo "".$score ?>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                      
+                                    </ul>
+                                    <hr>
+                                    <ul class="list-group">
+                                    
+                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>
+                                    <li class="list-group-item">';
+    
+                                        
+            
+    
+                                    ?>
+                                    
+                                    
+                                    
+                                    </ul>
+
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    
+                                </center>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//modal4-->
 
 
                 <script>

@@ -420,9 +420,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </ul>
                                     </li>
                                     <li>
+                                        <?php 
+    $NC="SELECT name from club where id='".$club."'";
+                                    $nclub = mysqli_query($connection, $NC);
+                                     $c = $nclub->fetch_assoc(); 
+                                    $ncc=$c['name'];
+    
+    ?>
                                         <ul class="agileits-address-text">
                                             <li><b>CLUB </b></li>
-                                            <li><a href="#"><?php echo $club ?></a></li>
+                                            <li><a href="#"><?php echo $ncc ?></a></li>
                                             <!-- mettere club in db -->
                                         </ul>
                                     </li>
@@ -468,7 +475,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>-->
                                 <div class="about-modal wthree">
                                     <h3> <span><?php echo "".$clubname ?></span></h3>
-<h4 class="modal-title"><?php echo $creator ?></h4>
+<h4 class="modal-title"><?php echo "Created by: ".$creator ?></h4>
                                    
 
                                     <!--<h4>UI/UX Designer</h4>-->
@@ -494,6 +501,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                       
                                     </ul>
                                     <hr>
+                                    <ul class="list-group">
+                                    
+                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>
+                                    <li class="list-group-item">';
+    
+                                        
+            
+    
+                                    ?>
+                                    
+                                    
+                                    
+                                    </ul>
 
                                 </div>
                                 <div class="clearfix">

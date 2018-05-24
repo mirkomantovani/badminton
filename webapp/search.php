@@ -122,7 +122,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </li>
                                     <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
                                     <!--<li><a class="page-scroll scroll" href="#club">Club</a></li>-->
-                                    <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>
+                                      <?php 
+    $check="SELECT * from clubmember where idmember='".$_SESSION['email']."'"; 
+    $res = mysqli_query($connection, $check);
+            
+                
+    if ($res->num_rows > 0) {
+         echo ' <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#myclub">Club</a></li>';
+    } else {
+        echo ' <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>';
+    }
+    
+    ?>
 
                                     <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
 
@@ -369,7 +380,92 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
             </div>
         </div>
-        <!--//mo
+        
+                 <?php    
+    
+   
+        
+    $clubcr="SELECT * from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
+    $infoclub = mysqli_query($connection, $clubcr);
+            
+     if ($infoclub->num_rows > 0) {
+          $club = $infoclub->fetch_assoc(); 
+    $creator=$club['creator'];
+    $clubname=$club['name'];
+    $desc=$club['description'];
+    $score=$club['score'];
+    $color=$club['color'];
+    }                              
+   
+      ?>
+    <!--//modal3-->
+        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+                            
+                                <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                                <div class="about-modal wthree">
+                                    <h3> <span><?php echo "".$clubname ?></span></h3>
+<h4 class="modal-title"><?php echo "Created by: ".$creator ?></h4>
+                                   
+
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                   <?php echo "".$desc ?>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>SCORE </b></li>
+                                                <li>
+                                                    <?php echo "".$score ?>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                      
+                                    </ul>
+                                    <hr>
+                                    <ul class="list-group">
+                                    
+                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>
+                                    <li class="list-group-item">';
+    
+                                        
+            
+    
+                                    ?>
+                                    
+                                    
+                                    
+                                    </ul>
+
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    
+                                </center>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
               
     <!-- Portfolio --><br>
             <br>
@@ -488,26 +584,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <!-- Tab-3 -->
                 <section id="section-bar-3" class="agileits w3layouts">
-                    <h4>UI/UX Design</h4>
-                    <div class="gallery-grids">
-                        <div class="col-md-12 col-sm-12 gallery-top">
-                            <a href="images/p1.jpg" class="swipebox">
-                                <figure class="effect-bubba">
-                                    <img src="images/p1.jpg" alt="" class="img-responsive">
-                                    <figcaption>
-                                        <h4>UI/UX Design</h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                       
+                    <h4>Club</h4>
+                                  <div class="gallery-grids">
+                         <?php
+    
+    $query = $_GET['query'];
+    $fields = explode(' ',$query);
+    $n = $fields[0];
+    $s = $fields[1];
+     
+    $tourq = "select * from club where name like '%".$n."%'";
+   
+   
+    
+    $tours = mysqli_query($connection, $tourq);
+    
+      if ($tours->num_rows > 0) {
+        while($row = $tours->fetch_assoc()) {
+     		 echo '<div class="col-md-4 col-sm-4 gallery-top">
+                                
+                                    <figure class="effect-bubba">
+                                        <img src="../images/volds.jpg" alt="" class="img-responsive">
+                                        <figcaption>
+
+                                            <h4>
+                                                <a href="tournament.php?id='.$row['id'].'">'.$row['name'].'
+                                                </a>
+                                            </h4>
+                                        </figcaption>
+                                    </figure>
+                                
+                            </div>';
+        }
+    } else {
+        echo "<p style='text-align:center'>Your research didn't produce any results</p>";
+    }
+
+    ?>
                         <div class="clearfix"></div>
                     </div>
                 </section>
-                <!-- //Tab-3 -->
-
-                
-
             </div>
             <!-- //Content -->
         </div>
@@ -517,15 +633,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-    <!-- copyright -->
-    <div class="copyright-agile">
-        <div class="container">
-            <h4> Badminton Clubs</h4>
-            <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-    <!-- copyright -->
+    
 
     <!-- js -->
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -610,7 +718,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //scrolling script -->
  </div>
         </div>
+        
     </div>
+    <!-- copyright -->
+    <div class="copyright-agile">
+        <div class="container">
+            <h4> Badminton Clubs</h4>
+            <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- copyright -->
 </body>
 
 </html>
