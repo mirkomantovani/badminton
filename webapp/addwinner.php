@@ -22,6 +22,12 @@ $maxpl=$t['maxplayers'];
 $sommaround="SELECT sum(round2) as sr2,sum(round3) as sr3,sum(round4) as sr4,sum(round5) as sr5,sum(round6) as sr6 from participant where id=".$id."";
 $riss = mysqli_query($connection, $sommaround);
 
+$pl="SELECT player from participant where position='".$winner."'";
+$ri = mysqli_query($connection, $pl);
+$py = $ri->fetch_assoc();
+$play=$py['player'];
+
+
 $s = $riss->fetch_assoc();
 
 
@@ -51,25 +57,33 @@ if($mm2 == $s2){
                     $noquery=1;
                 }else { //we are at round 6
                     $insertquery = "update participant set round6=1 where id='".$id."' and position='".$winner."'";  
+                    $givepoints = "update users set score=5+score where email='".$play."'";
                 }
     
             }else { //we are at round 5
                 $insertquery = "update participant set round5=1 where id='".$id."' and position='".$winner."'";
+                $givepoints = "update users set score=4+score where email='".$play."'";
             }
         }else { //we are at round 4
             $insertquery = "update participant set round4=1 where id='".$id."' and position='".$winner."'";
+            $givepoints = "update users set score=3+score where email='".$play."'";
         }
         
     }else { //we are at round 3
         $insertquery = "update participant set round3=1 where id='".$id."' and position='".$winner."'";
+        $givepoints = "update users set score=2+score where email='".$play."'";
     }
     
 }else { //we are at round 2
     $insertquery = "update participant set round2=1 where id='".$id."' and position='".$winner."'";
+    $givepoints = "update users set score=1+score where email='".$play."'";
 }
 
-if($noquery != 1)
+if($noquery != 1){
+    //echo $givepoints;
     $r = mysqli_query($connection, $insertquery);
+    $rs = mysqli_query($connection, $givepoints);
+}
 
 header('location: tournament.php?id='.$id);
 

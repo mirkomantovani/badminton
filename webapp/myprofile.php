@@ -504,9 +504,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <ul class="list-group">
                                     
                                     <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>
-                                    <li class="list-group-item">';
+                                    <li class="list-group-item"> <li>';
     
                                         
+                                  // num rows 
+       // select * from clubmember,users where email=idmember and idclub= $idclub-->
             
     
                                     ?>
@@ -627,7 +629,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <!--<li>
                                             <ul class="agileits-address-text">
                                                 <li><b>GENDER </b></li>
                                                 <li>
@@ -638,7 +640,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </select>
                                                 </li>
                                             </ul>
-                                        </li>
+                                        </li>-->
                                         <li>
                                             <ul class="agileits-address-text">
                                                 <li><b>TYPE </b></li>
@@ -843,7 +845,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <!-- Portfolio -->
         <div class="portfolio" id="portfolio">
-            <h3 data-aos="zoom-in">Portfolio</h3>
+            <h3 data-aos="zoom-in">Activity</h3>
 
 
 
@@ -852,111 +854,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul>
                         <li><a href="#section-bar-1" class="icon icon-box"><span>Tournaments</span></a></li>
                         <li><a href="#section-bar-2" class="icon icon-display"><span>Friends</span></a></li>
-                        <li><a href="#section-bar-3" class="icon icon-upload"><span>Club</span></a></li>
+                        <!--<li><a href="#section-bar-3" class="icon icon-upload"><span>Club</span></a></li>-->
                         <!--<li><a href="#section-bar-4" class="icon icon-tools"><span>Graphic Design</span></a></li>-->
                     </ul>
                 </nav>
 
                 <div class="content-wrap">
+                    
 
+                    
                     <!-- Tab-1 -->
-                    <section id="section-bar-1" class="agileits w3layouts">
-                        <h4>Web Design</h4>
+                       <section id="section-bar-1" class="agileits w3layouts">
+                        <h4>Tournaments</h4>
                         <div class="gallery-grids">
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/5.jpg" class="swipebox">
+
+
+                            <?php
+    $touq = "(select name from participant as f,users as u where f.player='".$email."')";
+   
+   //select * from participant,tournaments where player=email and participant.id=tournament.id
+    
+    $tous = mysqli_query($connection, $touq);
+    
+      if ($tous->num_rows > 0) {
+        while($row = $tous->fetch_assoc()) {
+     		 echo '<div class="col-md-4 col-sm-4 gallery-top">
+                                
                                     <figure class="effect-bubba">
-                                        <img src="uploads/IMG_4998.JPG" style="width:850px; height:540px;" alt="" class="img-responsive">
+                                        <img src="../images/volds.jpg" alt="" class="img-responsive">
                                         <figcaption>
-                                            <a>
-                                                <?php ?>
-                                            </a>
-                                            <h4>Web Design</h4>
+
+                                            <h4>
+                                                 <a href="tournament.php?id='.$row['id'].'">'.$row['name'].'
+                                                </a>
+                                            </h4>
                                         </figcaption>
                                     </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p4.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p4.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Web Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p5.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p5.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Web Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p6.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p6.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Web Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p7.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p7.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Web Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p8.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p8.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Web Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p9.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p9.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Web Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p10.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p10.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Web Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 gallery-top">
-                                <a href="images/p11.jpg" class="swipebox">
-                                    <figure class="effect-bubba">
-                                        <img src="images/p11.jpg" alt="" class="img-responsive">
-                                        <figcaption>
-                                            <h4>Web Design</h4>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="clearfix"></div>
+                            </div>';
+        }
+    } else {
+        echo "<p style='text-align:center'>You don't have any tournaments</p>";
+    }
+
+    ?>
+                                <div class="clearfix"></div>
                         </div>
                     </section>
                     <!-- //Tab-1 -->
@@ -1004,10 +945,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </section>
                     <!-- //Tab-2 -->
 
-                    <!-- Tab-3 -->
+                    <!-- Tab-3 -
                     <section id="section-bar-3" class="agileits w3layouts">
                         <h4>
-                            <!-- nome club-->Club</h4>
+                            <!-- nome club--Club</h4>
                         <div class="gallery-grids">
                             <!-- <div class="col-md-12 col-sm-12 gallery-top">
                             <a href="images/p1.jpg" class="swipebox">
@@ -1018,7 +959,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </figcaption>
                                 </figure>
                             </a>
-                        </div>-->
+                        </div>--
                             <iframe src="club.html" frameborder=0 name="Portale" width=100% height=100%></iframe>
                             <div class="clearfix"></div>
                         </div>

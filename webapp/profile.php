@@ -174,7 +174,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
 		<!-- //header -->
 
-
+<!-- img view 
+            <div id="swipebox-overlay" style="transition: opacity 1s ease; width: 336px; height: 680px; display: block; opacity: 1;" class="visible">					<div id="swipebox-slider" style="transition: left 0.4s ease; left: -300%;"><div class="slide"></div><div class="slide"></div><div class="slide"><img src="images/5.jpg"></div><div class="slide current"><img src="images/p4.jpg"></div><div class="slide"><img src="images/p5.jpg"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div></div>					<div id="swipebox-caption" class="" style="transition: 0.5s;"></div>					<div id="swipebox-action" style="transition: 0.5s;" class="">						<a id="swipebox-close" style="background-image: url(&quot;http://localhost/badminton/webapp/images/icons.svg&quot;);"></a>						<a id="swipebox-prev" style="background-image: url(&quot;http://localhost/badminton/webapp/images/icons.svg&quot;);"></a>						<a id="swipebox-next" style="background-image: url(&quot;http://localhost/badminton/webapp/images/icons.svg&quot;);"></a>					</div>			</div>
+            -->
+            
+            
+            
                     <div style="float:right; margin-top:7%" class="col-md-6 skill-grids-left">
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">

@@ -237,9 +237,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         echo '<div style="float:right;">
                         <h2>Admin menu</h2>
                         <form action="addwinner.php" method="get">
-                            <input type="number" name="winner" style="width:50px" min="1" max="<?php echo $maxpl ?>">
+                            <input type="number" name="winner" style="width:50px" min="1" max="'.$maxpl.'">
                             <input type="submit" value="Select winner" class="w3ls_more">
-                            <input type="hidden" name="id" value="<?php echo $id ?>">
+                            <input type="hidden" name="id" value="'.$id.'">
+                        </form>
+                        
+                         <br><br>
+                         
+                         <form action="finisht.php" method="get" style="margin-left:10%">
+                           
+                            <input type="submit" value="End tournament" class="w3ls_more">
+                            <input type="hidden" name="id" value="'.$id.'">
                         </form>
                     </div>';
                         
@@ -727,14 +735,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 </script>
 <br><br>
-<table>
-    <tr><td> Name </td> <td> Club </td> <td> Position </td></tr>
-                
-                
-                
-                
-                
-                </table>
+
                 <!-- Portfolio --><br>
                 <br>
 

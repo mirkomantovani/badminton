@@ -560,7 +560,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      		 echo '<div class="col-md-4 col-sm-4 gallery-top">
                                 
                                     <figure class="effect-bubba">
-                                        <img src="images/5.jpg" alt="" class="img-responsive">
+                                        <img src="../images/volds.jpg" alt="" class="img-responsive">
                                         <figcaption>
 
                                             <h4>
@@ -595,7 +595,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      
     $tourq = "select * from club where name like '%".$n."%'";
    
-   
+   //mettere club non tournament
     
     $tours = mysqli_query($connection, $tourq);
     
