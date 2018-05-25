@@ -451,6 +451,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             
      if ($infoclub->num_rows > 0) {
           $club = $infoclub->fetch_assoc(); 
+        
+         $idc=$club['id'];
     $creator=$club['creator'];
     $clubname=$club['name'];
     $desc=$club['description'];
@@ -503,13 +505,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <hr>
                                     <ul class="list-group">
                                     
-                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>
-                                    <li class="list-group-item"> <li>';
+                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>';
     
                                         
-                                  // num rows 
-       // select * from clubmember,users where email=idmember and idclub= $idclub-->
+                              
+       $qmem="select * from clubmember,users where email=idmember and idclub='".$idc."'";
+       $membri = mysqli_query($connection, $qmem); 
             
+            if ($membri->num_rows > 0) {
+        while($row = $membri->fetch_assoc()) {
+     		 echo ' <li class="list-group-item"> <a href="profile.php?user='.$row['email'].'">'.$row['name'].' '.$row['surname'].'</a> </li>';
+        }
+    } 
     
                                     ?>
                                     
