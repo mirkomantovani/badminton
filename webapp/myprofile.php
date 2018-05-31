@@ -446,14 +446,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     
    
         
-    $clubcr="SELECT * from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
+    $clubcr="SELECT club.id,club.creator,users.name as nome,users.surname,club.name,club.description,club.score,club.color from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
     $infoclub = mysqli_query($connection, $clubcr);
-            
+        
      if ($infoclub->num_rows > 0) {
           $club = $infoclub->fetch_assoc(); 
         
-         $idc=$club['id'];
-    $creator=$club['creator'];
+    $idc=$club['id'];
+    $cremail=$club['cremail'];
+    $creator=$club['nome'];
+    $crsur=$club['surname'];
     $clubname=$club['name'];
     $desc=$club['description'];
     $score=$club['score'];
@@ -477,7 +479,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>-->
                                 <div class="about-modal wthree">
                                     <h3> <span><?php echo "".$clubname ?></span></h3>
-<h4 class="modal-title"><?php echo "Created by: ".$creator ?></h4>
+<h4 class="modal-title"><?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
                                    
 
                                     <!--<h4>UI/UX Designer</h4>-->
@@ -496,7 +498,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <ul class="agileits-address-text">
                                                 <li><b>SCORE </b></li>
                                                 <li>
-                                                    <?php echo "".$score ?>
+                                                    <?php echo "".$score ?>  <!-- score tot membri fratto num membri-->
                                                 </li>
                                             </ul>
                                         </li>
@@ -877,11 +879,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                             <?php
-    $touq = "(select name from participant as f,users as u where f.player='".$email."')";
+   // $touq = "(select name from participant as f,users as u where f.player='".$email."')"; doppioni
    
    //select * from participant,tournaments where player=email and participant.id=tournament.id
-    
-    $tous = mysqli_query($connection, $touq);
+    $tourq="SELECT * from participant,tournament where participant.player='".$email."' and participant.id=tournament.id";
+    $tous = mysqli_query($connection, $tourq);
     
       if ($tous->num_rows > 0) {
         while($row = $tous->fetch_assoc()) {

@@ -442,7 +442,7 @@ require('connect.php');
             </div>
 
             <div class="col-md-9  admin-content" id="change-password">
-                <form action="/password" method="post">
+                <form action="passwordconf.php" method="post">
 
            
                     <div class="panel panel-info" style="margin: 1em;">
