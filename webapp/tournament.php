@@ -30,6 +30,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     $id=$_GET['id'];
     $trn=mysqli_query($connection, 'select * from tournament where id="'.$id.'"');
     $participants=mysqli_query($connection, 'select * from participant,users where id="'.$id.'" and participant.player=users.email order by position');
+    
+    
 $row = $_SESSION['row'];   
            
              $email=$row['email'];
@@ -45,6 +47,7 @@ $tr = $trn->fetch_assoc();
              $namet=$tr['name'];
              $description=$tr['description'];
              $maxplayers=$tr['maxplayers'];
+             $ended=$tr['ended'];
     
     $part=array();
     $i=0;
@@ -233,6 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $ad=$admint->fetch_assoc();
                     $creat=$ad['creator'];
                     
+                    if($ended==0){
                     if($creat == $_SESSION['email']){
                         echo '<div style="float:right;">
                         <h2>Admin menu</h2>
@@ -242,15 +246,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <input type="hidden" name="id" value="'.$id.'">
                         </form>
                         
-                         <br><br>
                          
-                         <form action="finisht.php" method="get" style="margin-left:10%">
-                           
-                            <input type="submit" value="End tournament" class="w3ls_more">
-                            <input type="hidden" name="id" value="'.$id.'">
-                        </form>
                     </div>';
-                        
+                    }
                     }
                     
                     
@@ -479,82 +477,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
                 
-                <div class="modal about-modal fade" id="newclub" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Club</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modalpad">
-                            <form action="createclub.php" method="get" id="club">
-                                <!-- <div class="modalpop ">
-                            <img src="images/5.jpg" class="img-responsive" alt="" />
-                        </div>-->
-                                <div class="about-modal wthree">
-                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
-
-                                    <input type=text placeholder="Name" name="name" value="">
-
-                                    <!--<h4>UI/UX Designer</h4>-->
-                                    <ul class="address">
-
-                                        <li>
-                                            <ul class="agileits-address-text">
-                                                <li><b>DESCRIPTION </b></li>
-                                                <li>
-                                                    <input type="text" name="desc">
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                        <li>
-                                            <ul class="agileits-address-text">
-                                                <li><b>TYPE </b></li>
-                                                <li>
-                                                    <select name="type" form="club">
-                                            <option>Aperto</option>
-                                            <option>Su invito</option>
-                                            </select>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <ul class="agileits-address-text">
-                                                <li><b>PARTECIPANTS </b></li>
-                                                <li> 50</li>
-                                                <!-- mettere club in db -->
-                                            </ul>
-                                        </li>
-                                        <li><input name="color" type="color" id="myColor">
-                                        </li>
-                                    </ul>
-
-                                </div>
-                                <div class="clearfix">
-                                </div>
-                                <center>
-                                    <input type="submit" class="btn btn-success" value="Create">
-                                </center>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
                 
-                
-                <?php    
+                   <?php    
     
    
         
-    $clubcr="SELECT * from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
+    $clubcr="SELECT club.id,club.creator,users.name as nome,users.surname,club.name,club.description,club.score,club.color from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
     $infoclub = mysqli_query($connection, $clubcr);
-            
+        
      if ($infoclub->num_rows > 0) {
           $club = $infoclub->fetch_assoc(); 
-    $creator=$club['creator'];
+        
+    $idc=$club['id'];
+    $cremail=$club['cremail'];
+    $creator=$club['nome'];
+    $crsur=$club['surname'];
     $clubname=$club['name'];
     $desc=$club['description'];
     $score=$club['score'];
@@ -563,9 +501,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    
       ?>
     <!--//modal3-->
-        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
+        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog" >
+            <div class="modal-dialog" role="document" >
+                <div class="modal-content" style="background-color:<?php echo $color ?>">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         
@@ -577,8 +515,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
                                 <div class="about-modal wthree">
-                                    <h3> <span><?php echo "".$clubname ?></span></h3>
-<h4 class="modal-title"><?php echo "Created by: ".$creator ?></h4>
+                                    <h3> <span><?php echo "".$clubname." " ?></span></h3>
+<h4 class="modal-title"><?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
                                    
 
                                     <!--<h4>UI/UX Designer</h4>-->
@@ -597,7 +535,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <ul class="agileits-address-text">
                                                 <li><b>SCORE </b></li>
                                                 <li>
-                                                    <?php echo "".$score ?>
+                                                    <?php echo "".$score ?>  <!-- score tot membri fratto num membri-->
                                                 </li>
                                             </ul>
                                         </li>
@@ -606,17 +544,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <hr>
                                     <ul class="list-group">
                                     
-                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>
-                                    <li class="list-group-item">';
+                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>';
     
                                         
+                              
+       $qmem="select * from clubmember,users where email=idmember and idclub='".$idc."'";
+       $membri = mysqli_query($connection, $qmem); 
             
+            if ($membri->num_rows > 0) {
+        while($row = $membri->fetch_assoc()) {
+     		 echo ' <li class="list-group-item"> <a href="profile.php?user='.$row['email'].'">'.$row['name'].' '.$row['surname'].'</a> </li>';
+        }
+    } 
     
                                     ?>
                                     
+                                        
                                     
                                     
                                     </ul>
+                                    <form action="leaveclub.php" method="get">
+                                    <button style="margin-left:40%; color:red; background-color:transparent; border:none;">QUIT</button>
+                                        </form>
 
                                 </div>
                                 <div class="clearfix">
@@ -693,6 +642,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 },
                             },
                         ";
+                                
+                                
+                                if($ended==0 && $part[0]['email']!=""){
+                                    //echo $part[0]['email'];
+                                  //  echo $part[0]['email']==null;
+                                //    echo $part[0]['email']=="";
+                                   // echo strlen($part[0]['email']);
+                                        
+                                $end="update tournament set ended=1 where id=".$id;
+                                $r = mysqli_query ($connection, $end);
+                                    
+                                $winp="update users set won=1+won where email='".$part[0]['email']."'";
+                                $r = mysqli_query($connection, $winp);
+                                
+                                $lostp="update users,participant set lost=1+lost where email!='".$part[0]['email']."' and id=".$id." and player=email";
+                                $r = mysqli_query($connection, $lostp);
+                                    $reload=1;
+                                        
+                                } 
+                                
+                                
                                 }
                             echo "],";
                             
@@ -713,6 +683,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             echo "'Round ".$f."'";
                     }
                     echo "];";
+                    if($reload==1){
+                    echo "window.location.reload();";
+                    //header('location: '.$_SERVER['PHP_SELF']);
+                    }
                         
                         ?>
 

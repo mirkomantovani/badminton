@@ -39,7 +39,9 @@ $row = $_SESSION['row'];
              $gender=$row['gender'];
              $birth=$row['birth'];
              $userimg=$row['user_avatar'];
-    $club=$row['club'];
+             $win=$row['won'];
+             $lost=$row['lost'];
+             $club=$row['club'];
     
 $userimages = $_SESSION['userimages'];
 $img1=$userimages['img1'];
@@ -464,21 +466,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    
       ?>
     <!--//modal3-->
-        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog" >
+            <div class="modal-dialog" role="document" >
+                <div class="modal-content" >
+                    <div class="modal-header" style="background-color:<?php echo $color ?>">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white"><span aria-hidden="true">&times;</span></button>
                         
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" >
                         <div class="modalpad">
                             
                                 <!-- <div class="modalpop ">
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
                                 <div class="about-modal wthree">
-                                    <h3> <span><?php echo "".$clubname ?></span></h3>
+                                    <h3> <span ><?php echo "".$clubname." " ?></span></h3>
 <h4 class="modal-title"><?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
                                    
 
@@ -522,9 +524,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     
                                     ?>
                                     
+                                        
                                     
                                     
                                     </ul>
+                                    <form action="leaveclub.php" method="get">
+                                    <button style="margin-left:35%; color:red; background-color:transparent; border:none;" name="esci">LEAVE CLUB</button>
+                                        </form>
 
                                 </div>
                                 <div class="clearfix">
@@ -763,7 +769,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="container">
                 <h3 data-aos="zoom-in">Skills</h3>
                 <div class="skill-grids">
-                    <div class="col-md-6 skill-grids-left">
+                   <!-- <div class="col-md-6 skill-grids-left">
                         <div data-aos="flip-left" class="col-md-6 w3labout-img">
                             <div class="boxw3-agile">
                                 <img src="images/s1.jpg" alt="" class="img-responsive" />
@@ -802,44 +808,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                    </div>
-                    <div class="col-md-6 skill-grids-right">
+                    </div>-->
+                    <div class="col-md-12 skill-grids-right">
+                        
+                        <?php
+                        
+                          if(($win+$lost)==null){
+                              $wr=0;
+                          }else{
+                              $wr=($win/($win+$lost))*100;
+                          }
+                         
+                        ?>
 
                         <!-- Skills -->
-                        <div class="skillbar clearfix " data-percent="100%">
-                            <div class="skillbar-title" style="background: #ff4f81;"><span>Win rate</span></div>
-                            <div class="skillbar-bar" style="background: #ff4f81;"></div>
-                            <div class="skill-bar-percent">100%</div>
+                        <div class="skillbar clearfix " data-percent="<?php echo $wr ?>%">
+                            <div class="skillbar-title" style="background: #ff0000;"><span>Win Rate</span></div>
+                            <div class="skillbar-bar" style="background: #ff0000;"></div>
+                            <div class="skill-bar-percent"><?php echo $wr."%" ?></div>
                         </div>
                         <!-- End Skill Bar -->
 
                         <div class="skillbar clearfix " data-percent="75%">
-                            <div class="skillbar-title" style="background: #ff9900;"><span>Club win rate</span></div>
+                            <div class="skillbar-title" style="background: #ff9900;"><span>Club Win Rate</span></div>
                             <div class="skillbar-bar" style="background: #ff9900;"></div>
                             <div class="skill-bar-percent">75%</div>
                         </div>
                         <!-- End Skill Bar -->
 
                         <div class="skillbar clearfix " data-percent="60%">
-                            <div class="skillbar-title" style="background: #8e43e7;"><span>Rank</span></div>
+                            <div class="skillbar-title" style="background: #8e43e7;"><span>Global Rank</span></div>
                             <div class="skillbar-bar" style="background: #8e43e7;"></div>
                             <div class="skill-bar-percent">3</div>
                         </div>
-                        <!-- End Skill Bar -->
+                        <!-- End Skill Bar 
 
                         <div class="skillbar clearfix " data-percent="40%">
                             <div class="skillbar-title" style="background: #146eb4;"><span>PHP</span></div>
                             <div class="skillbar-bar" style="background: #146eb4;"></div>
                             <div class="skill-bar-percent">40%</div>
                         </div>
-                        <!-- End Skill Bar -->
+                        <!-- End Skill Bar 
 
                         <div class="skillbar clearfix " data-percent="75%">
                             <div class="skillbar-title" style="background: #11b563;"><span>Wordpress</span></div>
                             <div class="skillbar-bar" style="background: #11b563;"></div>
                             <div class="skill-bar-percent">75%</div>
                         </div>
-                        <!-- End Skill Bar -->
+                        <!-- End Skill Bar -
 
                         <p class="p1">Etiam sit amet porttitor nulla. Nullam tincidunt lectus vel euismodpulvi nar. Aenean a facilisis augue, at convallis lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent faucibus massa elit, vitae ultrices libero dapibus nec. Maecenas cursus rutrum odio ut convallis.</p>
                         <!-- //Skills -->

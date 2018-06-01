@@ -381,16 +381,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
         
-                 <?php    
+                    <?php    
     
    
         
-    $clubcr="SELECT * from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
+    $clubcr="SELECT club.id,club.creator,users.name as nome,users.surname,club.name,club.description,club.score,club.color from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
     $infoclub = mysqli_query($connection, $clubcr);
-            
+        
      if ($infoclub->num_rows > 0) {
           $club = $infoclub->fetch_assoc(); 
-    $creator=$club['creator'];
+        
+    $idc=$club['id'];
+    $cremail=$club['cremail'];
+    $creator=$club['nome'];
+    $crsur=$club['surname'];
     $clubname=$club['name'];
     $desc=$club['description'];
     $score=$club['score'];
@@ -399,9 +403,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    
       ?>
     <!--//modal3-->
-        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
+        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog" >
+            <div class="modal-dialog" role="document" >
+                <div class="modal-content" style="background-color:<?php echo $color ?>">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         
@@ -413,8 +417,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
                                 <div class="about-modal wthree">
-                                    <h3> <span><?php echo "".$clubname ?></span></h3>
-<h4 class="modal-title"><?php echo "Created by: ".$creator ?></h4>
+                                    <h3> <span><?php echo "".$clubname." " ?></span></h3>
+<h4 class="modal-title"><?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
                                    
 
                                     <!--<h4>UI/UX Designer</h4>-->
@@ -433,7 +437,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <ul class="agileits-address-text">
                                                 <li><b>SCORE </b></li>
                                                 <li>
-                                                    <?php echo "".$score ?>
+                                                    <?php echo "".$score ?>  <!-- score tot membri fratto num membri-->
                                                 </li>
                                             </ul>
                                         </li>
@@ -442,17 +446,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <hr>
                                     <ul class="list-group">
                                     
-                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>
-                                    <li class="list-group-item">';
+                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>';
     
                                         
+                              
+       $qmem="select * from clubmember,users where email=idmember and idclub='".$idc."'";
+       $membri = mysqli_query($connection, $qmem); 
             
+            if ($membri->num_rows > 0) {
+        while($row = $membri->fetch_assoc()) {
+     		 echo ' <li class="list-group-item"> <a href="profile.php?user='.$row['email'].'">'.$row['name'].' '.$row['surname'].'</a> </li>';
+        }
+    } 
     
                                     ?>
                                     
+                                        
                                     
                                     
                                     </ul>
+                                    <form action="leaveclub.php" method="get">
+                                    <button style="margin-left:40%; color:red; background-color:transparent; border:none;">QUIT</button>
+                                        </form>
 
                                 </div>
                                 <div class="clearfix">
@@ -608,7 +623,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <figcaption>
 
                                             <h4>
-                                                <a href="tournament.php?id='.$row['id'].'">'.$row['name'].'
+                                            
+                                                <a href="club.php?id='.$row['id'].'">'.$row['name'].'
                                                 </a>
                                             </h4>
                                         </figcaption>

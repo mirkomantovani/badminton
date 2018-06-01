@@ -1,4 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <?php 
+ session_start();
+require('connect.php');
 
+  
+    if(empty($_SESSION['email'])){
+        header('location: ../login/login.php');
+    }
+    
+    
+    $row = $_SESSION['row'];   
+           
+             $email=$row['email'];
+             $name=$row['name'];
+             $surname=$row['surname'];
+             $bio=$row['user_shortbio'];
+             $country=$row['user_country'];
+             $gender=$row['gender'];
+             $birth=$row['birth'];
+             $userimg=$row['user_avatar'];
+    ?>
+    
 <meta charset="UTF-8">
 <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
 <script src="js/bootstrap.js"></script>
@@ -20,32 +45,10 @@
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
 <title>Settings</title>
-<?php
-session_start();
-require('connect.php');
 
-  
-    if(empty($_SESSION['email'])){
-        header('location: ../login/login.php');
-    }
-    
-    
-    $row = $_SESSION['row'];   
-           
-             $email=$row['email'];
-             $name=$row['name'];
-             $surname=$row['surname'];
-             $bio=$row['user_shortbio'];
-             $country=$row['user_country'];
-             $gender=$row['gender'];
-             $birth=$row['birth'];
-             $userimg=$row['user_avatar'];
-
-
-?>
-
-<!------ Include the above in your HEAD tag ---------->
- <div class="header-w3layouts">
+   
+                    <!-- header -->
+                    <div class="header-w3layouts">
                         <!-- Navigation -->
                         <nav class="navbar navbar-default navbar-fixed-top">
                             <div class="navbar-header page-scroll">
@@ -75,14 +78,26 @@ require('connect.php');
                                     </li>
                                     <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
                                     <!--<li><a class="page-scroll scroll" href="#club">Club</a></li>-->
-                                    <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>
+                                    <?php 
+    $check="SELECT * from clubmember where idmember='".$_SESSION['email']."'"; 
+    $res = mysqli_query($connection, $check);
+            
+                
+    if ($res->num_rows > 0) {
+         echo ' <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#myclub">Club</a></li>';
+    } else {
+        echo ' <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#newclub">Club</a></li>';
+    }
+    
+    ?>
+                           
 
                                     <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
 
                                     <li>
                                         <div class="dropdown">
                                             <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <!--commento-->
+                                      
                                                 <div name="img">
 
                                                     <img src="<?php echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
@@ -105,7 +120,9 @@ require('connect.php');
                             <!-- /.container -->
                         </nav>
                     </div>
+                    <!-- //header -->
 
+   
 <div class="modal about-modal fade" id="requests" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -319,6 +336,107 @@ require('connect.php');
                 </div>
             </div>
         </div>
+    
+        <?php    
+    
+   
+        
+    $clubcr="SELECT club.id,club.creator,users.name as nome,users.surname,club.name,club.description,club.score,club.color from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
+    $infoclub = mysqli_query($connection, $clubcr);
+        
+     if ($infoclub->num_rows > 0) {
+          $club = $infoclub->fetch_assoc(); 
+        
+    $idc=$club['id'];
+    $cremail=$club['cremail'];
+    $creator=$club['nome'];
+    $crsur=$club['surname'];
+    $clubname=$club['name'];
+    $desc=$club['description'];
+    $score=$club['score'];
+    $color=$club['color'];
+    }                              
+   
+      ?>
+    <!--//modal3-->
+        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog" >
+            <div class="modal-dialog" role="document" >
+                <div class="modal-content" style="background-color:<?php echo $color ?>">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalpad">
+                            
+                                <!-- <div class="modalpop ">
+                            <img src="images/5.jpg" class="img-responsive" alt="" />
+                        </div>-->
+                                <div class="about-modal wthree">
+                                    <h3> <span><?php echo "".$clubname." " ?></span></h3>
+<h4 class="modal-title"><?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
+                                   
+
+                                    <!--<h4>UI/UX Designer</h4>-->
+                                    <ul class="address">
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>DESCRIPTION </b></li>
+                                                <li>
+                                                   <?php echo "".$desc ?>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <ul class="agileits-address-text">
+                                                <li><b>SCORE </b></li>
+                                                <li>
+                                                    <?php echo "".$score ?>  <!-- score tot membri fratto num membri-->
+                                                </li>
+                                            </ul>
+                                        </li>
+                                      
+                                    </ul>
+                                    <hr>
+                                    <ul class="list-group">
+                                    
+                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>';
+    
+                                        
+                              
+       $qmem="select * from clubmember,users where email=idmember and idclub='".$idc."'";
+       $membri = mysqli_query($connection, $qmem); 
+            
+            if ($membri->num_rows > 0) {
+        while($row = $membri->fetch_assoc()) {
+     		 echo ' <li class="list-group-item"> <a href="profile.php?user='.$row['email'].'">'.$row['name'].' '.$row['surname'].'</a> </li>';
+        }
+    } 
+    
+                                    ?>
+                                    
+                                        
+                                    
+                                    
+                                    </ul>
+                                    <form action="leaveclub.php" method="get">
+                                    <button style="margin-left:40%; color:red; background-color:transparent; border:none;">QUIT</button>
+                                        </form>
+
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <center>
+                                    
+                                </center>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 <br><br><br><br><br><br><br><br><br>
 <div class="container">
   
@@ -335,18 +453,21 @@ require('connect.php');
                     
                     <li class="active"><a href="" data-target-id="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
                     <li><a href="" data-target-id="change-password"><i class="glyphicon glyphicon-lock"></i> Change Password</a></li>
-                  <!--  <li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>-->
+                    <li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> Change Profile</a></li>
                     <li><a href="" data-target-id="logout"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
                 </ul>
             </div>
 
+            
+      
+            
             <div class="col-md-9  admin-content" id="profile">
                 <div class="panel panel-info" style="margin: 1em;">
                     <div class="panel-heading">
                         <h3 class="panel-title">Name</h3>
                     </div>
                     <div class="panel-body">
-                        <?php echo $name ?> <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $name ?><!-- <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
                     </div>
                    
                 </div>
@@ -357,7 +478,7 @@ require('connect.php');
 
                     </div>
                     <div class="panel-body">
-                        <?php echo $surname ?> <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $surname ?> <!--<button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
@@ -383,7 +504,7 @@ require('connect.php');
 
                     </div>
                     <div class="panel-body">
-                        <?php echo $gender ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $gender ?><!--<button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
@@ -392,7 +513,7 @@ require('connect.php');
 
                     </div>
                     <div class="panel-body">
-                        <?php echo $country ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $country ?><!--<button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
                     </div>
                 </div>
                 <div class="panel panel-info" style="margin: 1em;">
@@ -401,7 +522,7 @@ require('connect.php');
 
                     </div>
                     <div class="panel-body">
-                        <?php echo $bio ?><button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>
+                        <?php echo $bio ?><!--<button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
                     </div>
                 </div>
 
@@ -411,35 +532,105 @@ require('connect.php');
                 
                 
             </div>
+                
+              <form action="modprofile.php" method="get">
             
    <div class="col-md-9  admin-content" id="settings">
+              
+          
+     
+            
+            
+               <div class="panel panel-info" style="margin: 1em;">
+                   <div class="panel-body">
+                       <input type="submit" class="form-control btn btn-primary" name="submit" id="submit" value="Save changes">
+                    </div>
+                  
+                   
+                </div>
+                 
+                
+                
                 <div class="panel panel-info" style="margin: 1em;">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Notification</h3>
+                        <h3 class="panel-title">Name</h3>
                     </div>
                     <div class="panel-body">
-                        <div class="label label-success">allowed</div>
+                        <input type="text" value="<?php echo $name ?>" name="nome">
+                        <!-- <button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
                     </div>
+                   
                 </div>
+                 
                 <div class="panel panel-info" style="margin: 1em;">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Newsletter</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="badge">Monthly</div>
-                    </div>
-                </div>
-                <div class="panel panel-info" style="margin: 1em;">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Admin</h3>
+                        <h3 class="panel-title">Surname</h3>
 
                     </div>
                     <div class="panel-body">
-                         <div class="label label-success">yes</div>
+                         <input type="text" value="<?php echo $surname ?>" name="cognome">
+                        <!--<button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
+                    </div>
+                </div>
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Email</h3>
+                    </div>
+                    <div class="panel-body">
+                       <?php echo $email ?>
+                    </div>
+                </div>
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Birthday</h3>
+
+                    </div>
+                    <div class="panel-body">
+                         <input type="date" value="<?php echo $birth ?>" name="anni">
+                    </div>
+                </div>
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Gender</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <input type="text" value="<?php echo $gender ?>" name="sesso">
+                        <!--<button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
+                    </div>
+                </div>
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Country</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <input type="text" value="<?php echo $country ?>" name="paese">
+                        <!--<button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
+                    </div>
+                </div>
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Bio</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        
+                         <input type="text" value="<?php echo $bio ?>" name="biog">
+                        <!--<button style="float:right; border-color:lightblue; border-radius:150px">Edit</button>-->
                     </div>
                 </div>
 
+                
+                <!--mettere country gender birthday ...-->
+                
+                
+                
             </div>
+                
+                </form>
+
+          <!--  </div>-->
 
             <div class="col-md-9  admin-content" id="change-password">
                 <form action="passwordconf.php" method="post">
@@ -513,74 +704,7 @@ require('connect.php');
         </div>
 </div>
 <br><br><br><br><br><br><br><br><br>
-     <!-- modal -->
-        <div class="modal about-modal fade" id="requests" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Friend Requests</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modalpad">
-
-                            <style>
-                                #blacktext {
-                                    color: black;
-                                }
-
-                            </style>
-                            <?php
-    
-    $sql = "SELECT * FROM friendrequest JOIN users on id1=email where id2='".$email."'";
-    $result = mysqli_query($connection, $sql);
-      
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-     		 echo "<div class='about-modal wthree'>
-                            <h3> <span><a href='profile.php?user=" .$row['id1']."'>".$row['name']." ".$row['surname']."</span></h3>
-                            <!--<h4>UI/UX Designer</h4>-->
-                            <ul class='address'>
-                                <li>
-                                    <ul class='agileits-address-text'>
-
-                                      <li><a href='acceptrequest.php?user=" .$row['id1']."' value='Accept'>Accept</li>
-                                      <li><a href='declinerequest.php?user=" .$row['id1']."' value='Decline'>Decline</li>
-
-
-                                      
-
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>";
-        }
-    } else {
-        echo "<p style='text-align:center'>You don't have any friend requests</p>";
-    }
-    
-           
-                        ?>
-                                <!--    <li>
-                                            <form action='acceptrequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Accept</button><input type='hidden' name='user' value='".$row['id1']."'>
-                                            </form>
-                                        </li>
-
-  <li>
-                                            <form action='declinerequest.php' method='get'><button class='scroll w3l_contact' id='blacktext'><i aria-hidden='true'></i>Decline</button><input type='hidden' name='user' value='".$row['id1']."'>
-                                            </form>
-                                        </li>-->
-
-
-
-                                <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- //modal -->
-
+     
 <div class="copyright-agile">
         <div class="container">
             <h4> Badminton Clubs</h4>

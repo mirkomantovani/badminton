@@ -19,4 +19,6 @@ $query = "INSERT INTO tournament (name,description,maxplayers,creator,male,femal
 
 $result = mysqli_query($connection, $query);
 
+header('location: '.$_SERVER['HTTP_REFERER']);
+
 ?>

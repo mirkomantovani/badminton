@@ -13,6 +13,11 @@ session_start();
 $id=$_GET['id'];
 $winner=$_GET['winner'];
 
+$row = $_SESSION['row'];   
+           
+             $club=$row['club'];
+    
+
 $trn=mysqli_query($connection, 'select * from tournament where id="'.$id.'"');
 $t = $trn->fetch_assoc();
 $maxpl=$t['maxplayers'];
@@ -77,12 +82,29 @@ if($mm2 == $s2){
 }else { //we are at round 2
     $insertquery = "update participant set round2=1 where id='".$id."' and position='".$winner."'";
     $givepoints = "update users set score=1+score where email='".$play."'";
+    
 }
 
 if($noquery != 1){
     //echo $givepoints;
     $r = mysqli_query($connection, $insertquery);
     $rs = mysqli_query($connection, $givepoints);
+    
+    $currentpoints = "select sum(users.score) as s, count(*) as c from users,clubmember where clubmember.idmember=users.email and clubmember.idclub=".$club;
+    echo $currentpoints;
+    $risss = mysqli_query($connection, $currentpoints);
+    
+    $cp = $risss->fetch_assoc();
+    $sumpoints=$cp['s'];
+    $nump=$cp['c'];
+    echo $sumpoints;
+    echo $nump;
+    $updateclubpoints = "update club set score=".$sumpoints/$nump." where id='".$club."'";
+    $ris = mysqli_query($connection, $updateclubpoints);
+    
+    
+
+    
 }
 
 header('location: tournament.php?id='.$id);

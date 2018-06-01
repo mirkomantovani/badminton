@@ -33,7 +33,7 @@ p{
 	position:absolute;
 	top:0;
 	left:0;
-	width:110px;
+	width:180px; /*default=110 */
 	font-size:15px;
 	color:#ffffff;
 	background:#6adcfa;
