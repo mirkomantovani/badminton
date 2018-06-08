@@ -590,7 +590,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     
                                         
                               
-       $qmem="select * from clubmember,users where email=idmember and idclub='".$idc."'";
+       $qmem="select * from clubmember,users where email=idmember and idclub='".$id."'";
        $membri = mysqli_query($connection, $qmem); 
             
             if ($membri->num_rows > 0) {

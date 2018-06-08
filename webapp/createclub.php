@@ -2,7 +2,7 @@
 <?php
 session_start();
 require("connect.php");
-
+require ('updatesessionvariables.php');
 $e =$_SESSION['email'];
 $n=$_GET['name'];
 $d=$_GET['desc'];
@@ -31,6 +31,7 @@ $r=mysqli_query($connection,$addid);
 
 $userclub="UPDATE users set club='".$idc."' where email='".$e."'";
 $uc=mysqli_query($connection,$userclub);
+updatesession($e);
 
 header("location: myprofile.php")
 

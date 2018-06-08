@@ -567,7 +567,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- /education -->
  <div class="education" id="education">
 	    <div class="col-md-5 education-w3l">
-		     <h3 data-aos="zoom-in" class="w3l_head three">My Education</h3>
+		    <!-- <h3 data-aos="zoom-in" class="w3l_head three">Last Tournaments</h3>
 			  <div class="education-agile-grids">
 				  <div class="education-agile-w3l">
 				     <div class="education-agile-w3l-year">
@@ -606,48 +606,121 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				      <div class="clearfix"></div>
 				  </div>
 				 
-			  </div>
+			  </div>-->
+            
+            
+            	<div class="">
+                
+                <h3 data-aos="zoom-in" class="w3l_head three">Last Tournaments</h3>
+                
+                  <?php
+                
+                $query="SElECT * FROM tournament ORDER BY creationdate desc limit 4";
+                $result=mysqli_query($connection,$query);
+                
+                $i=0;
+                $aos="";
+                while($row = $result->fetch_assoc()) { 
+                    if($i%2==0)
+                        $aos="flip-left";
+                    else
+                        $aos="flip-right";
+                    
+                    if($i==2)
+                        echo '<div class="clearfix"></div>';
+                
+            
+     		echo '<div data-aos="'.$aos.'" class="col-md-6 w3labout-img"> 
+				<div class="boxw3-agile"> 
+					
+						 <a href="tournament.php?id='.$row['id'].'">
+                             <img src="../images/volds.jpg" alt="" class="img-responsive">
+                     
+					<div class="agile-caption">
+						<h3>'.$row['name'].'</h3>
+                                                </a>
+					</div> 
+				</div>
+				</div>';
+                    
+                    $i++;
+                }
+
+                
+                ?>
+			 
+                
+				
+				<div class="clearfix"></div>
+			</div>
 		</div>
 		
 		<div data-aos="slide-up" class="col-md-2 middle">
-			<i class="fa fa-hourglass-end" aria-hidden="true"></i>
+			<!--<i class="fa fa-hourglass-end" aria-hidden="true"></i>-->
 		</div>
 		
 	    <div class="col-md-5 education-w3l">
-		     <h3 data-aos="zoom-in" class="w3l_head three">My Experience</h3>
+            
+                             
+                 <?php
+                $array=array();
+                $query="SElECT * FROM users ORDER BY score desc limit 3";
+                $result=mysqli_query($connection,$query);
+                
+                
+                while($row = $result->fetch_assoc()) { 
+                    
+            
+     		array_push($array, '
+						<a href="profile.php?user='.$row['email'].'">
+                    
+						<h3>'.$row['name']." ".$row['surname'].'</h3>
+                                                </a>');
+                }
+
+                
+                ?>
+			 
+            
+		     <h3 data-aos="zoom-in" class="w3l_head three">Users Ranking</h3>
 			  <div class="education-agile-grids">
+                  
 				  <div class="education-agile-w3l">
 				     <div class="education-agile-w3l-year">
-					       <h4>2013-2015</h4>
-						   <h6>Lorem ipsum</h6>
+					       <h4 class="middle">1&#186;</h4> 
+						   <h6 class="middle">worldwide</h6>
 				     </div>
 					 <div class="education-agile-w3l-info">
-					       <h4>Web Developer</h4>
-						   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. commodo ligula eget.</p>
+					        <?php
+                           echo $array[0];
+                               ?>
+						   
 						  
 				     </div>
 				      <div class="clearfix"></div>
 				  </div>
 				  <div class="education-agile-w3l two">
 				     <div class="education-agile-w3l-year">
-					       <h4>2012-2013</h4>
-						   <h6>Lorem ipsum</h6>
+					       <h4 class="middle">2&#186;</h4>
+						   <h6 class="middle">worldwide</h6>
 				     </div>
 					 <div class="education-agile-w3l-info">
-					       <h4>App Developer</h4>
-						   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. commodo ligula eget.</p>
+					       <?php
+                           echo $array[1];
+                               ?>
 						  
 				     </div>
 				      <div class="clearfix"></div>
 				  </div>
 				  <div class="education-agile-w3l">
 				     <div class="education-agile-w3l-year last">
-					       <h4>208-2010</h4>
-						   <h6>Lorem ipsum</h6>
+					       <h4 class="middle">3&#186;</h4>
+						   <h6 class="middle">worldwide</h6>
 				     </div>
 					 <div class="education-agile-w3l-info last">
-					       <h4>Graphic Designer</h4>
-						  	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. commodo ligula eget.</p>
+					       <?php
+                           echo $array[2];
+                               ?>
 						  
 				     </div>
 				      <div class="clearfix"></div>
@@ -667,6 +740,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <h4> Badminton Clubs</h4>
             <p>© 2018 Badminton Clubs. All rights reserved | Design by Marco Bissessur</p>
             <div class="clearfix"></div>
+            <!-- <a style="float:left;" title="contatore"><img src="https://counter2.freecounter.ovh/private/contatoreaccessi.php?c=ayp7jw29sh6llp4xrcatbdyys4kcha69" border="0" title="contatore" alt="contatore"></a>-->
         </div>
     </div>
 <!-- copyright -->

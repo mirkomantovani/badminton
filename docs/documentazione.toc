@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Introduzione}{3}{section.1}
+\contentsline {section}{\numberline {2}Obiettivo}{3}{section.2}
+\contentsline {section}{\numberline {3}Requisiti funzionali}{3}{section.3}
+\contentsline {section}{\numberline {4}Tecnologia utilizzata}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Front end}{3}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Linguaggi}{3}{subsubsection.4.1.1}
+\contentsline {subsection}{\numberline {4.2}Back end}{3}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Linguaggi}{3}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Database}{3}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}}{4}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Hosting}{4}{subsubsection.4.2.4}
+\contentsline {section}{\numberline {5}UX user experience}{4}{section.5}
+\contentsline {section}{\numberline {6}Come ho lavorato}{4}{section.6}

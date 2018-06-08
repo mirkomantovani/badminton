@@ -3,6 +3,8 @@ session_start();
 include 'ChromePhp.php';
 
 require('connect.php');
+require('updatesessionvariables.php');
+
 
 $U=$_SESSION['email'];
 $nm=$_GET['nome'];
@@ -18,21 +20,12 @@ $changepr="update users set name='".$nm."', surname='".$cgn."', birth='".$bir."'
  $qu = "select * from users where email='".$U."'";
 if(isset($_GET['submit'])){
     $update = mysqli_query($connection, $changepr);
-     $risul = mysqli_query($connection, $qu);
-   
-    if (mysqli_num_rows($risul) == 1) { 
-            
-       
-            $_SESSION['row'] = $risul->fetch_assoc();
-    }
+    updatesession($U);
+
         
 }
 
      
-        
-       
-      
-
 header('location: settings.php');
 
 ?>

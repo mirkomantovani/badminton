@@ -636,7 +636,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             {
                                 player1: {
-                                    name: '".$part[0]['name']." ".$part[0]['surname']." ".$part[0]['position']."',
+                                    name: '".$part[0]['name']." ".$part[0]['surname']."',
                                     ID: '".$part[0]['position']."',
                                     url: 'profile.php?user=".$part[0]['email']."',
                                 },
@@ -710,128 +710,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </script>
 <br><br>
 
-                <!-- Portfolio --><br>
-                <br>
-
-                <div class="portfolio" id="portfolio">
-                    <h3 data-aos="zoom-in">Results</h3>
-
-
-
-                    <div class="tabs tabs-style-bar">
-                        <nav>
-                            <ul>
-                                <li><a href="#section-bar-1" class="icon icon-box"><span>People</span></a></li>
-                                <li><a href="#section-bar-2" class="icon icon-display"><span>Tournaments</span></a></li>
-                                <li><a href="#section-bar-3" class="icon icon-upload"><span>Club</span></a></li>
-
-                            </ul>
-                        </nav>
-
-                        <div class="content-wrap">
-
-
-
-
-
-
-                            <!-- Friends -->
-                            <section id="section-bar-2" class="agileits w3layouts">
-                                <h4>People</h4>
-                                <div class="gallery-grids">
-
-
-                                    <?php
-    
-    $query = $_GET['query'];
-    $fields = explode(' ',$query);
-    $n = $fields[0];
-    $s = $fields[1];
-     
-    $friendsq = "select * from users where name COLLATE UTF8_GENERAL_CI like '%".$n."%' and surname COLLATE UTF8_GENERAL_CI like '%".$s."%'";
-   
-   
-    
-    $friends = mysqli_query($connection, $friendsq);
-    
-      if ($friends->num_rows > 0) {
-        while($row = $friends->fetch_assoc()) {
-     		 echo '<div class="col-md-4 col-sm-4 gallery-top">
-                                
-                                    <figure class="effect-bubba">
-                                        <img src="'.$row['user_avatar'].'" alt="" class="img-responsive">
-                                        <figcaption>
-
-                                            <h4>
-                                                <a href="profile.php?user='.$row['email'].'">'.$row['name'].'
-                                                </a>
-                                            </h4>
-                                        </figcaption>
-                                    </figure>
-                                
-                            </div>';
-        }
-    } else {
-        echo "<p style='text-align:center'>Your research didn't produce any results</p>";
-    }
-
-    ?>
-                                        <div class="clearfix"></div>
-                                </div>
-                            </section>
-                            <!-- //Tab-2 -->
-
-                            <!-- Tab-1 -->
-                            <section id="section-bar-1" class="agileits w3layouts">
-                                <h4>Tournaments</h4>
-                                <div class="gallery-grids">
-                                    <div class="col-md-4 col-sm-4 gallery-top">
-                                        <a href="images/5.jpg" class="swipebox">
-                                            <figure class="effect-bubba">
-                                                <img src="images/5.jpg" alt="" class="img-responsive">
-                                                <figcaption>
-                                                    <a>
-                                                        <?php ?>
-                                                    </a>
-                                                    <h4>Web Design</h4>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </section>
-                            <!-- //Tab-1 -->
-
-                            <!-- Tab-3 -->
-                            <section id="section-bar-3" class="agileits w3layouts">
-                                <h4>UI/UX Design</h4>
-                                <div class="gallery-grids">
-                                    <div class="col-md-12 col-sm-12 gallery-top">
-                                        <a href="images/p1.jpg" class="swipebox">
-                                            <figure class="effect-bubba">
-                                                <img src="images/p1.jpg" alt="" class="img-responsive">
-                                                <figcaption>
-                                                    <h4>UI/UX Design</h4>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </section>
-                            <!-- //Tab-3 -->
-
-
-
-                        </div>
-                        <!-- //Content -->
-                    </div>
-                    <!-- //Tabs -->
-                </div>
-                <!-- //Portfolio -->
+                
 
 
 
