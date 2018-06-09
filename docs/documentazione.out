@@ -6,8 +6,17 @@
 \BOOKMARK [3][-]{subsubsection.4.1.1}{Linguaggi}{subsection.4.1}% 6
 \BOOKMARK [2][-]{subsection.4.2}{Back end}{section.4}% 7
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Linguaggi}{subsection.4.2}% 8
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Database}{subsection.4.2}% 9
-\BOOKMARK [3][-]{subsubsection.4.2.3}{}{subsection.4.2}% 10
-\BOOKMARK [3][-]{subsubsection.4.2.4}{Hosting}{subsection.4.2}% 11
-\BOOKMARK [1][-]{section.5}{UX user experience}{}% 12
-\BOOKMARK [1][-]{section.6}{Come ho lavorato}{}% 13
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Hosting}{subsection.4.2}% 9
+\BOOKMARK [2][-]{subsection.4.3}{Database}{section.4}% 10
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Users}{subsection.4.3}% 11
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Club}{subsection.4.3}% 12
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Club Ranking}{subsection.4.3}% 13
+\BOOKMARK [3][-]{subsubsection.4.3.4}{User images}{subsection.4.3}% 14
+\BOOKMARK [3][-]{subsubsection.4.3.5}{Tournament}{subsection.4.3}% 15
+\BOOKMARK [3][-]{subsubsection.4.3.6}{Participant}{subsection.4.3}% 16
+\BOOKMARK [3][-]{subsubsection.4.3.7}{Friendship}{subsection.4.3}% 17
+\BOOKMARK [3][-]{subsubsection.4.3.8}{Friend Request}{subsection.4.3}% 18
+\BOOKMARK [3][-]{subsubsection.4.3.9}{Club member}{subsection.4.3}% 19
+\BOOKMARK [1][-]{section.5}{Use cases}{}% 20
+\BOOKMARK [1][-]{section.6}{UX user experience}{}% 21
+\BOOKMARK [1][-]{section.7}{Workflow}{}% 22

@@ -1,16 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
 <head>
+    
     <?php 
- session_start();
-require('connect.php');
-
+    session_start();
   
     if(empty($_SESSION['email'])){
         header('location: ../login/login.php');
     }
     
+require('connect.php');
     
     $row = $_SESSION['row'];   
            
@@ -24,15 +24,20 @@ require('connect.php');
              $userimg=$row['user_avatar'];
     ?>
     
-<meta charset="UTF-8">
-<link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-<script src="js/bootstrap.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+     <link rel="icon" type="image/png" href="../login/img/volano.png"/>
+<title>Settings</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="My Design Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-
-<link rel="stylesheet" href="css/swipebox.css" type="text/css" media="all">
+<!-- Portfolio-CSS --	<link rel="stylesheet" href="css/swipebox.css" type="text/css" media="all">
 		
-<link href="css/aos.css" rel="stylesheet" type="text/css" media="all" /><!-- //animation effects-css-->
+<link href="css/aos.css" rel="stylesheet" type="text/css" media="all" /><!-- //animation effects-css--
 
 <link rel="stylesheet" href="css/index.css"><!-- skills bars CSS-->
 
@@ -40,15 +45,26 @@ require('connect.php');
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- //custom-theme -->
-	  
-<!-- font-awesome-icons -->
+	  <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+<script src="js/bootstrap.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- font-awesome-icons --
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
-<title>Settings</title>
 
-   
-                    <!-- header -->
-                    <div class="header-w3layouts">
+<!-- googlefonts--
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic,latin-ext" rel="stylesheet">
+<!-- //googlefonts -->
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- banner -->
+<div class="" id="home">
+	<div class="-dot">
+		<div class="">
+			<!-- header -->
+		<div class="header-w3layouts">
                         <!-- Navigation -->
                         <nav class="navbar navbar-default navbar-fixed-top">
                             <div class="navbar-header page-scroll">
@@ -56,10 +72,10 @@ require('connect.php');
 							<span class="sr-only">My_Profile</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>        
 						</button>
-                                <h1><a class="navbar-brand" href="index.php">Badminton Clubs</a></h1>
-                            </div>
+                               
+                            </div> <h1><a class="navbar-brand" href="index.php">Badminton Clubs</a></h1>
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -78,7 +94,7 @@ require('connect.php');
                                     </li>
                                     <li><a class="page-scroll scroll" href="#" data-toggle="modal" data-target="#tournament">New Tournament</a></li>
                                     <!--<li><a class="page-scroll scroll" href="#club">Club</a></li>-->
-                                    <?php 
+                                     <?php 
     $check="SELECT * from clubmember where idmember='".$_SESSION['email']."'"; 
     $res = mysqli_query($connection, $check);
             
@@ -90,14 +106,13 @@ require('connect.php');
     }
     
     ?>
-                           
 
                                     <li><a href="#" data-toggle="modal" data-target="#requests">Requests</a></li>
 
                                     <li>
                                         <div class="dropdown">
                                             <a class="btn btn-secondary dropdown-toggle page-scroll scroll" style=" width:64px;height: auto;" href="myprofile.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      
+                                                <!--commento-->
                                                 <div name="img">
 
                                                     <img src="<?php echo $userimg;  ?>" style=" border-radius: 50%!important;" /></div>
@@ -120,10 +135,14 @@ require('connect.php');
                             <!-- /.container -->
                         </nav>
                     </div>
-                    <!-- //header -->
+	
+		</div>
+	</div>
+</div>
+<!-- banner -->
 
-   
-<div class="modal about-modal fade" id="requests" tabindex="-1" role="dialog">
+         <!-- modal -->
+        <div class="modal about-modal fade" id="requests" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -271,6 +290,9 @@ require('connect.php');
                 </div>
             </div>
         </div>
+    
+    
+    
         <!--//modal3-->
         <div class="modal about-modal fade" id="newclub" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -336,8 +358,8 @@ require('connect.php');
                 </div>
             </div>
         </div>
-    
-        <?php    
+       
+      <?php    
     
    
         
@@ -359,56 +381,57 @@ require('connect.php');
    
       ?>
     <!--//modal3-->
-        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog" >
-            <div class="modal-dialog" role="document" >
-                <div class="modal-content" style="background-color:<?php echo $color ?>">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        
-                    </div>
-                    <div class="modal-body">
-                        <div class="modalpad">
-                            
-                                <!-- <div class="modalpop ">
+      <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:<?php echo $color ?>">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white"><span aria-hidden="true">&times;</span></button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="modalpad">
+
+                        <!-- <div class="modalpop ">
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
-                                <div class="about-modal wthree">
-                                    <h3> <span><?php echo "".$clubname." " ?></span></h3>
-<h4 class="modal-title"><?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
-                                   
+                        <div class="about-modal wthree">
+                            <h3> <span><?php echo "".$clubname." " ?></span></h3>
+                            <h4 class="modal-title">
+                                <?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
 
-                                    <!--<h4>UI/UX Designer</h4>-->
-                                    <ul class="address">
 
+                            <!--<h4>UI/UX Designer</h4>-->
+                            <ul class="address">
+
+                                <li>
+                                    <ul class="agileits-address-text">
+                                        <li><b>DESCRIPTION </b></li>
                                         <li>
-                                            <ul class="agileits-address-text">
-                                                <li><b>DESCRIPTION </b></li>
-                                                <li>
-                                                   <?php echo "".$desc ?>
-                                                </li>
-                                            </ul>
+                                            <?php echo "".$desc ?>
                                         </li>
-
-                                        <li>
-                                            <ul class="agileits-address-text">
-                                                <li><b>SCORE </b></li>
-                                                <li>
-                                                    <?php echo "".$score ?>  <!-- score tot membri fratto num membri-->
-                                                </li>
-                                            </ul>
-                                        </li>
-                                      
                                     </ul>
-                                    <hr>
-                                    <ul class="list-group">
-                                    
-                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>';
+                                </li>
+
+                                <li>
+                                    <ul class="agileits-address-text">
+                                        <li><b>SCORE </b></li>
+                                        <li>
+                                            <?php echo "".$score ?>
+                                            <!-- score tot membri fratto num membri-->
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                            <hr>
+                            <ul class="list-group">
+
+                                <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>';
     
                                         
                               
        $qmem="select * from clubmember,users where email=idmember and idclub='".$idc."'";
        $membri = mysqli_query($connection, $qmem); 
-            
             if ($membri->num_rows > 0) {
         while($row = $membri->fetch_assoc()) {
      		 echo ' <li class="list-group-item"> <a href="profile.php?user='.$row['email'].'">'.$row['name'].' '.$row['surname'].'</a> </li>';
@@ -416,28 +439,29 @@ require('connect.php');
     } 
     
                                     ?>
-                                    
-                                        
-                                    
-                                    
-                                    </ul>
-                                    <form action="leaveclub.php" method="get">
-                                    <button style="margin-left:40%; color:red; background-color:transparent; border:none;">QUIT</button>
-                                        </form>
 
-                                </div>
-                                <div class="clearfix">
-                                </div>
-                                <center>
-                                    
-                                </center>
-                           
+
+
+
+                            </ul>
+                            <form action="leaveclub.php" method="get">
+                                <button style="margin-left:35%; color:red; background-color:transparent; border:none;" name="esci">LEAVE CLUB</button>
+                            </form>
+
                         </div>
+                        <div class="clearfix">
+                        </div>
+                        <center>
+
+                        </center>
+
                     </div>
                 </div>
             </div>
         </div>
-<br><br><br><br><br><br><br><br><br>
+    </div>
+        <!-- //modal -->
+<br><br><br><br><br><br>
 <div class="container">
   
     
@@ -703,8 +727,9 @@ require('connect.php');
             </div>
         </div>
 </div>
+ 
+ 
 <br><br><br><br><br><br><br><br><br>
-     
 <div class="copyright-agile">
         <div class="container">
             <h4> Badminton Clubs</h4>
@@ -732,3 +757,77 @@ require('connect.php');
         });
         });
 </script>
+
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- //js -->
+
+<!-- Gallery-Tab-JavaScript -
+			<script src="js/cbpFWTabs.js"></script>
+			<script>
+				(function() {
+					[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+						new CBPFWTabs( el );
+					});
+				})();
+			</script>
+<!-- //Gallery-Tab-JavaScript -->
+	<!-- Swipe-Box-JavaScript -
+			<script src="js/jquery.swipebox.min.js"></script> 
+				<script type="text/javascript">
+					jQuery(function($) {
+						$(".swipebox").swipebox();
+					});
+			</script>
+		<!-- //Swipe-Box-JavaScript -->
+
+<!-- Scrolling Nav JavaScript --
+    <script src="js/scrolling-nav.js"></script>  
+<!-- //fixed-scroll-nav-js -- 
+
+<script src="js/index.js"></script><!-- skills bars JS FILE-->
+	
+<!-- animation effects-js files--
+	<script src="js/aos.js"></script><!-- //animation effects-js--
+	<script src="js/aos1.js"></script><!-- //animation effects-js-->
+<!-- animation effects-js files-->
+
+<!-- //here starts scrolling icon --
+<script src="js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<!-- here stars scrolling script --
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling script -->
+<!-- //here ends scrolling icon -->
+
+<!-- scrolling script --
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script> 
+<!-- //scrolling script -->
+
+</body>
+</html>

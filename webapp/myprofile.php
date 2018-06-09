@@ -1,9 +1,4 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -56,7 +51,8 @@ $img4=$userimages['img4'];
     <title>
         <?php echo $name." ".$surname ?>
     </title>
-    <!-- <?php //echo $name." ".$surname ?> ???-->
+    
+    <!-- <?php //echo $name." ".$surname ?> -->
     <!-- custom-theme -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -850,7 +846,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $maxscore=$score;
                 }
         
-                 $s=($score/$maxscore)*100;
+          if($maxscore!=0){
+                    $s=($row['score']/$maxscore)*100;
+                    }else{$s=0;
+                         }
         
         
         echo '
@@ -997,7 +996,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <figcaption>
 
                                             <h4>
-                                                <a href="profile.php?user='.$row['email'].'">'.$row['name'].'
+                                                <a href="profile.php?user='.$row['email'].'">'.$row['name'].' '.$row['surname'].'
                                                 </a>
                                             </h4>
                                         </figcaption>

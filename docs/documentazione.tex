@@ -27,7 +27,7 @@
         linkcolor=blue,       % color of internal links
         citecolor=blue,       % color of links to bibliography
         filecolor=black,        % color of file links
-        urlcolor=purple,        % color of external links
+        urlcolor=blue,        % color of external links
        }
     \begin{document}
     \maketitle
@@ -57,26 +57,80 @@ L'Obiettivo principale di Badminton Clubs è di creare un social network che per
     \subsubsection{Linguaggi}
  I linguaggi Front end che ho utilizzato sono:
  \begin{itemize}
-    \item HTML 
-    \item CSS 
-    \item JAVASCRIPT 
+    \item HTML per creare la struttura base delle pagine dell'applicazione
+    \item CSS per modellare la pagina e renderla responsive 
+    \item JAVASCRIPT per creare animazioni, e soprattutto per la creazione dinamica
+    dell'albero che rappresenta i vari match di un torneo.
   \end{itemize}
     \subsection{Back end}
     \subsubsection{Linguaggi}
-Per programmare il back end ho utilizzato il linguaggio PHP e il linguaggio latex per produrre la Documentazione.
-    \subsubsection{Database}
-    img ER 
-    \subsubsection{}
+Per programmare il back end ho utilizzato il linguaggio PHP, per creare contenuto
+dinamico nelle pagine, i cui dati sono presi tramite query
+dal database MySql.
+\subsubsection{Hosting}
+L'applicazione è stata pubblicata sul dominio .... affittato
+da Aruba srl, la gestione del database è avvenuta come per il 
+database locale di MAMP.
 
 
-    \subsubsection{Hosting}
-Per gestire il mio sito ho comprato ed utilizzato l'hosting di Aruba, nel quale ho inserito i miei file ed il mio database 
+
+\subsection{Database}
+    Questo è lo schema UML della struttura del database progettato con MySql
+    \begin{center}
+        \includegraphics[width=15cm]{images/schemapng}
+    \end{center}
+    \subsubsection{Users}
+    \begin{center}
+        \includegraphics[width=15cm]{images/users}
+    \end{center}
+    \subsubsection{Club}
+    \begin{center}
+        \includegraphics[width=15cm]{images/club}
+    \end{center} 
+    \subsubsection{Club Ranking}
+    \begin{center}
+        \includegraphics[width=15cm]{images/rankingclub}
+    \end{center}
+    \subsubsection{User images}
+    \begin{center}
+        \includegraphics[width=15cm]{images/userimages}
+    \end{center}
+    \subsubsection{Tournament}
+    \begin{center}
+        \includegraphics[width=15cm]{images/tournament}
+    \end{center}
+    \subsubsection{Participant}
+    \begin{center}
+        \includegraphics[width=15cm]{images/participant}
+    \end{center}
+    \subsubsection{Friendship}
+    \begin{center}
+        \includegraphics[width=15cm]{images/friendship}
+    \end{center}
+    \subsubsection{Friend Request}
+    \begin{center}
+        \includegraphics[width=15cm]{images/friendrequest}
+    \end{center}
+    \subsubsection{Club member}
+    \begin{center}
+        \includegraphics[width=15cm]{images/clubmember}
+    \end{center}
+
+    \section{Use cases}
+    tabelle con omini
+    spiegazione delle tabelle, es. come l'admin del torneo gestisce il torneo
+
     \section{UX user experience}
+    navigazione pagine 
+   
 
 
-    \section{Come ho lavorato}
 
-Per fare il social network ho utilizzato MAMP per lavorare in locale sul mio computer, L'ide che ho utilizzato è Brackets che ho usato per programmare le pagine front e back end. Ho utilizzanto git per salvare e poter tornare ad ogni aggiornamento inserito infine ho inserito il tutto nel mio sito online. \\
+
+    \section{Workflow}
+
+Per fare il social network ho utilizzato MAMP per lavorare in locale sul mio computer, L'IDE che ho utilizzato è Brackets che ho usato per programmare le pagine front e back end. Ho utilizzanto git come Version Control System per gestire il workflow, infine ho pubblicato l'applicazione su un dominio online 
+(\href{https://www.marcobissessur.it}{Badminton Clubs}) \\
 Per la Documentazione ho utlizzato il linguaggio Latex e Visual Studio Code come ide.
     
 

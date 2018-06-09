@@ -393,56 +393,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    
       ?>
     <!--//modal3-->
-        <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog" >
-            <div class="modal-dialog" role="document" >
-                <div class="modal-content" style="background-color:<?php echo $color ?>">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        
-                    </div>
-                    <div class="modal-body">
-                        <div class="modalpad">
-                            
-                                <!-- <div class="modalpop ">
+      <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:<?php echo $color ?>">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white"><span aria-hidden="true">&times;</span></button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="modalpad">
+
+                        <!-- <div class="modalpop ">
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
-                                <div class="about-modal wthree">
-                                    <h3> <span><?php echo "".$clubname." " ?></span></h3>
-<h4 class="modal-title"><?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
-                                   
+                        <div class="about-modal wthree">
+                            <h3> <span><?php echo "".$clubname." " ?></span></h3>
+                            <h4 class="modal-title">
+                                <?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
 
-                                    <!--<h4>UI/UX Designer</h4>-->
-                                    <ul class="address">
 
+                            <!--<h4>UI/UX Designer</h4>-->
+                            <ul class="address">
+
+                                <li>
+                                    <ul class="agileits-address-text">
+                                        <li><b>DESCRIPTION </b></li>
                                         <li>
-                                            <ul class="agileits-address-text">
-                                                <li><b>DESCRIPTION </b></li>
-                                                <li>
-                                                   <?php echo "".$desc ?>
-                                                </li>
-                                            </ul>
+                                            <?php echo "".$desc ?>
                                         </li>
-
-                                        <li>
-                                            <ul class="agileits-address-text">
-                                                <li><b>SCORE </b></li>
-                                                <li>
-                                                    <?php echo "".$score ?>  <!-- score tot membri fratto num membri-->
-                                                </li>
-                                            </ul>
-                                        </li>
-                                      
                                     </ul>
-                                    <hr>
-                                    <ul class="list-group">
-                                    
-                                    <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>';
+                                </li>
+
+                                <li>
+                                    <ul class="agileits-address-text">
+                                        <li><b>SCORE </b></li>
+                                        <li>
+                                            <?php echo "".$score ?>
+                                            <!-- score tot membri fratto num membri-->
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                            <hr>
+                            <ul class="list-group">
+
+                                <?php echo '<li class="list-group-item"><b>MEMBERS</b></li>';
     
                                         
                               
        $qmem="select * from clubmember,users where email=idmember and idclub='".$idc."'";
        $membri = mysqli_query($connection, $qmem); 
-            
             if ($membri->num_rows > 0) {
         while($row = $membri->fetch_assoc()) {
      		 echo ' <li class="list-group-item"> <a href="profile.php?user='.$row['email'].'">'.$row['name'].' '.$row['surname'].'</a> </li>';
@@ -450,27 +451,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     } 
     
                                     ?>
-                                    
-                                        
-                                    
-                                    
-                                    </ul>
-                                    <form action="leaveclub.php" method="get">
-                                    <button style="margin-left:40%; color:red; background-color:transparent; border:none;">QUIT</button>
-                                        </form>
 
-                                </div>
-                                <div class="clearfix">
-                                </div>
-                                <center>
-                                    
-                                </center>
-                           
+
+
+
+                            </ul>
+                            <form action="leaveclub.php" method="get">
+                                <button style="margin-left:35%; color:red; background-color:transparent; border:none;" name="esci">LEAVE CLUB</button>
+                            </form>
+
                         </div>
+                        <div class="clearfix">
+                        </div>
+                        <center>
+
+                        </center>
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         <!-- //modal -->
 <br><br>
 
@@ -542,8 +543,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 
               
                 while($row = $result->fetch_assoc()) {
-                    
+                    if($maxscore!=0){
                     $s=($row['score']/$maxscore)*100;
+                    }else{$s=0;
+                         }
             
      		echo '<div class="skillbar clearfix " data-percent="'.$s.'%">
 				<div class="skillbar-title" style="background: '.$row['color'].';"><span><a href="club.php?id='.$row['id'].'" style="color:white">'.$row['name'].'</a> </span></div>

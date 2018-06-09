@@ -1,8 +1,8 @@
-PWD /Users/Marcobissessur/Desktop/documentazione tesina maturità
+PWD /Applications/MAMP/htdocs/badminton/docs
 INPUT /usr/local/texlive/2018/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/Marcobissessur/Desktop/documentazione tesina maturità/documentazione.tex
+INPUT /Applications/MAMP/htdocs/badminton/docs/documentazione.tex
 OUTPUT documentazione.log
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
@@ -153,6 +153,36 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 OUTPUT documentazione.toc
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
+INPUT images/schemapng.pdf
+INPUT ./images/schemapng.pdf
+INPUT ./images/schemapng.pdf
+INPUT images/users.pdf
+INPUT ./images/users.pdf
+INPUT ./images/users.pdf
+INPUT images/club.pdf
+INPUT ./images/club.pdf
+INPUT ./images/club.pdf
+INPUT images/rankingclub.pdf
+INPUT ./images/rankingclub.pdf
+INPUT ./images/rankingclub.pdf
+INPUT images/userimages.pdf
+INPUT ./images/userimages.pdf
+INPUT ./images/userimages.pdf
+INPUT images/tournament.pdf
+INPUT ./images/tournament.pdf
+INPUT ./images/tournament.pdf
+INPUT images/participant.pdf
+INPUT ./images/participant.pdf
+INPUT ./images/participant.pdf
+INPUT images/friendship.pdf
+INPUT ./images/friendship.pdf
+INPUT ./images/friendship.pdf
+INPUT images/friendrequest.pdf
+INPUT ./images/friendrequest.pdf
+INPUT ./images/friendrequest.pdf
+INPUT images/clubmember.pdf
+INPUT ./images/clubmember.pdf
+INPUT ./images/clubmember.pdf
 INPUT documentazione.aux
 INPUT ./documentazione.out
 INPUT ./documentazione.out

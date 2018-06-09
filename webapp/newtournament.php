@@ -19,6 +19,11 @@ $query = "INSERT INTO tournament (name,description,maxplayers,creator,male,femal
 
 $result = mysqli_query($connection, $query);
 
-header('location: '.$_SERVER['HTTP_REFERER']);
+$i="select id from tournament where name='".$n."' and description='".$d."'";
+$res = mysqli_query($connection, $i);
+ $t = $res->fetch_assoc();
+ $idt=$t['id'];
+
+header('location: tournament.php?id='.$idt);
 
 ?>
