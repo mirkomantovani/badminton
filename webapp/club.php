@@ -31,7 +31,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     $id=$_GET['id'];
     $club=mysqli_query($connection, 'select * from club where id="'.$id.'"');
 
-    
+    $t = $club->fetch_assoc();
+             $namec=$t['name'];
     
 $row = $_SESSION['row'];   
            
@@ -52,7 +53,7 @@ $row = $_SESSION['row'];
 ?>
     <link rel="icon" type="image/png" href="../login/img/volano.png" />
     <title>
-        <?php echo $namec?>
+        <?php echo $namec; ?>
     </title>
     <!-- <?php //echo $name." ".$surname ?> ???-->
     <!-- custom-theme -->
@@ -87,7 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!-- font-awesome-icons -->
     <link href="css/font-awesome.css" rel="stylesheet">
-    <!-- //font-awesome-icons -->
+    <!-- //font-awesome-icons --
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/brackets.min.js"></script>
     <!-- googlefonts 
@@ -186,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
 
 
-                <a id="clickk" class="page-scroll scroll" href="#" data-toggle="modal" data-target="#cc"></a>
+                <a id="clickk" name="clickk" class="page-scroll scroll" href="#" data-toggle="modal" data-target="#cc"></a>
 
                 <script>
                     $(document).ready(function() {

@@ -346,7 +346,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <img src="images/5.jpg" class="img-responsive" alt="" />
                         </div>-->
                                 <div class="about-modal wthree">
-                                    <!--<h3> <span><?php //echo $name." ".$surname ?></span></h3>-->
+                                 
                                     <input type=text placeholder="Name" value="" name="name">
 
                                     <!--<h4>UI/UX Designer</h4>-->

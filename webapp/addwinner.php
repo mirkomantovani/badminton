@@ -3,7 +3,7 @@
 
 
 session_start();
-    include 'ChromePhp.php';
+ 
     
     require('connect.php');
     
