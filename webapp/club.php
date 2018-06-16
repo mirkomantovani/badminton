@@ -190,9 +190,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <a id="clickk" name="clickk" class="page-scroll scroll" href="#" data-toggle="modal" data-target="#cc"></a>
 
                 <script>
-                    $(document).ready(function() {
+                    /*$(document).ready(function() {
                         $('#clickk').trigger('click');
-                    });
+                    });        a volte non funziona*/
+                    window.onload=function(){
+  document.getElementById("clickk").click();
+};
 
                 </script>
 
@@ -415,7 +418,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     
    
         
-    $clubcr="SELECT club.id,club.creator,users.name as nome,users.surname,club.name,club.description,club.score,club.color from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
+    $clubcr="SELECT club.id,club.creator,users.name as nome,users.surname,club.name,club.description,club.score,club.color from club,users where users.club=club.id and users.email=club.creator";  
     $infoclub = mysqli_query($connection, $clubcr);
         
      if ($infoclub->num_rows > 0) {

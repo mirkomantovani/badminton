@@ -451,22 +451,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     
    
         
-    $clubcr="SELECT club.id,club.creator,users.name as nome,users.surname,club.name,club.description,club.score,club.color from club,users where users.club=club.id and users.email='".$_SESSION['email']."'";  
+    $clubcr="SELECT club.id,club.creator,users.name as nome,users.surname,club.name,club.description,club.score,club.color from club,users where users.club=club.id and users.email='".$email."'";  
     $infoclub = mysqli_query($connection, $clubcr);
         
      if ($infoclub->num_rows > 0) {
           $club = $infoclub->fetch_assoc(); 
         
     $idc=$club['id'];
-    $cremail=$club['cremail'];
-    $creator=$club['nome'];
-    $crsur=$club['surname'];
+    //$cremail=$club['cremail'];
+   // $creator=$club['nome'];
+   // $crsur=$club['surname'];
     $clubname=$club['name'];
     $desc=$club['description'];
     $score=$club['score'];
     $color=$club['color'];
-    }                              
-   
+    }   
+                                                
+     $sel="select idclub from clubmember where idmember='".$email."'";
+     $id = mysqli_query($connection, $sel); 
+     $r = $id->fetch_assoc();
+         $idm=$r['idclub']; 
+                                                
+     $crq="select creator from club where id=".$idm;
+     $cr = mysqli_query($connection, $crq);                                          
+       $ccr = $cr->fetch_assoc();
+         $crm=$ccr['creator'];
+                                                
+   $ncm="select name,surname from users where email='".$crm."'";
+   $nm = mysqli_query($connection, $ncm);  
+     $nmf = $nm->fetch_assoc();
+         $noc=$nmf['name']; 
+         $coc=$nmf['surname'];                                        
+                                                
       ?>
     <!--//modal3-->
     <div class="modal about-modal fade" id="myclub" tabindex="-1" role="dialog">
@@ -485,7 +501,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="about-modal wthree">
                             <h3> <span><?php echo "".$clubname." " ?></span></h3>
                             <h4 class="modal-title">
-                                <?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$creator." ".$crsur."</a>" ?></h4>
+                                <?php echo "Created by:  <a href='profile.php?user=".$crm."'>".$noc." ".$coc."</a>" ?></h4>
 
 
                             <!--<h4>UI/UX Designer</h4>-->
@@ -847,7 +863,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 }
         
           if($maxscore!=0){
-                    $s=($row['score']/$maxscore)*100;
+                    $s=($score/$maxscore)*100;
                     }else{$s=0;
                          }
         
@@ -868,7 +884,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $Q="SELECT count(*) as c from users where score>".$myscore;
                     $qm=mysqli_query($connection,$Q);
                      $sc = $qm->fetch_assoc(); 
-                     $count=$sc['c']+1;
+                     $count=$sc['c'];
                      
                     $n="SELECT count(*) as g from users";
                     $em=mysqli_query($connection,$n);
@@ -882,7 +898,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="skillbar clearfix " data-percent="<?php echo $percentage ?>%">
                             <div class="skillbar-title" style="background: #8e43e7;"><span>Global Rank</span></div>
                             <div class="skillbar-bar" style="background: #8e43e7;"></div>
-                            <div class="skill-bar-percent"><?php echo $count ?>&#186;</div>
+                            <div class="skill-bar-percent"><?php echo $count+1 ?>&#186;</div>
                         </div>
                         <!-- End Skill Bar 
 
