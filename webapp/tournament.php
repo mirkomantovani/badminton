@@ -479,7 +479,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 
         
                 
-     <?php    
+    <?php    
     
    
         
@@ -490,16 +490,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           $club = $infoclub->fetch_assoc(); 
         
     $idc=$club['id'];
-    //$cremail=$club['cremail'];
+    $cremail=$club['creator'];
    // $creator=$club['nome'];
    // $crsur=$club['surname'];
     $clubname=$club['name'];
     $desc=$club['description'];
     $score=$club['score'];
     $color=$club['color'];
-    }   
+    }  
+         $nomec="select name,surname from users where email='".$cremail."'";
+     $id = mysqli_query($connection, $nomec); 
+     $r = $id->fetch_assoc();
+        $nmc=$r['name']; 
+        $cgc=$r['surname'];
                                                 
-     $sel="select idclub from clubmember where idmember='".$email."'";
+    /* $sel="select idclub from clubmember where idmember='".$email."'";
      $id = mysqli_query($connection, $sel); 
      $r = $id->fetch_assoc();
          $idm=$r['idclub']; 
@@ -513,7 +518,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    $nm = mysqli_query($connection, $ncm);  
      $nmf = $nm->fetch_assoc();
          $noc=$nmf['name']; 
-         $coc=$nmf['surname'];                                        
+         $coc=$nmf['surname'];      */                                  
                                                 
       ?>
     <!--//modal3-->
@@ -533,7 +538,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="about-modal wthree">
                             <h3> <span><?php echo "".$clubname." " ?></span></h3>
                             <h4 class="modal-title">
-                                <?php echo "Created by:  <a href='profile.php?user=".$crm."'>".$noc." ".$coc."</a>" ?></h4>
+                                <?php echo "Created by:  <a href='profile.php?user=".$cremail."'>".$nmc." ".$cgc."</a>" ?></h4>
 
 
                             <!--<h4>UI/UX Designer</h4>-->
