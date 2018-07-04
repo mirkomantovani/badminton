@@ -4,4 +4,4 @@
 High school thesis project of Marco Bissessur, supervised by Mirko Mantovani
 
 Currently hosted at:
-[http://www.marcobissessur.it/badminton/webapp/index.php](url)
+[Badminton clubs](http://www.marcobissessur.it/badminton/webapp/index.php)
